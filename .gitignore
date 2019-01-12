@@ -1,5 +1,6 @@
 .DS_Store
 .merlin
+build/
 .bsb.lock
 npm-debug.log
 /lib/bs/

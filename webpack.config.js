@@ -10,7 +10,7 @@ module.exports = {
   mode: isProd ? "production" : "development",
   output: {
     path: outputDir,
-    publicPath: outputDir,
+    publicPath: "/",
     filename: "app.js"
   },
   plugins: [

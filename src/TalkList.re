@@ -16,7 +16,7 @@ module Styles = {
   let date = style([opacity(0.5), fontSize(14->px)]);
   let name =
     style([fontSize(20->px), paddingBottom(5->px), fontWeight(bold)]);
-  let description = style([fontSize(12->px)]);
+  let description = style([fontSize(14->px)]);
 };
 
 let make = (~talks, _) => {

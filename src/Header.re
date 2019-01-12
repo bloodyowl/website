@@ -8,6 +8,16 @@ module Styles = {
       display(flexBox),
       flexDirection(row),
       alignItems(stretch),
+      flexWrap(wrap),
+      media("(max-width: 540px)", [flexDirection(column)]),
+    ]);
+  let left =
+    style([
+      display(flexBox),
+      flexDirection(row),
+      alignItems(stretch),
+      flexWrap(wrap),
+      flexGrow(1.0),
     ]);
   let heading =
     style([
@@ -16,7 +26,6 @@ module Styles = {
       flexDirection(row),
       alignItems(center),
       flexGrow(1.0),
-      flexWrap(wrap),
     ]);
   let name =
     style([fontWeight(bold), marginRight(10->px), whiteSpace(nowrap)]);
@@ -27,8 +36,10 @@ module Styles = {
       display(flexBox),
       flexDirection(row),
       alignItems(center),
-      overflowX(auto),
-      `declaration(("WebkitOverflowScrolling", "touch")),
+      media(
+        "(max-width: 540px)",
+        [flexGrow(1.), backgroundColor("D4E1E6"->hex)],
+      ),
     ]);
   let link =
     style([
@@ -36,6 +47,14 @@ module Styles = {
       flexShrink(0),
       textDecoration(none),
       color(Theme.darkBody->hex),
+      textAlign(center),
+      media(
+        "(max-width: 540px)",
+        [
+          flexBasis(50.->pct),
+          padding3(~h=20->px, ~top=10->px, ~bottom=13->px),
+        ],
+      ),
     ]);
   let activeLink = style([fontWeight(bold)]);
 };
@@ -44,16 +63,18 @@ let make = _ => {
   ...component,
   render: _ =>
     <div className=Styles.container>
-      <img
-        src="/public/assets/images/owl.svg"
-        width="32"
-        height="32"
-        alt=""
-        className=Styles.logo
-      />
-      <div className=Styles.heading role="heading" ariaLevel=1>
-        <div className=Styles.name> "Matthias Le Brun"->React.string </div>
-        <div> "@bloodyowl"->React.string </div>
+      <div className=Styles.left>
+        <img
+          src="/public/assets/images/owl.svg"
+          width="32"
+          height="32"
+          alt=""
+          className=Styles.logo
+        />
+        <div className=Styles.heading role="heading" ariaLevel=1>
+          <div className=Styles.name> "Matthias Le Brun"->React.string </div>
+          <div> "@bloodyowl"->React.string </div>
+        </div>
       </div>
       <div className=Styles.navigation>
         <Link

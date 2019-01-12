@@ -54,7 +54,7 @@ let make = _ => {
         <p
           className=Styles.paragraph
           dangerouslySetInnerHTML={
-            "__html": {js|My name is Matthias Le Brun, and I’m a front-end developer living in Paris, France.|js},
+            "__html": {js|My name is Matthias Le Brun, and I’m a <strong>front-end developer</strong> living in Paris, France.|js},
           }
         />
         <p

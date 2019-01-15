@@ -10,7 +10,7 @@
     "webpack": "webpack -w",
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
-    "release": "yarn build && yarn webpack:production && yarn deploy"
+    "release": "yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy"
   },
   "keywords": [
     "BuckleScript"
@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "bs-css": "^8.0.0",
+    "bs-webapi": "^0.13.1",
     "gh-pages": "^2.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "bs-platform": "^4.0.7",
     "copy-webpack-plugin": "^4.6.0",
+    "emotion-server": "^9.0.0",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.0.1",
     "webpack-cli": "^3.1.1",

@@ -1,7 +1,5 @@
 open Belt;
 
-[@bs.val] external version: string = "process.env.VERSION";
-
 module Xhr = {
   type xhr;
   [@bs.new] external make: unit => xhr = "XMLHttpRequest";

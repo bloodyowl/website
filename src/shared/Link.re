@@ -1,16 +1,12 @@
 open Belt;
 
-type action =
-  | SetRoute(React.Router.url);
-
-type state = React.Router.url;
-
-let component = React.reducerComponent("Link");
+let component = React.statelessComponent("Link");
 
 let externalLinkRe = [%re "/^https?:\\/\\//"];
 
 let make =
     (
+      ~url=?,
       ~href,
       ~className=?,
       ~activeClassName=?,
@@ -19,19 +15,14 @@ let make =
       children,
     ) => {
   ...component,
-  initialState: () => React.Router.dangerouslyGetInitialUrl(),
-  didMount: ({send, onUnmount}) => {
-    let watchId = React.Router.watchUrl(url => send(SetRoute(url)));
-    onUnmount(() => React.Router.unwatchUrl(watchId));
-  },
-  reducer: (action, _state) =>
-    switch (action) {
-    | SetRoute(url) => React.Update(url)
-    },
-  render: ({state}) => {
-    let path = "/" ++ String.concat("/", state.React.Router.path);
+  render: _ => {
     let isActive =
-      matchSubroutes ? Js.String.startsWith(href, path) : path === href;
+      url
+      ->Option.map(url => "/" ++ String.concat("/", url.React.Router.path))
+      ->Option.map(path =>
+          matchSubroutes ? Js.String.startsWith(href, path) : path === href
+        )
+      ->Option.getWithDefault(false);
     let className =
       switch (className, activeClassName) {
       | (Some(className), Some(activeClassName)) when isActive =>

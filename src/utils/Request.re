@@ -9,11 +9,9 @@ module Xhr = {
   [@bs.send.pipe: xhr] external send: Js.Null.t(string) => unit = "send";
   [@bs.send.pipe: xhr]
   external setRequestHeader: (string, string) => unit = "setRequestHeader";
-  [@bs.send.pipe: xhr] external abort: unit = "abort";
   [@bs.set] external setResponseType: (xhr, string) => unit = "responseType";
   [@bs.set]
   external onChange: (xhr, unit => unit) => unit = "onreadystatechange";
-  [@bs.set] external onAbort: (xhr, unit => unit) => unit = "onabort";
   [@bs.get] external readyState: xhr => int = "readyState";
   [@bs.get] external status: xhr => int = "status";
   [@bs.get] external response: xhr => 'a = "response";

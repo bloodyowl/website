@@ -10,6 +10,7 @@
     "webpack": "webpack -w",
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
+    "blog": "node src/UpdateBlog.bs.js",
     "release": "yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy"
   },
   "keywords": [

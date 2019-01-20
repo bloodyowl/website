@@ -3,37 +3,83 @@ include CssReset;
 open Belt;
 
 type action =
-  | Load(string)
-  | Receive(string, Result.t(Resource.t, Errors.t));
+  | LoadPost(string)
+  | ReceivePost(string, Result.t(Post.t, Errors.t))
+  | LoadPostList
+  | ReceivePostList(Result.t(array(PostShallow.t), Errors.t));
 
-type state =
-  Belt.Map.String.t(RequestStatus.t(Result.t(Resource.t, Errors.t)));
+type state = {
+  posts: Map.String.t(RequestStatus.t(Result.t(Post.t, Errors.t))),
+  postList: RequestStatus.t(Result.t(array(PostShallow.t), Errors.t)),
+};
+
+let default = {posts: Map.String.empty, postList: NotAsked};
 
 let component = React.reducerComponent("App");
 
+module Styles = {
+  open Css;
+  let container =
+    style([
+      minHeight(100.->vh),
+      display(flexBox),
+      flexDirection(column),
+      alignItems(stretch),
+    ]);
+};
+
 let make = (~url: React.Router.url, ~initialData=?, _) => {
   ...component,
-  initialState: () =>
-    initialData->Option.getWithDefault(Belt.Map.String.empty),
+  initialState: () => initialData->Option.getWithDefault(default),
   reducer: (action, state) =>
     switch (action) {
-    | Load(url) =>
+    | LoadPost(slug) =>
       UpdateWithSideEffects(
-        state->Map.String.set(url, RequestStatus.Loading),
+        {
+          ...state,
+          posts: state.posts->Map.String.set(slug, RequestStatus.Loading),
+        },
         ({send}) =>
-          Request.make(~url=url ++ ".json", ())
-          ->Future.get(value => send(Receive(url, value))),
+          Post.query(slug)
+          ->Future.get(value => send(ReceivePost(slug, value))),
       )
-    | Receive(url, payload) =>
-      Update(state->Map.String.set(url, RequestStatus.Done(payload)))
+    | ReceivePost(slug, payload) =>
+      Update({
+        ...state,
+        posts:
+          state.posts->Map.String.set(slug, RequestStatus.Done(payload)),
+      })
+    | LoadPostList =>
+      UpdateWithSideEffects(
+        {...state, postList: RequestStatus.Loading},
+        ({send}) =>
+          PostShallow.query()
+          ->Future.get(value => send(ReceivePostList(value))),
+      )
+    | ReceivePostList(payload) =>
+      Update({...state, postList: RequestStatus.Done(payload)})
     },
-  render: ({state}) =>
-    <>
-      <Header />
+  render: ({state, send}) =>
+    <div className=Styles.container>
+      <Header url />
       {switch (url.path) {
        | [] => <Home />
-       | _ => React.null
+       | ["blog"] =>
+         <BlogPostList
+           list={state.postList}
+           onLoadRequest={() => send(LoadPostList)}
+         />
+       | ["blog", slug] =>
+         <BlogPost
+           post={
+             state.posts
+             ->Map.String.get(slug)
+             ->Option.getWithDefault(RequestStatus.NotAsked)
+           }
+           onLoadRequest={() => send(LoadPost(slug))}
+         />
+       | _ => <ErrorIndicator />
        }}
       <Footer />
-    </>,
+    </div>,
 };

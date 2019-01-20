@@ -20,7 +20,9 @@ let make =
       url
       ->Option.map(url => "/" ++ String.concat("/", url.React.Router.path))
       ->Option.map(path =>
-          matchSubroutes ? Js.String.startsWith(href, path) : path === href
+          matchSubroutes ?
+            Js.String.startsWith(href, path) :
+            path === href || path ++ "/" === href
         )
       ->Option.getWithDefault(false);
     let className =

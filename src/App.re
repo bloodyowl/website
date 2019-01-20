@@ -1,27 +1,36 @@
 include CssReset;
 
-type action =
-  | SetRoute(React.Router.url);
+open Belt;
 
-type state = {url: React.Router.url};
+type action =
+  | Load(string)
+  | Receive(string, Result.t(Resource.t, Errors.t));
+
+type state =
+  Belt.Map.String.t(RequestStatus.t(Result.t(Resource.t, Errors.t)));
 
 let component = React.reducerComponent("App");
 
-let make = _ => {
+let make = (~url: React.Router.url, ~initialData=?, _) => {
   ...component,
-  initialState: () => {url: React.Router.dangerouslyGetInitialUrl()},
-  reducer: (action, _) =>
+  initialState: () =>
+    initialData->Option.getWithDefault(Belt.Map.String.empty),
+  reducer: (action, state) =>
     switch (action) {
-    | SetRoute(url) => Update({url: url})
+    | Load(url) =>
+      UpdateWithSideEffects(
+        state->Map.String.set(url, RequestStatus.Loading),
+        ({send}) =>
+          Request.make(~url=url ++ ".json", ())
+          ->Future.get(value => send(Receive(url, value))),
+      )
+    | Receive(url, payload) =>
+      Update(state->Map.String.set(url, RequestStatus.Done(payload)))
     },
-  didMount: ({send, onUnmount}) => {
-    let watcherId = React.Router.watchUrl(url => send(SetRoute(url)));
-    onUnmount(() => React.Router.unwatchUrl(watcherId));
-  },
   render: ({state}) =>
     <>
       <Header />
-      {switch (state.url.path) {
+      {switch (url.path) {
        | [] => <Home />
        | _ => React.null
        }}

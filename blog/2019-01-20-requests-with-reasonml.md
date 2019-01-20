@@ -3,7 +3,7 @@ date: 2019-01-20
 title: Requests with ReasonML
 ---
 
-> This is how I choose to represent requests in my ReasonReact apps, there might be different ways that work well for you, but if this is something that you struggle with, that could be a good introduction to see how sum types can help you. 
+> This is how I choose to represent requests in my ReasonReact apps, there might be different ways that work well for you, but if this is something that you struggle with, that could be a good introduction to see how sum types can help you.
 
 Given there's no union type in JavaScript, we tend to use the following representation to store a request status in a component state
 
@@ -100,7 +100,7 @@ In my component's reducer, I'll have something like the following:
 ```reasonml
 switch (action) {
 | LoadUser =>
-  UpdateWithSideEffect(
+  UpdateWithSideEffects(
     {user: Loading},
     (
       ({send}) =>

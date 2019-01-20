@@ -48,7 +48,7 @@ let make =
                 <Link
                   className=Styles.link
                   key={item.slug}
-                  href={"/blog/" ++ item.slug}>
+                  href={"/blog/" ++ item.slug ++ "/"}>
                   <>
                     <div className=Styles.date>
                       {item.date

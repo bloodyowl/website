@@ -87,12 +87,12 @@ Blog.Posts.get()
         index
         ->Js.String.replace(
             {|<div id="root"></div>|},
-            {j|<div id="root">$prerendered</div><script id="data">window.initialData = $data</script>|j},
+            {j|<div id="root">$prerendered</div><cript id="data">window.initialData = $data</script>|j},
             _,
           )
         ->Js.String.replace(
             {|<title>Matthias Le Brun | @bloodyowl</title>|},
-            {j|<title>$title | @bloodyowl</title>|j},
+            {j|<title>$title | @bloodyowl</title><meta property="og:title" content="$title | @bloodyowl" />|j},
             _,
           ),
       );

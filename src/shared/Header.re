@@ -86,7 +86,7 @@ let make = (~url, _) => {
           className=Styles.link
           activeClassName=Styles.activeLink
           matchSubroutes=true
-          href="/blog">
+          href="/blog/">
           "Blog"->React.string
         </Link>
         <Link

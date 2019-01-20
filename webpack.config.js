@@ -19,7 +19,11 @@ module.exports = {
     ]),
     new HtmlWebpackPlugin({
       template: "src/index.html"
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+      filename: "prerender/__source.html",
+    }),
   ],
   devServer: {
     compress: true,

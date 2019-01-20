@@ -1,30 +1,85 @@
 include CssReset;
 
-type action =
-  | SetRoute(React.Router.url);
+open Belt;
 
-type state = {url: React.Router.url};
+type action =
+  | LoadPost(string)
+  | ReceivePost(string, Result.t(Post.t, Errors.t))
+  | LoadPostList
+  | ReceivePostList(Result.t(array(PostShallow.t), Errors.t));
+
+type state = {
+  posts: Map.String.t(RequestStatus.t(Result.t(Post.t, Errors.t))),
+  postList: RequestStatus.t(Result.t(array(PostShallow.t), Errors.t)),
+};
+
+let default = {posts: Map.String.empty, postList: NotAsked};
 
 let component = React.reducerComponent("App");
 
-let make = _ => {
+module Styles = {
+  open Css;
+  let container =
+    style([
+      minHeight(100.->vh),
+      display(flexBox),
+      flexDirection(column),
+      alignItems(stretch),
+    ]);
+};
+
+let make = (~url: React.Router.url, ~initialData=?, _) => {
   ...component,
-  initialState: () => {url: React.Router.dangerouslyGetInitialUrl()},
-  reducer: (action, _) =>
+  initialState: () => initialData->Option.getWithDefault(default),
+  reducer: (action, state) =>
     switch (action) {
-    | SetRoute(url) => Update({url: url})
+    | LoadPost(slug) =>
+      UpdateWithSideEffects(
+        {
+          ...state,
+          posts: state.posts->Map.String.set(slug, RequestStatus.Loading),
+        },
+        ({send}) =>
+          Post.query(slug)
+          ->Future.get(value => send(ReceivePost(slug, value))),
+      )
+    | ReceivePost(slug, payload) =>
+      Update({
+        ...state,
+        posts:
+          state.posts->Map.String.set(slug, RequestStatus.Done(payload)),
+      })
+    | LoadPostList =>
+      UpdateWithSideEffects(
+        {...state, postList: RequestStatus.Loading},
+        ({send}) =>
+          PostShallow.query()
+          ->Future.get(value => send(ReceivePostList(value))),
+      )
+    | ReceivePostList(payload) =>
+      Update({...state, postList: RequestStatus.Done(payload)})
     },
-  didMount: ({send, onUnmount}) => {
-    let watcherId = React.Router.watchUrl(url => send(SetRoute(url)));
-    onUnmount(() => React.Router.unwatchUrl(watcherId));
-  },
-  render: ({state}) =>
-    <>
-      <Header />
-      {switch (state.url.path) {
+  render: ({state, send}) =>
+    <div className=Styles.container>
+      <Header url />
+      {switch (url.path) {
        | [] => <Home />
-       | _ => React.null
+       | ["blog"] =>
+         <BlogPostList
+           list={state.postList}
+           onLoadRequest={() => send(LoadPostList)}
+         />
+       | ["blog", slug] =>
+         <BlogPost
+           post={
+             state.posts
+             ->Map.String.get(slug)
+             ->Option.getWithDefault(RequestStatus.NotAsked)
+           }
+           onLoadRequest={() => send(LoadPost(slug))}
+         />
+       | _ => <ErrorIndicator />
        }}
       <Footer />
-    </>,
+    </div>,
 };

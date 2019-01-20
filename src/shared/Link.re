@@ -21,7 +21,8 @@ let make =
       ->Option.map(url => "/" ++ String.concat("/", url.React.Router.path))
       ->Option.map(path =>
           matchSubroutes ?
-            Js.String.startsWith(href, path) :
+            Js.String.startsWith(href, path ++ "/")
+            || Js.String.startsWith(href, path) :
             path === href || path ++ "/" === href
         )
       ->Option.getWithDefault(false);

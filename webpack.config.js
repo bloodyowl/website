@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 const outputDir = path.join(__dirname, "build/");
 
 const isProd = process.env.NODE_ENV === "production";
@@ -22,8 +23,11 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      filename: "prerender/__source.html",
+      filename: "prerender/__source.html"
     }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: "defer"
+    })
   ],
   devServer: {
     compress: true,

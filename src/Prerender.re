@@ -13,7 +13,7 @@ module Sitemap = {
   let make = posts => {
     let posts =
       posts
-      ->List.map(((path, _)) => {
+      ->List.map(((path, _, _)) => {
           let path = String.concat("/", path);
           let path = Js.String.endsWith(path, "/") ? path : path ++ "/";
           {j|<url>
@@ -35,13 +35,14 @@ Blog.Posts.get()
 ->Future.mapOk(Blog.Json.make)
 ->Future.mapOk(posts =>
     [
-      ([], App.default),
+      ([], App.default, "Matthias Le Brun"),
       (
         ["blog"],
         {
           ...App.default,
           postList: Done(Ok(posts->Array.map(((_, shallow)) => shallow))),
         },
+        "Blog",
       ),
     ]
     ->List.concat(
@@ -56,12 +57,13 @@ Blog.Posts.get()
                   App.default.posts
                   ->Map.String.set(postShallow.slug, Done(Ok(post))),
               },
+              post.title,
             )
           ),
       )
   )
 ->Future.mapOk(pages => {
-    pages->List.forEach(((path, initialData)) => {
+    pages->List.forEach(((path, initialData, title)) => {
       let prerendered =
         Emotion.renderStylesToString(
           ReactDOMServerRe.renderToString(
@@ -82,11 +84,17 @@ Blog.Posts.get()
       };
       Node.Fs.writeFileAsUtf8Sync(
         "./build/" ++ String.concat("/", path) ++ "/index.html",
-        index->Js.String.replace(
-                 {|<div id="root"></div>|},
-                 {j|<div id="root">$prerendered</div><script id="data">window.initialData = $data</script>|j},
-                 _,
-               ),
+        index
+        ->Js.String.replace(
+            {|<div id="root"></div>|},
+            {j|<div id="root">$prerendered</div><script id="data">window.initialData = $data</script>|j},
+            _,
+          )
+        ->Js.String.replace(
+            {|<title>Matthias Le Brun | @bloodyowl</title>|},
+            {j|<title>$title | @bloodyowl</title>|j},
+            _,
+          ),
       );
     });
     Node.Fs.writeFileAsUtf8Sync("./build/sitemap.xml", Sitemap.make(pages));

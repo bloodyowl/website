@@ -62,17 +62,22 @@ let make =
     | NotAsked
     | Loading => <ActivityIndicator />
     | Done(Ok(post)) =>
-      <div className=Styles.container>
-        <h1 className=Styles.title> post.title->React.string </h1>
-        <div className=Styles.date>
-          {post.date->Js.Date.fromString->Date.getFormattedString->React.string}
+      <WithTitle title={post.title}>
+        <div className=Styles.container>
+          <h1 className=Styles.title> post.title->React.string </h1>
+          <div className=Styles.date>
+            {post.date
+             ->Js.Date.fromString
+             ->Date.getFormattedString
+             ->React.string}
+          </div>
+          <div
+            className=Styles.body
+            dangerouslySetInnerHTML={"__html": post.body}
+          />
+          <BeOpWidget />
         </div>
-        <div
-          className=Styles.body
-          dangerouslySetInnerHTML={"__html": post.body}
-        />
-        <BeOpWidget />
-      </div>
+      </WithTitle>
     | Done(Error(_)) => <ErrorIndicator />
     };
   },

@@ -42,28 +42,30 @@ let make =
        | NotAsked
        | Loading => <ActivityIndicator />
        | Done(Ok(list)) =>
-         <div className=Styles.container>
-           {list
-            ->Array.map(item =>
-                <Link
-                  className=Styles.link
-                  key={item.slug}
-                  href={"/blog/" ++ item.slug ++ "/"}>
-                  <>
-                    <div className=Styles.date>
-                      {item.date
-                       ->Js.Date.fromString
-                       ->Date.getFormattedString
-                       ->React.string}
-                    </div>
-                    <div className=Styles.title>
-                      item.title->React.string
-                    </div>
-                  </>
-                </Link>
-              )
-            ->React.array}
-         </div>
+         <WithTitle title="Blog">
+           <div className=Styles.container>
+             {list
+              ->Array.map(item =>
+                  <Link
+                    className=Styles.link
+                    key={item.slug}
+                    href={"/blog/" ++ item.slug ++ "/"}>
+                    <>
+                      <div className=Styles.date>
+                        {item.date
+                         ->Js.Date.fromString
+                         ->Date.getFormattedString
+                         ->React.string}
+                      </div>
+                      <div className=Styles.title>
+                        item.title->React.string
+                      </div>
+                    </>
+                  </Link>
+                )
+              ->React.array}
+           </div>
+         </WithTitle>
        | Done(Error(_)) => <ErrorIndicator />
        }}
     </>,

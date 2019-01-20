@@ -1,3 +1,3 @@
 let make:
   array(React.reactElement) =>
-  React.component(React.stateless, React.stateless, React.actionless);
+  React.component(React.stateless, React.noRetainedProps, React.actionless);

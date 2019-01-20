@@ -9,6 +9,28 @@ let index = Node.Fs.readFileSync("./build/prerender/__source.html", `utf8);
 
 [@bs.module "fs"] external mkdirSync: string => unit = "mkdirSync";
 
+module Sitemap = {
+  let make = posts => {
+    let posts =
+      posts
+      ->List.map(((path, _)) => {
+          let path = String.concat("/", path);
+          let path = Js.String.endsWith(path, "/") ? path : path ++ "/";
+          {j|<url>
+    <loc>https://bloodyowl.github.io/$path</loc>
+</url>
+|j};
+        })
+      ->List.reduce("", (++));
+    {j|<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+$posts
+</urlset>|j};
+  };
+};
+
 Blog.Posts.get()
 ->Future.mapOk(Blog.Json.make)
 ->Future.mapOk(posts =>
@@ -38,7 +60,7 @@ Blog.Posts.get()
           ),
       )
   )
-->Future.mapOk(pages =>
+->Future.mapOk(pages => {
     pages->List.forEach(((path, initialData)) => {
       let prerendered =
         Emotion.renderStylesToString(
@@ -66,5 +88,6 @@ Blog.Posts.get()
                  _,
                ),
       );
-    })
-  );
+    });
+    Node.Fs.writeFileAsUtf8Sync("./build/sitemap.xml", Sitemap.make(pages));
+  });

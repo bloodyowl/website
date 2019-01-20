@@ -71,6 +71,7 @@ let make =
           className=Styles.body
           dangerouslySetInnerHTML={"__html": post.body}
         />
+        <BeOpWidget />
       </div>
     | Done(Error(_)) => <ErrorIndicator />
     };

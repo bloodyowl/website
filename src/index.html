@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="google-site-verification" content="w75-P-0ywXWkyZvYPbkSM3VSM2hny25UrfeiWJt3B1k" />
+    <meta
+      name="google-site-verification"
+      content="w75-P-0ywXWkyZvYPbkSM3VSM2hny25UrfeiWJt3B1k"
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -16,5 +19,14 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      window.beOpinionAsyncInit = function() {
+        BeOpinionSDK.init({
+          account: "556e1d2772a6b60100844051"
+        });
+        BeOpinionSDK.watch();
+      };
+    </script>
+    <script async src="https://widget.beopinion.com/sdk.js"></script>
   </body>
 </html>

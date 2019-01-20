@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: outputDir,
     publicPath: "/",
-    filename: "app.js"
+    filename: "app.[hash].js"
   },
   plugins: [
     new CopyWebpackPlugin([

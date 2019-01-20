@@ -48,6 +48,8 @@ module Posts = {
   let get = () => {
     createDir();
     Glob.glob(Path.join([|Process.cwd(), "blog/**/*.md"|]))
+    ->Future.mapOk(SortArray.String.stableSort)
+    ->Future.mapOk(Array.reverse)
     ->Future.mapOk(files =>
         files->Array.map(item => (item, Fs.readFileAsUtf8Sync(item)))
       )

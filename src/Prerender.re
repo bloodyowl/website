@@ -46,7 +46,11 @@ Blog.Posts.get()
             <App url={path, search: "", hash: ""} initialData />,
           ),
         );
-      let data = Js.Json.stringifyAny(initialData);
+      let data =
+        Js.Json.stringifyAny(initialData)
+        ->Option.map(string =>
+            string->Js.String.replaceByRe([%re "/</g"], {js|\\u003c|js}, _)
+          );
       try (
         {
           mkdirSync("./build/" ++ String.concat("/", path));

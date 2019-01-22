@@ -17,7 +17,7 @@ This approach gives the best of both worlds :
 
 I have a blog direction with markdown files. In order to get them, I made a few bindings to glob, remarkable and front-matter so that I can transform posts into two kinds of records:
 
-```reasonml
+```reason
 module PostShallow = {
   type t = {
     title: string,
@@ -41,7 +41,7 @@ module Post = {
 
 Given I use ReasonReact, I use the builtin Router solution. At first it was in my `App` component state. 
 
-```reasonml
+```reason
 let component = React.reducerComponent("App");
 
 let make = (_) => {
@@ -57,7 +57,7 @@ let make = (_) => {
 
 In order to make it statically renderable, I moved it from `state` to props. I now have a `Main` module with a recursive render function that calls itself whenever there's a URL change. 
 
-```reasonml
+```reason
 let rec render = (~url=React.Router.dangerouslyGetInitialUrl(), ()) => {
   /* render logic here */
   let watcherId = ref(None);
@@ -86,7 +86,7 @@ I simply moved the data up the `App` component state, and passed two things to t
 
 The app state actually looks quite simple:
 
-```reasonml
+```reason
 type state = {
   posts: Map.String.t(RequestStatus.t(Result.t(Post.t, Errors.t))),
   postList: RequestStatus.t(Result.t(array(PostShallow.t), Errors.t)),
@@ -99,7 +99,7 @@ This way, only App is changed when the store shape changes. I could've passed th
 
 I use [bs-css](https://github.com/SentiaAnalytics/bs-css), which recently switched to emotion. It simply required to write a little binding to emotion-server in order to render styles on the server. 
 
-```reasonml
+```reason
 module Emotion = {
   [@bs.module "emotion-server"]
   external renderStylesToString: string => string = "renderStylesToString";
@@ -110,7 +110,7 @@ module Emotion = {
 
 For the hydration, I just check if my root element is empty and hydrate instead of render if it's not. 
 
-```reasonml
+```reason
 let markup =
   DomRe.(
     Document.getElementById("root", document)
@@ -132,7 +132,7 @@ First, I render a dummy HTML file using html-webpack-plugin, it'll be used as a 
 
 I just list all pages with their URLs and the App state they need to render, and replace elements from the template with the rendered HTML, title and initial data and write files in the build directory. 
 
-```reasonml
+```reason
 Node.Fs.writeFileAsUtf8Sync(
   "./build/" ++ String.concat("/", path) ++ "/index.html",
   index

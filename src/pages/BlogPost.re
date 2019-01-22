@@ -30,8 +30,13 @@ Css.(
     );
     global("code", [fontFamily(Theme.codeFontFamily)]);
     global(".hljs-keyword", [color("DA6BB5"->hex)]);
-    global(".hljs-constructor", [color("E6A241"->hex)]);
+    global(".hljs-constructor", [color("DD792B"->hex)]);
     global(".hljs-identifier", [color("1E9EA7"->hex)]);
+    global(".hljs-module-identifier", [color("C84682"->hex)]);
+    global(".hljs-string", [color("3BA1C8"->hex)]);
+    global(".hljs-comment", [color("aaa"->hex)]);
+    global(".hljs-operator", [color("DA6BB5"->hex)]);
+    global(".hljs-attribute", [color("4CB877"->hex)]);
     global("table", [width(100.->pct), textAlign(center)]);
     global(
       "table thead th",

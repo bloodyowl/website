@@ -3,6 +3,10 @@ open Belt;
 
 [@bs.module "fs"] external mkdirSync: string => unit = "mkdirSync";
 
+{
+  HighlightJs.(hjs->registerLanguage("reason", reason));
+};
+
 let remarkable =
   Remarkable.make(
     "full",

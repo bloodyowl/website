@@ -3735,6 +3735,11 @@ reason-future@^2.3.1:
   resolved "https://registry.yarnpkg.com/reason-future/-/reason-future-2.3.1.tgz#e86a5b835e542caa7c140ba2379be6d06ff0d2d0"
   integrity sha512-+LkXZ/6fuV+LYBnB58V82nUdKRnYBeHQ49PcCODCR7hR4Qs3+IGPEHagOaZOrM5g+sEdaQCYBGvAuSKHFVr03w==
 
+reason-highlightjs@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/reason-highlightjs/-/reason-highlightjs-0.2.0.tgz#275583ef73ec79d8bfd1d9940431162094d196c2"
+  integrity sha512-6tidPU8nKpwAkPm3Tf7BDjKzfYmHXn0iR1hG+Dzu/3uuadcphpcJspjrs54GWIfx3fevNmWGhsyGW60zUxHkmg==
+
 reason-react@>=0.4.0:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.5.3.tgz#10601809742fd991109ec9d69ad4baf2c3f17540"

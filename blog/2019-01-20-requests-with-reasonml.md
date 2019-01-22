@@ -58,7 +58,7 @@ Typed functional language often have a `Result` or `Either` type. A result can b
 - `Ok`, I have this data
 - `Error`, here what's faield
 
-```reasonml
+```reason
 type result('ok, 'error) =
   | Ok('ok)
   | Error('error);
@@ -68,7 +68,7 @@ type result('ok, 'error) =
 
 A request can be **inactive** (or "not asked"), **loading** or **done**. Let's create a type that fits that definition:
 
-```reasonml
+```reason
 module RequestStatus = {
   type t('a) =
     | NotAsked
@@ -79,7 +79,7 @@ module RequestStatus = {
 
 ## Combining the two
 
-```reasonml
+```reason
 type state = {
   user: RequestStatus.t(Result.t(User.t, UserError.t)),
 };
@@ -97,7 +97,7 @@ One big advantage of this approach is that we don't need to transform the succes
 
 In my component's reducer, I'll have something like the following:
 
-```reasonml
+```reason
 switch (action) {
 | LoadUser =>
   UpdateWithSideEffects(
@@ -113,7 +113,7 @@ switch (action) {
 
 In my render function, I can then simply pattern match and have exhaustivity checks for free:
 
-```reasonml
+```reason
 switch (state.user) {
 | NotAsked => <Button onPress=(() => send(LoadUser)) title="Load" />
 | Loading => <ActivityIndicator />

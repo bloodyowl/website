@@ -11,7 +11,7 @@
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
     "blog": "node src/UpdateBlog.bs.js",
-    "release": "yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy"
+    "release": "rm -fr build && yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy"
   },
   "keywords": [
     "BuckleScript"
@@ -28,6 +28,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "reason-future": "^2.3.1",
+    "reason-highlightjs": "^0.2.0",
     "reason-react": ">=0.4.0",
     "remarkable": "^1.7.1"
   },

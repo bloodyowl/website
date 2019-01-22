@@ -14,10 +14,12 @@ module Styles = {
     ]);
   let link =
     style([
-      padding2(~v=30->px, ~h=zero),
+      padding2(~v=10->px, ~h=zero),
       fontSize(26->px),
       color(Theme.darkBody->hex),
       textDecoration(none),
+      display(flexBox),
+      flexDirection(column),
     ]);
   let date = style([fontSize(12->px), opacity(0.5)]);
   let title = style([fontWeight(bold)]);

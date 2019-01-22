@@ -31,6 +31,7 @@ Css.(
     global("code", [fontFamily(Theme.codeFontFamily)]);
     global(".hljs-keyword", [color("DA6BB5"->hex)]);
     global(".hljs-constructor", [color("E6A241"->hex)]);
+    global(".hljs-identifier", [color("1E9EA7"->hex)]);
     global("table", [width(100.->pct), textAlign(center)]);
     global(
       "table thead th",

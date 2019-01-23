@@ -31,13 +31,18 @@ Now, let's create our functor. The following example is very short and now reall
 
 ```reason
 module Make = (Param: ParamType) => {
-  let component = React.statelessComponent("Demo" ++ Param.name);
+  type state = {
+    value: Param.t,
+  };
+  let component = React.reducerComponent("Demo" ++ Param.name);
   let make = (~value: Param.t, _) => {
     ...component,
-    render: _ =>
+    initialState: () => {value: value},
+    reducer: ((), _state) => React.NoUpdate,
+    render: ({state}) =>
       <div style={ReactDOMRe.Style.make(~fontSize="32px", ())}>
         /* some markup */
-         {Param.render(value)} </div>,
+         {Param.render(state.value)} </div>,
   };
 };
 ```
@@ -55,4 +60,4 @@ module IntValue =
 ReactDOMRe.renderToElementWithId(<IntValue value=2 />, "preview");
 ```
 
-[Test it on the ReasonML playground](https://reasonml.github.io/en/try?rrjsx=true&reason=LYewJgrgNgpgBAFwJ4Ad4AUCGAnTwAqq8AvHAN4BQciRiA3FXLAnAHZ4wBccAzgtgEtWAcwbVmcbDFZgY2bi2IA+OACUYmHiFbrMAYwQA6KfoQBRWMGkIGAXwYVQkWHACymANYk4ACiy5gbn88QjQASjhlckYJPRBgFG1rSLUNLR0NA0M+TAQYWB4eAGF4xNZrHwAiABEYUEq4AGpGuGDgQ3YrMLEmGBZgT28fAD8AN0woCC5WnDxDBAAaOAB9CKjKampDbbiEpNZFxmopGTluZcilI82AHjABUd5kWGIyXQNqgHlXdUMAZWeMEMAy8IwAZtoEH8BAAvGDESoAZgATCgAB6VJY+MJhWxXTYEuAAegAVLx4vABtgPBAUHASUTroSyG1jNJZNgfONJjBcXAbkT7qMlAtGPYKOLHOBoPAAJIHABqEymkUY7lBG02yDQiBSQhs1wknW8lXlCEqPXEfUk7LkKTRlzgaIAtEo+IIRMsQGDlvrXbp0u8jO6hKIxd0KBQg18fkCThz8CALHVrAB1AQIAAWsrAPhuZqVPLg3KmxGRxJFcEqKCkowEMAA7pUI0A)
+[Test it on the ReasonML playground](https://reasonml.github.io/en/try?rrjsx=true&reason=LYewJgrgNgpgBAFwJ4Ad4AUCGAnTwAqq8AvHAN4BQciRiA3FXLAnAHZ4wBccAzgtgEtWAcwbVmcbDFZgY2bi2IA+OACUYmHiFbrMAYwQA6KfoQBRWMGkIGAXwYVQkWHACymANYk4ACiy5gbn88QjQASjhlckZkNF4ETARvMgA3TCgILjhg4EMEe0YJPRBgFG1rSLUNLR0NA2MYSD05AGESstZrHwAiABEYUG64AGph7Jw8Q3YrMLEmGBZgT28fAD80jKycvIAaOAB9CKjKampDc+LS8tYEHcZqIQEEAXSAZQSk7h8jlVT0zO4G0ytjup0kjQgzXkvm+e32fESMB+VU02l09QAciAAKooMCI0GnKQyORfMgIpK2H73U4AHjAAhS8SQsGIZHRCF6AHlXOpDO8WTBDEsvGsAGbaBCvAQALxgxG6AGYAEwoAAe3T23zCtiUNLBAHoAFS8ErwJbYDwQFBwI0G-VgsjbYmybA+ClCoFI2xwWkGhkpJSEgoFJzQeAASRuADV-iRGO5RSdTrF4Io4EIbDSJNNvN0owhunNxAtwSTsJU1ZEVGqALRKPiCET7EBi-aZ+u6GocwyNoSiRhUhwc7m8oUuuT4EAWAbWADqTwAFhGwD5aQXY5s4F7iMq4Aag3BuigpCkBDAAO7dWYUIA)

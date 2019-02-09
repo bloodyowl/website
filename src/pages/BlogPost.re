@@ -26,6 +26,7 @@ Css.(
         backgroundColor("F4F7F8"->hex),
         overflowX(auto),
         `declaration(("WebkitOverflowScrolling", "touch")),
+        fontSize(14->px),
       ],
     );
     global("code", [fontFamily(Theme.codeFontFamily)]);

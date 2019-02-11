@@ -52,7 +52,7 @@ This reads as:
 - we have a map function
 - it takes an option containing a value of type `a`
 - it takes a function that takes a value of type `a` and returns a value of type `b`
-- an option containing a value of type `b`
+- it returns an option containing a value of type `b`
 
 As another exemple, here's a `flatMap` function for options:
 

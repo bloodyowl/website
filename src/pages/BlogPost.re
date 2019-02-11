@@ -29,7 +29,10 @@ Css.(
         fontSize(14->px),
       ],
     );
-    global("code", [fontFamily(Theme.codeFontFamily)]);
+    global(
+      "code",
+      [fontFamily(Theme.codeFontFamily), lineHeight(`abs(1.))],
+    );
     global(".hljs-keyword", [color("DA6BB5"->hex)]);
     global(".hljs-constructor", [color("DD792B"->hex)]);
     global(".hljs-identifier", [color("1E9EA7"->hex)]);

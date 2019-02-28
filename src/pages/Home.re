@@ -140,6 +140,15 @@ let make = _ => {
           <TalkList
             talks=[|
               (
+                "best-practices",
+                {
+                  date: "02/2019",
+                  name: "Best practices",
+                  description: "Should we trust \"best practices\"? A take on dogmatism in the development industry.",
+                  url: "https://speakerdeck.com/bloodyowl/best-practices",
+                },
+              ),
+              (
                 "good-reason-typing",
                 {
                   date: "04/2018",

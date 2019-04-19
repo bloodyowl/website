@@ -78,7 +78,7 @@ Now, how do we handle the transition?
 
 The original plan [Ricky Vetter](https://twitter.com/rickyvetter) had was to create a hook that'd wrap the old component specs and act as a compatibility API. In the end, he assessed that this way wouldn't be able to provide a script that'd be safe enough for people to use and provided a different kind of migration path.
 
-I really found the idea to be elegant though, and if I ever released it and was was a bit rough around the edges, people wouldn't be as mad as they would've been with an official migration.
+I really found the idea to be elegant though, and if I ever released it and it was a bit rough around the edges, people wouldn't be as mad as they would've been with an official migration.
 
 So I went on from Ricky's work, patched a few things and made [reason-react-compat](https://github.com/bloodyowl/reason-react-compat). The main concept is that it replicates the lifecycle using hooks. It has of course some small issues, such as retriggering a render each time you send a side-effect and might be a little aggressive on `willReceiveProps` (treat it as it was `getDerivedStateFromProps`). Other than that it should mostly work, and these are tradeoffs I'm personnaly willing to make for my own codebase.
 

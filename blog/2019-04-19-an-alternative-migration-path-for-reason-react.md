@@ -9,7 +9,7 @@ ReasonReact 0.7.0 came out recently, with a really nice set of features:
 
 - A closer model from the official ReactJS API
 - Hooks
-- Zero-cost bidings
+- Zero-cost bindings
 
 From some time now though, ReasonReact leverages function **named parameters** which provides a really nice set of features natively, such as defaults, optional parameters and ability to pattern match values.
 

@@ -96,6 +96,6 @@ After having that, I wanted to make an automated codemod, and ended up with the 
 
 So I forked Cheng Lou's [upgrade-reason-react](https://github.com/chenglou/upgrade-reason-react) and started working with the AST (it's really fun, you should try it!) and ended up a decent transformation (at least for my test cases). If you're interested, the above transformation script is available [on GitHub](https://github.com/bloodyowl/upgrade-reason-react), you can check the input in `test/cases` and output in `output/test/cases`.
 
-While I was at it, I also released a `useReducer` hook that allows returning an update (`NoUpdate`, `Update`, `UpdateWithSideEffects` or `SideEffects`) because I find that to be on[e of the best way to orchestrate things in your components](/blog/2019-01-24-orchestrating-requests-at-component-level/), you can check it out in [its repository](https://github.com/bloodyowl/reason-react-update).
+While I was at it, I also released a `useReducer` hook that allows returning an update (`NoUpdate`, `Update`, `UpdateWithSideEffects` or `SideEffects`) because I find that to be [one of the best way to orchestrate things in your components](/blog/2019-01-24-orchestrating-requests-at-component-level/), you can check it out in [its repository](https://github.com/bloodyowl/reason-react-update).
 
 If you want to try these, be sure to ping me in Twitter, Discord or GitHub if you run into any issue!

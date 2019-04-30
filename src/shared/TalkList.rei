@@ -5,6 +5,5 @@ type talk = {
   url: string,
 };
 
-let make:
-  (~talks: array((string, talk)), array(React.reactElement)) =>
-  React.component(React.stateless, React.noRetainedProps, React.actionless);
+[@react.component]
+let make: (~talks: array((string, talk)), unit) => React.element;

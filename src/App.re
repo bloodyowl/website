@@ -15,7 +15,7 @@ type state = {
 
 let default = {posts: Map.String.empty, postList: NotAsked};
 
-let component = React.reducerComponent("App");
+let component = ReasonReact.reducerComponent("App");
 
 module Styles = {
   open Css;
@@ -28,58 +28,61 @@ module Styles = {
     ]);
 };
 
-let make = (~url: React.Router.url, ~initialData=?, _) => {
-  ...component,
-  initialState: () => initialData->Option.getWithDefault(default),
-  reducer: (action, state) =>
-    switch (action) {
-    | LoadPost(slug) =>
-      UpdateWithSideEffects(
-        {
+[@react.component]
+let make = (~url: ReasonReact.Router.url, ~initialData=?, ()) =>
+  ReactCompat.useRecordApi({
+    ...component,
+    initialState: () => initialData->Option.getWithDefault(default),
+    reducer: (action, state) =>
+      switch (action) {
+      | LoadPost(slug) =>
+        UpdateWithSideEffects(
+          {
+            ...state,
+            posts: state.posts->Map.String.set(slug, RequestStatus.Loading),
+          },
+          ({send}) =>
+            Post.query(slug)
+            ->Future.get(value => send(ReceivePost(slug, value))),
+        )
+      | ReceivePost(slug, payload) =>
+        Update({
           ...state,
-          posts: state.posts->Map.String.set(slug, RequestStatus.Loading),
-        },
-        ({send}) =>
-          Post.query(slug)
-          ->Future.get(value => send(ReceivePost(slug, value))),
-      )
-    | ReceivePost(slug, payload) =>
-      Update({
-        ...state,
-        posts:
-          state.posts->Map.String.set(slug, RequestStatus.Done(payload)),
-      })
-    | LoadPostList =>
-      UpdateWithSideEffects(
-        {...state, postList: RequestStatus.Loading},
-        ({send}) =>
-          PostShallow.query()
-          ->Future.get(value => send(ReceivePostList(value))),
-      )
-    | ReceivePostList(payload) =>
-      Update({...state, postList: RequestStatus.Done(payload)})
+          posts:
+            state.posts->Map.String.set(slug, RequestStatus.Done(payload)),
+        })
+      | LoadPostList =>
+        UpdateWithSideEffects(
+          {...state, postList: RequestStatus.Loading},
+          ({send}) =>
+            PostShallow.query()
+            ->Future.get(value => send(ReceivePostList(value))),
+        )
+      | ReceivePostList(payload) =>
+        Update({...state, postList: RequestStatus.Done(payload)})
+      },
+    render: ({state, send}) => {
+      <div className=Styles.container>
+        <Header url />
+        {switch (url.path) {
+         | [] => <Home />
+         | ["blog"] =>
+           <BlogPostList
+             list={state.postList}
+             onLoadRequest={() => send(LoadPostList)}
+           />
+         | ["blog", slug] =>
+           <BlogPost
+             post={
+               state.posts
+               ->Map.String.get(slug)
+               ->Option.getWithDefault(RequestStatus.NotAsked)
+             }
+             onLoadRequest={() => send(LoadPost(slug))}
+           />
+         | _ => <ErrorIndicator />
+         }}
+        <Footer />
+      </div>;
     },
-  render: ({state, send}) =>
-    <div className=Styles.container>
-      <Header url />
-      {switch (url.path) {
-       | [] => <Home />
-       | ["blog"] =>
-         <BlogPostList
-           list={state.postList}
-           onLoadRequest={() => send(LoadPostList)}
-         />
-       | ["blog", slug] =>
-         <BlogPost
-           post={
-             state.posts
-             ->Map.String.get(slug)
-             ->Option.getWithDefault(RequestStatus.NotAsked)
-           }
-           onLoadRequest={() => send(LoadPost(slug))}
-         />
-       | _ => <ErrorIndicator />
-       }}
-      <Footer />
-    </div>,
-};
+  });

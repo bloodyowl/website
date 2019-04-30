@@ -1,4 +1,4 @@
-let component = React.statelessComponent("ErrorIndicator");
+let component = ReasonReact.statelessComponent("ErrorIndicator");
 
 module Styles = {
   open Css;
@@ -13,10 +13,14 @@ module Styles = {
     style([fontSize(22->px), fontWeight(bold), textAlign(center)]);
 };
 
-let make = _ => {
-  ...component,
-  render: _ =>
-    <div className=Styles.container>
-      <div className=Styles.text> {js|An error occured 😕|js}->React.string </div>
-    </div>,
-};
+[@react.component]
+let make = () =>
+  ReactCompat.useRecordApi({
+    ...component,
+    render: _ =>
+      <div className=Styles.container>
+        <div className=Styles.text>
+          {js|An error occured 😕|js}->ReasonReact.string
+        </div>
+      </div>,
+  });

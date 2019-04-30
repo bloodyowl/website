@@ -8,10 +8,6 @@ type state = {
 
 let default: state;
 
+[@react.component]
 let make:
-  (
-    ~url: React.Router.url,
-    ~initialData: state=?,
-    array(React.reactElement)
-  ) =>
-  React.component(state, React.noRetainedProps, action);
+  (~url: ReasonReactRouter.url, ~initialData: state=?, unit) => React.element;

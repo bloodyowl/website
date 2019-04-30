@@ -7,7 +7,7 @@ type card = {
 };
 
 module Card = {
-  let component = React.statelessComponent("Card");
+  let component = ReasonReact.statelessComponent("Card");
 
   module Styles = {
     open Css;
@@ -40,23 +40,25 @@ module Card = {
       style([textAlign(center), fontSize(18->px), paddingTop(10->px)]);
   };
 
-  let make = (~card, _) => {
-    ...component,
-    render: _ => {
-      let contents =
-        <>
-          <img className=Styles.image src={card.image} alt="" />
-          <div className=Styles.text> card.name->React.string </div>
-        </>;
-      switch (card.url) {
-      | Some(href) => <a href className=Styles.container> contents </a>
-      | None => <div className=Styles.container> contents </div>
-      };
-    },
-  };
+  [@react.component]
+  let make = (~card, ()) =>
+    ReactCompat.useRecordApi({
+      ...component,
+      render: _ => {
+        let contents =
+          <>
+            <img className=Styles.image src={card.image} alt="" />
+            <div className=Styles.text> card.name->ReasonReact.string </div>
+          </>;
+        switch (card.url) {
+        | Some(href) => <a href className=Styles.container> contents </a>
+        | None => <div className=Styles.container> contents </div>
+        };
+      },
+    });
 };
 
-let component = React.statelessComponent("CardList");
+let component = ReasonReact.statelessComponent("CardList");
 
 module Styles = {
   open Css;
@@ -73,12 +75,16 @@ module Styles = {
     ]);
 };
 
-let make = (~cards, _) => {
-  ...component,
-  render: _ =>
-    <div className=Styles.root>
-      <div className=Styles.container>
-        {cards->Array.map(((id, card)) => <Card key=id card />)->React.array}
-      </div>
-    </div>,
-};
+[@react.component]
+let make = (~cards, ()) =>
+  ReactCompat.useRecordApi({
+    ...component,
+    render: _ =>
+      <div className=Styles.root>
+        <div className=Styles.container>
+          {cards
+           ->Array.map(((id, card)) => <Card key=id card />)
+           ->ReasonReact.array}
+        </div>
+      </div>,
+  });

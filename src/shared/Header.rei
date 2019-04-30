@@ -1,3 +1,2 @@
-let make:
-  (~url: React.Router.url, array(React.reactElement)) =>
-  React.component(React.stateless, React.noRetainedProps, React.actionless);
+[@react.component]
+let make: (~url: ReasonReactRouter.url, unit) => React.element;

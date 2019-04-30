@@ -7,7 +7,7 @@ type talk = {
   url: string,
 };
 
-let component = React.statelessComponent("TalkList");
+let component = ReasonReact.statelessComponent("TalkList");
 
 module Styles = {
   open Css;
@@ -19,22 +19,28 @@ module Styles = {
   let description = style([fontSize(14->px)]);
 };
 
-let make = (~talks, _) => {
-  ...component,
-  render: _ =>
-    <div role="list">
-      {talks
-       ->Array.map(((id, talk)) =>
-           <div key=id className=Styles.item role="listitem">
-             <a href={talk.url} className=Styles.link>
-               <div className=Styles.date> talk.date->React.string </div>
-               <div className=Styles.name> talk.name->React.string </div>
-               <div className=Styles.description>
-                 talk.description->React.string
-               </div>
-             </a>
-           </div>
-         )
-       ->React.array}
-    </div>,
-};
+[@react.component]
+let make = (~talks, ()) =>
+  ReactCompat.useRecordApi({
+    ...component,
+    render: _ =>
+      <div role="list">
+        {talks
+         ->Array.map(((id, talk)) =>
+             <div key=id className=Styles.item role="listitem">
+               <a href={talk.url} className=Styles.link>
+                 <div className=Styles.date>
+                   talk.date->ReasonReact.string
+                 </div>
+                 <div className=Styles.name>
+                   talk.name->ReasonReact.string
+                 </div>
+                 <div className=Styles.description>
+                   talk.description->ReasonReact.string
+                 </div>
+               </a>
+             </div>
+           )
+         ->ReasonReact.array}
+      </div>,
+  });

@@ -15,7 +15,7 @@ let initialData = DomRe.(window->getInitialData);
 
 let firstPath = ref(true);
 
-let rec render = (~url=React.Router.dangerouslyGetInitialUrl(), ()) => {
+let rec render = (~url=ReasonReactRouter.dangerouslyGetInitialUrl(), ()) => {
   switch (markup, firstPath^) {
   | (Some(_), true) =>
     ReactDOMRe.hydrateToElementWithId(<App url ?initialData />, "root")
@@ -24,9 +24,9 @@ let rec render = (~url=React.Router.dangerouslyGetInitialUrl(), ()) => {
   let watcherId = ref(None);
   watcherId :=
     Some(
-      React.Router.watchUrl(url => {
+      ReasonReactRouter.watchUrl(url => {
         (watcherId^)
-        ->Option.map(watcherId => React.Router.unwatchUrl(watcherId))
+        ->Option.map(watcherId => ReasonReactRouter.unwatchUrl(watcherId))
         ->ignore;
         render(~url, ());
       }),

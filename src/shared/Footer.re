@@ -1,4 +1,4 @@
-let component = React.statelessComponent("Footer");
+let component = ReasonReact.statelessComponent("Footer");
 
 module Styles = {
   open Css;
@@ -12,10 +12,12 @@ module Styles = {
     ]);
 };
 
-let make = _ => {
-  ...component,
-  render: _ =>
-    <div className=Styles.container>
-      "Copyright 2019 - Matthias Le Brun"->React.string
-    </div>,
-};
+[@react.component]
+let make = () =>
+  ReactCompat.useRecordApi({
+    ...component,
+    render: _ =>
+      <div className=Styles.container>
+        "Copyright 2019 - Matthias Le Brun"->ReasonReact.string
+      </div>,
+  });

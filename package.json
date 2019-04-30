@@ -30,7 +30,7 @@
     "reason-future": "^2.3.1",
     "reason-highlightjs": "^0.2.0",
     "reason-react": "git://github.com/reasonml/reason-react.git#b29b7673b2a048c9612eaffbf7695972bb0c11c4",
-    "reason-react-compat": "^0.3.0",
+    "reason-react-compat": "^0.4.0",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {

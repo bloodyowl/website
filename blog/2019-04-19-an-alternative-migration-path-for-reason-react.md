@@ -3,6 +3,8 @@ date: 2019-04-19
 title: An alternative migration path for ReasonReact
 ---
 
+[tl;dr](https://github.com/bloodyowl/upgrade-reason-react-esy)
+
 ## Why the new API?
 
 ReasonReact 0.7.0 came out recently, with a really nice set of features:
@@ -94,7 +96,7 @@ After having that, I wanted to make an automated codemod, and ended up with the 
 - Turn `React.component(a, b, c)` and `React.componentSpec(a, a, b, b, c, c)` into `React.element` in interfaces' `make` return value
 - Handle all of the above for nested modules and functors
 
-So I forked Cheng Lou's [upgrade-reason-react](https://github.com/chenglou/upgrade-reason-react) and started working with the AST (it's really fun, you should try it!) and ended up a decent transformation (at least for my test cases). If you're interested, the above transformation script is available [on GitHub](https://github.com/bloodyowl/upgrade-reason-react), you can check the input in `test/cases` and output in `output/test/cases`.
+So I forked Cheng Lou's [upgrade-reason-react](https://github.com/chenglou/upgrade-reason-react) and started working with the AST (it's really fun, you should try it!) and ended up with a decent transformation (at least for my test cases). If you're interested, [the above transformation script is available on GitHub](https://github.com/bloodyowl/upgrade-reason-react-esy), you can check the input in `test/cases` and output in `output/test/cases`.
 
 While I was at it, I also released a `useReducer` hook that allows returning an update (`NoUpdate`, `Update`, `UpdateWithSideEffects` or `SideEffects`) because I find that to be [one of the best way to orchestrate things in your components](/blog/2019-01-24-orchestrating-requests-at-component-level/), you can check it out in [its repository](https://github.com/bloodyowl/reason-react-update).
 

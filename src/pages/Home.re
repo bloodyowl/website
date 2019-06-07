@@ -144,6 +144,15 @@ let make = () =>
                 (
                   "best-practices",
                   {
+                    date: "06/2019",
+                    name: "Third-party hell",
+                    description: "Sharing my experience building third-party widgets in the browser hell. Updated version. ",
+                    url: "https://speakerdeck.com/bloodyowl/third-party-hell-bestofweb",
+                  },
+                ),
+                (
+                  "best-practices",
+                  {
                     date: "02/2019",
                     name: "Best practices",
                     description: "Should we trust \"best practices\"? A take on dogmatism in the development industry.",

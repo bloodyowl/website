@@ -69,7 +69,7 @@ let make = () =>
             <p
               className=Styles.paragraph
               dangerouslySetInnerHTML={
-                "__html": {js|I <strong>design</strong> and <strong>develop</strong> our dashboard and widget using ReasonML and ReasonReasonReact.|js},
+                "__html": {js|I <strong>design</strong> and <strong>develop</strong> our dashboard and widget using ReasonML and ReasonReact.|js},
               }
             />
             <Heading text="Things I work with" />

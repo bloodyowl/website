@@ -6,7 +6,8 @@ Css.(
       ~fontStyle=normal,
       ~fontWeight=`num(400),
       (),
-    ),
+    )
+    ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),
   )
 );
 
@@ -18,7 +19,8 @@ Css.(
       ~fontStyle=normal,
       ~fontWeight=`num(700),
       (),
-    ),
+    )
+    ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),
   )
 );
 

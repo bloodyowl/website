@@ -142,7 +142,7 @@ let make = () =>
             <TalkList
               talks=[|
                 (
-                  "best-practices",
+                  "best-practices-2",
                   {
                     date: "06/2019",
                     name: "Third-party hell",

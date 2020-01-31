@@ -11,6 +11,24 @@ Css.(
   )
 );
 
+Js.log(
+  Css.(fontFace(
+      ~fontFamily="Madera",
+      ~src=[url("/public/assets/webfonts/madera.ttf")],
+      ~fontStyle=normal,
+      ~fontWeight=`num(400),
+      (),
+    ))
+);
+Js.log( Css.(fontFace(
+      ~fontFamily="Madera",
+      ~src=[url("/public/assets/webfonts/madera.ttf")],
+      ~fontStyle=normal,
+      ~fontWeight=`num(400),
+      (),
+    ))
+    ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),);
+
 Css.(
   global(
     fontFace(

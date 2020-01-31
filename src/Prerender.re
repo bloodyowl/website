@@ -18,7 +18,7 @@ module Sitemap = {
             let path = String.concat("/", path);
             let path = Js.String.endsWith(path, "/") ? path : path ++ "/";
             {j|<url>
-    <loc>https://bloodyowl.github.io/$path</loc>
+    <loc>https://bloodyowl.io/$path</loc>
 </url>
 |j};
           },
@@ -103,6 +103,10 @@ Blog.Posts.get()
             );
           },
         );
+      Node.Fs.writeFileAsUtf8Sync(
+        "./build/CNAME",
+        "bloodyowl.io",
+      );
       Node.Fs.writeFileAsUtf8Sync(
         "./build/sitemap.xml",
         Sitemap.make(pages),

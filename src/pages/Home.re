@@ -41,7 +41,11 @@ module Styles = {
       transform(translateX((-1.0)->vw)),
       fontWeight(bold),
     ]);
-  let paragraph = style([maxWidth(520->px)]);
+  let paragraph =
+    style([
+      maxWidth(520->px),
+      selector("a", [color(Theme.darkBody->hex)]),
+    ]);
 };
 
 [@react.component]
@@ -63,7 +67,7 @@ let make = () =>
             <p
               className=Styles.paragraph
               dangerouslySetInnerHTML={
-                "__html": {js|I currently work at <strong>BeOp</strong>, where we build a third-party solution for editors on the web, enabling them to create interactive content without any technical knowledge and to monetize their pages.|js},
+                "__html": {js|I currently work at <a href="https://beop.io" target="_blank"><strong>BeOp</strong></a>, where we build a third-party solution for editors on the web, enabling them to create interactive content without any technical knowledge and to monetize their pages.|js},
               }
             />
             <p

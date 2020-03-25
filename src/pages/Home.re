@@ -146,7 +146,16 @@ let make = () =>
             <TalkList
               talks=[|
                 (
-                  "best-practices-2",
+                  "migrating-reason-react-codebase-to-hooks",
+                  {
+                    date: "03/2020",
+                    name: "Migrating a large Reason+React codebase to hooks",
+                    description: "Sharing my experience writing complex hooks along with a codemod to upgrade to the hooks ReasonReact API. ",
+                    url: "https://speakerdeck.com/bloodyowl/migrating-a-large-reason-plus-react-codebase-to-hooks",
+                  },
+                ),
+                (
+                  "third-party-hell-2",
                   {
                     date: "06/2019",
                     name: "Third-party hell",

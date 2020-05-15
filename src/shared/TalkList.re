@@ -7,12 +7,23 @@ type talk = {
   url: string,
 };
 
-let component = ReasonReact.statelessComponent("TalkList");
-
 module Styles = {
   open Css;
-  let item = style([padding2(~v=10->px, ~h=zero)]);
-  let link = style([textDecoration(none), color(Theme.darkBody->hex)]);
+  let container = style([display(flexBox), flexDirection(row)]);
+  let list =
+    style([display(flexBox), flexDirection(column), alignItems(stretch)]);
+  let item =
+    style([marginLeft((-10)->px), display(flexBox), flexDirection(row)]);
+  let link =
+    style([
+      flexGrow(1.0),
+      textDecoration(none),
+      color(Theme.darkBody->hex),
+      padding(10->px),
+      borderRadius(10->px),
+      hover([backgroundColor(rgba(0, 0, 0, 0.03))]),
+      active([backgroundColor(rgba(0, 0, 0, 0.05))]),
+    ]);
   let date = style([opacity(0.5), fontSize(14->px)]);
   let name =
     style([fontSize(20->px), paddingBottom(5->px), fontWeight(bold)]);
@@ -20,27 +31,22 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~talks, ()) =>
-  ReactCompat.useRecordApi({
-    ...component,
-    render: _ =>
-      <div role="list">
-        {talks
-         ->Array.map(((id, talk)) =>
-             <div key=id className=Styles.item role="listitem">
-               <a href={talk.url} className=Styles.link>
-                 <div className=Styles.date>
-                   talk.date->ReasonReact.string
-                 </div>
-                 <div className=Styles.name>
-                   talk.name->ReasonReact.string
-                 </div>
-                 <div className=Styles.description>
-                   talk.description->ReasonReact.string
-                 </div>
-               </a>
-             </div>
-           )
-         ->ReasonReact.array}
-      </div>,
-  });
+let make = (~talks, ()) => {
+  <div className=Styles.container>
+    <div role="list" className=Styles.list>
+      {talks
+       ->Array.map(((id, talk)) =>
+           <div key=id className=Styles.item role="listitem">
+             <a href={talk.url} className=Styles.link>
+               <div className=Styles.date> talk.date->ReasonReact.string </div>
+               <div className=Styles.name> talk.name->ReasonReact.string </div>
+               <div className=Styles.description>
+                 talk.description->ReasonReact.string
+               </div>
+             </a>
+           </div>
+         )
+       ->ReasonReact.array}
+    </div>
+  </div>;
+};

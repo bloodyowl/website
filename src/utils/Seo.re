@@ -6,15 +6,14 @@ let set = (~title=?, ~description=?, ()) => {
   ->Option.map(title => document->(DomRe.HtmlDocument.setTitle(title)))
   ->ignore;
   description
-  ->Option.flatMap(
-      description =>
-        DomRe.Document.querySelector(
-          "meta[name=\"description\"]",
-          DomRe.document,
+  ->Option.flatMap(description =>
+      DomRe.Document.querySelector(
+        "meta[name=\"description\"]",
+        DomRe.document,
+      )
+      ->Option.map(meta =>
+          DomRe.Element.setAttribute("content", description, meta)
         )
-        ->Option.map(
-            meta => DomRe.Element.setAttribute("content", description, meta),
-          ),
     )
   ->ignore;
 };

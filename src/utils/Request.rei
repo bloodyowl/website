@@ -1,9 +1,9 @@
-type method = [ | `DELETE | `GET | `PATCH | `POST];
+type httpMethod = [ | `DELETE | `GET | `PATCH | `POST];
 
 let make:
   (
     ~url: string,
-    ~method: method=?,
+    ~httpMethod: httpMethod=?,
     ~body: 'a=?,
     ~contentType: string=?,
     ~responseType: string=?,

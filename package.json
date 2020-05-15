@@ -11,7 +11,8 @@
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack-dev-server",
     "blog": "node src/UpdateBlog.bs.js",
-    "release": "rm -fr build && yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy"
+    "release": "rm -fr build && yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy",
+    "format": "find ./src -iname '*.re' | xargs bsrefmt --in-place && find ./src -iname '*.rei' | xargs bsrefmt -i true --in-place"
   },
   "keywords": [
     "BuckleScript"
@@ -19,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bs-css": "^8.0.0",
+    "bs-css-emotion": "^1.2.0",
     "bs-webapi": "^0.13.1",
     "front-matter": "^3.0.1",
     "gh-pages": "^2.0.1",
@@ -29,12 +30,12 @@
     "react-dom": "^16.8.0",
     "reason-future": "^2.3.1",
     "reason-highlightjs": "^0.2.0",
-    "reason-react": "git://github.com/reasonml/reason-react.git#b29b7673b2a048c9612eaffbf7695972bb0c11c4",
-    "reason-react-compat": "^0.4.0",
+    "reason-react": "^0.8.0",
+    "reason-react-update": "^1.0.0",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
-    "bs-platform": "^5.0.3",
+    "bs-platform": "7.3.2",
     "copy-webpack-plugin": "^4.6.0",
     "emotion-server": "^9.0.0",
     "html-webpack-plugin": "^3.2.0",

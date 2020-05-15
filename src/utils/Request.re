@@ -16,12 +16,12 @@ module Xhr = {
 };
 
 [@bs.deriving jsConverter]
-type method = [ | `GET | `POST | `PATCH | `DELETE];
+type httpMethod = [ | `GET | `POST | `PATCH | `DELETE];
 
 let make =
     (
       ~url,
-      ~method=`GET,
+      ~httpMethod=`GET,
       ~body=?,
       ~contentType="application/json",
       ~responseType="json",
@@ -30,7 +30,7 @@ let make =
   let xhr = Xhr.make();
   let future =
     Future.make(resolve => {
-      let method = methodToJs(method);
+      let method = httpMethodToJs(httpMethod);
       Xhr.open_(method, url, true, xhr);
       Xhr.setResponseType(xhr, responseType);
       Xhr.onChange(xhr, () =>
@@ -45,7 +45,7 @@ let make =
           | _ as status when status >= 200 && status < 300 =>
             if ([%bs.raw {|typeof xhr.response === "string"|}]) {
               /* IE 11 hack */
-              try (
+              try(
                 resolve(
                   Result.Ok(
                     Obj.magic(Js.Json.parseExn(Xhr.response(xhr))),

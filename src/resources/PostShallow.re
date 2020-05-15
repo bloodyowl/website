@@ -12,7 +12,7 @@ let fromJs = (postShallow: ResourceIo.postShallow) => {
   slug: postShallow##slug,
 };
 
-let toJs = postShallow: ResourceIo.postShallow => {
+let toJs = (postShallow): ResourceIo.postShallow => {
   "title": postShallow.title,
   "date": postShallow.date,
   "slug": postShallow.slug,

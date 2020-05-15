@@ -12,17 +12,21 @@ let remarkable =
       "highlight":
         Some(
           (code, lang) =>
-            try (HighlightJs.highlight(~lang, code)##value) {
+            try(HighlightJs.highlight(~lang, code)##value) {
             | _ => ""
             },
         ),
     },
   );
 
-let createDir = () =>
-  try (mkdirSync(Path.join([|Process.cwd(), "build/api"|]))) {
+let createDir = () => {
+  try(mkdirSync(Path.join([|Process.cwd(), "build"|]))) {
   | _ => ()
   };
+  try(mkdirSync(Path.join([|Process.cwd(), "build/api"|]))) {
+  | _ => ()
+  };
+};
 
 module Posts = {
   let parse = ((path, item)) => {
@@ -44,9 +48,8 @@ module Posts = {
     Glob.glob(Path.join([|Process.cwd(), "blog/**/*.md"|]))
     ->Future.mapOk(SortArray.String.stableSort)
     ->Future.mapOk(Array.reverse)
-    ->Future.mapOk(
-        files =>
-          files->Array.map(item => (item, Fs.readFileAsUtf8Sync(item))),
+    ->Future.mapOk(files =>
+        files->Array.map(item => (item, Fs.readFileAsUtf8Sync(item)))
       )
     ->Future.mapOk(posts => posts->Array.map(parse));
   };
@@ -54,18 +57,16 @@ module Posts = {
 
 module Json = {
   let make = posts => {
-    posts
-    ->Array.forEach(
-        ((post, postShallow: PostShallow.t)) =>
-          Fs.writeFileAsUtf8Sync(
-            Path.join([|
-              Process.cwd(),
-              "build/api/",
-              postShallow.slug ++ ".json",
-            |]),
-            post->Post.toJs->Js.Json.stringifyAny->Option.getWithDefault(""),
-          ),
-      );
+    posts->Array.forEach(((post, postShallow: PostShallow.t)) =>
+      Fs.writeFileAsUtf8Sync(
+        Path.join([|
+          Process.cwd(),
+          "build/api/",
+          postShallow.slug ++ ".json",
+        |]),
+        post->Post.toJs->Js.Json.stringifyAny->Option.getWithDefault(""),
+      )
+    );
     Fs.writeFileAsUtf8Sync(
       Path.join([|Process.cwd(), "build/api/", "all.json"|]),
       posts

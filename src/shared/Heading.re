@@ -1,5 +1,3 @@
-let component = ReasonReact.statelessComponent("Heading");
-
 module Styles = {
   open Css;
   let title =
@@ -11,11 +9,8 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~text, ~level=2, ()) =>
-  ReactCompat.useRecordApi({
-    ...component,
-    render: _ =>
-      <div className=Styles.title role="heading" ariaLevel=level>
-        text->ReasonReact.string
-      </div>,
-  });
+let make = (~text, ~level=2, ()) => {
+  <div className=Styles.title role="heading" ariaLevel=level>
+    text->ReasonReact.string
+  </div>;
+};

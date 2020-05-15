@@ -1,9 +1,9 @@
 open Belt;
 
-[@bs.module "glob"]
+[@bs.module]
 external glob:
   (string, (Js.Nullable.t(Js.Exn.t), array(string)) => unit) => unit =
-  "";
+  "glob";
 
 let glob = path =>
   Future.make(resolve =>

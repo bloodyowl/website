@@ -1,5 +1,3 @@
-let component = ReasonReact.statelessComponent("Header");
-
 module Styles = {
   open Css;
   let container =
@@ -46,7 +44,7 @@ module Styles = {
   let link =
     style([
       padding3(~h=20->px, ~top=20->px, ~bottom=23->px),
-      flexShrink(0),
+      flexShrink(0.0),
       textDecoration(none),
       color(Theme.darkBody->hex),
       textAlign(center),
@@ -62,51 +60,48 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~url, ()) =>
-  ReactCompat.useRecordApi({
-    ...component,
-    render: _ =>
-      <div className=Styles.container>
-        <Link className=Styles.left href="/">
-          <>
-            <img
-              src="/public/assets/images/owl.svg"
-              width="32"
-              height="32"
-              alt=""
-              className=Styles.logo
-            />
-            <div className=Styles.heading role="heading" ariaLevel=1>
-              <div className=Styles.name>
-                "Matthias Le Brun"->ReasonReact.string
-              </div>
-              <div> "@bloodyowl"->ReasonReact.string </div>
-            </div>
-          </>
-        </Link>
-        <div className=Styles.navigation>
-          <Link
-            url
-            className=Styles.link
-            activeClassName=Styles.activeLink
-            matchSubroutes=true
-            href="/blog/">
-            "Blog"->ReasonReact.string
-          </Link>
-          <Link
-            url
-            className=Styles.link
-            activeClassName=Styles.activeLink
-            href="https://twitter.com/bloodyowl">
-            "Twitter"->ReasonReact.string
-          </Link>
-          <Link
-            url
-            className=Styles.link
-            activeClassName=Styles.activeLink
-            href="https://github.com/bloodyowl">
-            "GitHub"->ReasonReact.string
-          </Link>
+let make = (~url, ()) => {
+  <div className=Styles.container>
+    <Link className=Styles.left href="/">
+      <>
+        <img
+          src="/public/assets/images/owl.svg"
+          width="32"
+          height="32"
+          alt=""
+          className=Styles.logo
+        />
+        <div className=Styles.heading role="heading" ariaLevel=1>
+          <div className=Styles.name>
+            "Matthias Le Brun"->ReasonReact.string
+          </div>
+          <div> "@bloodyowl"->ReasonReact.string </div>
         </div>
-      </div>,
-  });
+      </>
+    </Link>
+    <div className=Styles.navigation>
+      <Link
+        url
+        className=Styles.link
+        activeClassName=Styles.activeLink
+        matchSubroutes=true
+        href="/blog/">
+        "Blog"->ReasonReact.string
+      </Link>
+      <Link
+        url
+        className=Styles.link
+        activeClassName=Styles.activeLink
+        href="https://twitter.com/bloodyowl">
+        "Twitter"->ReasonReact.string
+      </Link>
+      <Link
+        url
+        className=Styles.link
+        activeClassName=Styles.activeLink
+        href="https://github.com/bloodyowl">
+        "GitHub"->ReasonReact.string
+      </Link>
+    </div>
+  </div>;
+};

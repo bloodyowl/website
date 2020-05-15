@@ -10,7 +10,7 @@ let fromJs = (post: ResourceIo.post) => {
   body: post##body,
 };
 
-let toJs = post: ResourceIo.post => {
+let toJs = (post): ResourceIo.post => {
   "title": post.title,
   "date": post.date,
   "body": post.body,

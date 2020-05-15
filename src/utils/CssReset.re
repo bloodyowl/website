@@ -5,29 +5,12 @@ Css.(
       ~src=[url("/public/assets/webfonts/madera.ttf")],
       ~fontStyle=normal,
       ~fontWeight=`num(400),
+      ~fontDisplay=`swap,
       (),
     )
     ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),
   )
 );
-
-Js.log(
-  Css.(fontFace(
-      ~fontFamily="Madera",
-      ~src=[url("/public/assets/webfonts/madera.ttf")],
-      ~fontStyle=normal,
-      ~fontWeight=`num(400),
-      (),
-    ))
-);
-Js.log( Css.(fontFace(
-      ~fontFamily="Madera",
-      ~src=[url("/public/assets/webfonts/madera.ttf")],
-      ~fontStyle=normal,
-      ~fontWeight=`num(400),
-      (),
-    ))
-    ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),);
 
 Css.(
   global(
@@ -36,6 +19,7 @@ Css.(
       ~src=[url("/public/assets/webfonts/madera-bold.ttf")],
       ~fontStyle=normal,
       ~fontWeight=`num(700),
+      ~fontDisplay=`swap,
       (),
     )
     ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),
@@ -49,7 +33,7 @@ Css.(
       padding(zero),
       margin(zero),
       backgroundColor("fff"->hex),
-      Theme.defaultTextFontFamily->fontFamily,
+      fontFamily(`custom(Theme.defaultTextFontFamily)),
       display(flexBox),
       flexDirection(column),
       minHeight(100.->vh),
@@ -72,8 +56,8 @@ Css.(
       color(Theme.darkBody->hex),
       fontSize(1.->em),
       lineHeight(`abs(1.4)),
-      `declaration(("WebkitFontSmoothing", "antialiased")),
-      `declaration(("WebkitTextSizeAdjust", "100%")) /* Prevent adjustments of font size after orientation changes in iOS. */
+      unsafe("WebkitFontSmoothing", "antialiased"),
+      unsafe("WebkitTextSizeAdjust", "100%") /* Prevent adjustments of font size after orientation changes in iOS. */
     ],
   )
 );

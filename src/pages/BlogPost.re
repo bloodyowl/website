@@ -1,7 +1,5 @@
 open Belt;
 
-let component = ReasonReact.statelessComponent("BlogPost");
-
 module Styles = {
   open Css;
   let container =
@@ -14,7 +12,15 @@ module Styles = {
     ]);
   let title = style([margin(zero), marginBottom(10->px)]);
   let date = style([fontSize(14->px), opacity(0.5)]);
-  let body = style([marginTop(40->px), fontSize(18->px)]);
+  let body =
+    style([
+      marginTop(40->px),
+      fontSize(18->px),
+      selector(
+        "a",
+        [color("135EFF"->hex), hover([color("13A3FF"->hex)])],
+      ),
+    ]);
 };
 
 {
@@ -26,13 +32,13 @@ module Styles = {
       padding2(~v=10->px, ~h=20->px),
       backgroundColor("F4F7F8"->hex),
       overflowX(auto),
-      `declaration(("WebkitOverflowScrolling", "touch")),
+      unsafe("WebkitOverflowScrolling", "touch"),
       fontSize(14->px),
     ],
   );
   global(
     "code",
-    [fontFamily(Theme.codeFontFamily), lineHeight(`abs(1.))],
+    [fontFamily(`custom(Theme.codeFontFamily)), lineHeight(`abs(1.))],
   );
   global(".hljs-keyword", [color("DA6BB5"->hex)]);
   global(".hljs-constructor", [color("DD792B"->hex)]);
@@ -60,35 +66,36 @@ module Styles = {
 
 [@react.component]
 let make =
-    (~post: RequestStatus.t(Result.t(Post.t, Errors.t)), ~onLoadRequest, ()) =>
-  ReactCompat.useRecordApi({
-    ...component,
-    didMount: _ =>
-      switch (post) {
-      | NotAsked => onLoadRequest()
-      | _ => ()
-      },
-    render: _ =>
-      switch (post) {
-      | NotAsked
-      | Loading => <ActivityIndicator />
-      | Done(Ok(post)) =>
-        <WithTitle title=post.title>
-          <div className=Styles.container>
-            <h1 className=Styles.title> post.title->ReasonReact.string </h1>
-            <div className=Styles.date>
-              post.date
+    (~post: RequestStatus.t(Result.t(Post.t, Errors.t)), ~onLoadRequest, ()) => {
+  React.useEffect0(() => {
+    switch (post) {
+    | NotAsked => onLoadRequest()
+    | _ => ()
+    };
+    None;
+  });
+  <>
+    {switch (post) {
+     | NotAsked
+     | Loading => <ActivityIndicator />
+     | Done(Ok(post)) =>
+       <WithTitle title={post.title}>
+         <div className=Styles.container>
+           <h1 className=Styles.title> post.title->ReasonReact.string </h1>
+           <div className=Styles.date>
+             {post.date
               ->Js.Date.fromString
               ->Date.getFormattedString
-              ->ReasonReact.string
-            </div>
-            <div
-              className=Styles.body
-              dangerouslySetInnerHTML={"__html": post.body}
-            />
-            <BeOpWidget />
-          </div>
-        </WithTitle>
-      | Done(Error(_)) => <ErrorIndicator />
-      },
-  });
+              ->ReasonReact.string}
+           </div>
+           <div
+             className=Styles.body
+             dangerouslySetInnerHTML={"__html": post.body}
+           />
+           <BeOpWidget />
+         </div>
+       </WithTitle>
+     | Done(Error(_)) => <ErrorIndicator />
+     }}
+  </>;
+};

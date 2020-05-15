@@ -18,9 +18,10 @@
   "bs-dependencies": [
     "reason-react",
     "bs-css",
+    "bs-css-emotion",
     "bs-webapi",
     "reason-future",
-    "reason-react-compat"
+    "reason-react-update"
   ],
   "refmt": 3
 }

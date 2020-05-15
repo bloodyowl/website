@@ -1,5 +1,3 @@
-let component = ReasonReact.statelessComponent("ErrorIndicator");
-
 module Styles = {
   open Css;
   let container =
@@ -14,13 +12,10 @@ module Styles = {
 };
 
 [@react.component]
-let make = () =>
-  ReactCompat.useRecordApi({
-    ...component,
-    render: _ =>
-      <div className=Styles.container>
-        <div className=Styles.text>
-          {js|An error occured 😕|js}->ReasonReact.string
-        </div>
-      </div>,
-  });
+let make = () => {
+  <div className=Styles.container>
+    <div className=Styles.text>
+      {js|An error occured 😕|js}->ReasonReact.string
+    </div>
+  </div>;
+};

@@ -15,8 +15,6 @@ type state = {
 
 let default = {posts: Map.String.empty, postList: NotAsked};
 
-let component = ReasonReact.reducerComponent("App");
-
 module Styles = {
   open Css;
   let container =
@@ -29,11 +27,10 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~url: ReasonReact.Router.url, ~initialData=?, ()) =>
-  ReactCompat.useRecordApi({
-    ...component,
-    initialState: () => initialData->Option.getWithDefault(default),
-    reducer: (action, state) =>
+let make = (~url: ReasonReact.Router.url, ~initialData=?, ()) => {
+  let (state, send) =
+    ReactUpdate.useReducer(
+      initialData->Option.getWithDefault(default), (action, state) =>
       switch (action) {
       | LoadPost(slug) =>
         UpdateWithSideEffects(
@@ -41,9 +38,11 @@ let make = (~url: ReasonReact.Router.url, ~initialData=?, ()) =>
             ...state,
             posts: state.posts->Map.String.set(slug, RequestStatus.Loading),
           },
-          ({send}) =>
+          ({send}) => {
             Post.query(slug)
-            ->Future.get(value => send(ReceivePost(slug, value))),
+            ->Future.get(value => send(ReceivePost(slug, value)));
+            None;
+          },
         )
       | ReceivePost(slug, payload) =>
         Update({
@@ -54,35 +53,36 @@ let make = (~url: ReasonReact.Router.url, ~initialData=?, ()) =>
       | LoadPostList =>
         UpdateWithSideEffects(
           {...state, postList: RequestStatus.Loading},
-          ({send}) =>
+          ({send}) => {
             PostShallow.query()
-            ->Future.get(value => send(ReceivePostList(value))),
+            ->Future.get(value => send(ReceivePostList(value)));
+            None;
+          },
         )
       | ReceivePostList(payload) =>
         Update({...state, postList: RequestStatus.Done(payload)})
-      },
-    render: ({state, send}) => {
-      <div className=Styles.container>
-        <Header url />
-        {switch (url.path) {
-         | [] => <Home />
-         | ["blog"] =>
-           <BlogPostList
-             list={state.postList}
-             onLoadRequest={() => send(LoadPostList)}
-           />
-         | ["blog", slug] =>
-           <BlogPost
-             post={
-               state.posts
-               ->Map.String.get(slug)
-               ->Option.getWithDefault(RequestStatus.NotAsked)
-             }
-             onLoadRequest={() => send(LoadPost(slug))}
-           />
-         | _ => <ErrorIndicator />
-         }}
-        <Footer />
-      </div>;
-    },
-  });
+      }
+    );
+  <div className=Styles.container>
+    <Header url />
+    {switch (url.path) {
+     | [] => <Home />
+     | ["blog"] =>
+       <BlogPostList
+         list={state.postList}
+         onLoadRequest={() => send(LoadPostList)}
+       />
+     | ["blog", slug] =>
+       <BlogPost
+         post={
+           state.posts
+           ->Map.String.get(slug)
+           ->Option.getWithDefault(RequestStatus.NotAsked)
+         }
+         onLoadRequest={() => send(LoadPost(slug))}
+       />
+     | _ => <ErrorIndicator />
+     }}
+    <Footer />
+  </div>;
+};

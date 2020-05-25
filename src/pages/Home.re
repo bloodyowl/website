@@ -21,7 +21,7 @@ module Styles = {
       zIndex(1),
       borderRadius(100.->pct),
       paddingBottom(100.->pct),
-      backgroundImage(url("/public/assets/images/avatar.jpg")),
+      backgroundImage(url("https://avatars.githubusercontent.com/bloodyowl?size=200")),
       backgroundSize(cover),
     ]);
   let main =

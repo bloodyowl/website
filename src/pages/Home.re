@@ -143,6 +143,15 @@ let make = () => {
             (
               "migrating-reason-react-codebase-to-hooks",
               {
+                date: "10/2020",
+                name: "Simplify your UI management with (algebraic data) types",
+                description: "Approaching how algebraic data-types can help in UI development. ",
+                url: "https://speakerdeck.com/bloodyowl/simplify-your-ui-management-with-algebraic-data-types",
+              },
+            ),
+            (
+              "migrating-reason-react-codebase-to-hooks",
+              {
                 date: "03/2020",
                 name: "Migrating a large Reason+React codebase to hooks",
                 description: "Sharing my experience writing complex hooks along with a codemod to upgrade to the hooks ReasonReact API. ",

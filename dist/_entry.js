@@ -33785,7 +33785,9 @@ function App(Props) {
               className: container
             }, React.createElement(Pages.Head.make, {
                   children: null
-                }, React.createElement("meta", {
+                }, React.createElement("html", {
+                      lang: "en"
+                    }), React.createElement("meta", {
                       charSet: "UTF-8"
                     }), React.createElement("style", undefined, "@import url(\"//hello.myfonts.net/count/3cae5f\")"), React.createElement("meta", {
                       content: "w75-P-0ywXWkyZvYPbkSM3VSM2hny25UrfeiWJt3B1k",
@@ -33793,9 +33795,36 @@ function App(Props) {
                     }), React.createElement("meta", {
                       content: "width=device-width, initial-scale=1, shrink-to-fit=no",
                       name: "viewport"
+                    }), React.createElement("meta", {
+                      content: "summary_large_image",
+                      name: "twitter:card"
+                    }), React.createElement("meta", {
+                      content: "website",
+                      property: "og:type"
+                    }), React.createElement("meta", {
+                      content: config.baseUrl + "/public/assets/images/share.jpg",
+                      property: "og:image"
+                    }), React.createElement("meta", {
+                      content: config.baseUrl + "/public/assets/images/share.jpg",
+                      name: "twitter:image"
+                    }), React.createElement("meta", {
+                      content: "@bloodyowl",
+                      name: "twitter:site"
+                    }), React.createElement("meta", {
+                      content: "1500",
+                      property: "og:image:width"
+                    }), React.createElement("meta", {
+                      content: "777",
+                      property: "og:image:height"
+                    }), React.createElement("link", {
+                      href: "/public/assets/images/favicon.png",
+                      rel: "shortcut icon"
                     }), React.createElement("link", {
                       href: url$1.endsWith("/") ? url$1 : url$1 + "/",
                       rel: "canonical"
+                    }), React.createElement("script", undefined, "window.beOpAsyncInit = function() {\n        BeOpSDK.init({\n          account: \"556e1d2772a6b60100844051\"\n        });\n        BeOpSDK.watch();\n      };"), React.createElement("script", {
+                      async: true,
+                      src: "https://widget.beop.io/sdk.js"
                     })), React.createElement(Header.make, {}), tmp, React.createElement(Footer.make, {}));
 }
 
@@ -33877,13 +33906,16 @@ var title = Curry._1(Css.style, {
       tl: {
         hd: Css.fontSize(Css.px(48)),
         tl: {
-          hd: Css.marginBottom(Css.px(10)),
+          hd: Css.marginTop(Css.px(50)),
           tl: {
-            hd: Css.lineHeight({
-                  NAME: "abs",
-                  VAL: 1.15
-                }),
-            tl: /* [] */0
+            hd: Css.marginBottom(Css.px(10)),
+            tl: {
+              hd: Css.lineHeight({
+                    NAME: "abs",
+                    VAL: 1.15
+                  }),
+              tl: /* [] */0
+            }
           }
         }
       }
@@ -33893,7 +33925,10 @@ var date = Curry._1(Css.style, {
       hd: Css.fontSize(Css.px(14)),
       tl: {
         hd: Css.opacity(0.5),
-        tl: /* [] */0
+        tl: {
+          hd: Css.marginBottom(Css.px(50)),
+          tl: /* [] */0
+        }
       }
     });
 
@@ -34620,7 +34655,6 @@ exports.make = make;
 
 var Css = __webpack_require__(/*! bs-css-emotion/src/Css.bs.js */ "./node_modules/bs-css-emotion/src/Css.bs.js");
 var Curry = __webpack_require__(/*! bs-platform/lib/js/curry.js */ "./node_modules/bs-platform/lib/js/curry.js");
-var Pages = __webpack_require__(/*! rescript-pages/src/Pages.bs.js */ "./node_modules/rescript-pages/src/Pages.bs.js");
 var React = __webpack_require__(/*! react */ "react");
 
 var container = Curry._1(Css.style, {
@@ -34629,18 +34663,13 @@ var container = Curry._1(Css.style, {
     });
 
 function BeOpWidget(Props) {
-  var div = React.useMemo(function () {
-        return React.createElement("div", {
-                    className: container
-                  }, React.createElement("div", {
-                        className: "BeOpWidget"
-                      }));
-      });
-  return React.createElement(React.Fragment, undefined, div, React.createElement(Pages.Head.make, {
-                  children: null
-                }, React.createElement("script", undefined, "window.beOpAsyncInit = function() {\n        BeOpSDK.init({\n          account: \"556e1d2772a6b60100844051\"\n        });\n        BeOpSDK.watch();\n      };"), React.createElement("script", {
-                      src: "https://widget.beop.io/sdk.js"
-                    })));
+  return React.useMemo(function () {
+              return React.createElement("div", {
+                          className: container
+                        }, React.createElement("div", {
+                              className: "BeOpWidget"
+                            }));
+            });
 }
 
 var make = BeOpWidget;

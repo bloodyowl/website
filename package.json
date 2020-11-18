@@ -6,12 +6,10 @@
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d build",
-    "webpack": "webpack -w",
-    "webpack:production": "NODE_ENV=production webpack",
-    "server": "webpack-dev-server",
-    "blog": "node src/UpdateBlog.bs.js",
-    "release": "rm -fr build && yarn build && yarn webpack:production && node src/Prerender.bs.js && yarn deploy",
+    "deploy": "gh-pages -d dist",
+    "server": "pages start src/App.bs.js",
+    "prerender": "pages build src/App.bs.js",
+    "release": "rm -fr dist && yarn build && yarn prerender && yarn deploy",
     "format": "find ./src -iname '*.re' | xargs bsrefmt --in-place && find ./src -iname '*.rei' | xargs bsrefmt -i true --in-place"
   },
   "keywords": [
@@ -34,7 +32,7 @@
     "reason-react": "^0.9.1",
     "reason-react-update": "^1.0.0",
     "remarkable": "^1.7.1",
-    "rescript-pages": "0.1.14"
+    "rescript-pages": "0.1.16"
   },
   "devDependencies": {
     "bs-platform": "^8.2.0",

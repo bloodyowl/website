@@ -14,10 +14,11 @@ module Styles = {
     style([
       margin(zero),
       fontSize(48->px),
+      marginTop(50->px),
       marginBottom(10->px),
       lineHeight(`abs(1.15)),
     ]);
-  let date = style([fontSize(14->px), opacity(0.5)]);
+  let date = style([fontSize(14->px), opacity(0.5), marginBottom(50->px)]);
   let body =
     style([
       marginTop(40->px),

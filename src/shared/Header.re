@@ -87,18 +87,12 @@ let make = () => {
         href="/blog/">
         "Blog"->ReasonReact.string
       </Pages.Link>
-      <Pages.Link
-        className=Styles.link
-        activeClassName=Styles.activeLink
-        href="https://twitter.com/bloodyowl">
+      <a className=Styles.link href="https://twitter.com/bloodyowl">
         "Twitter"->ReasonReact.string
-      </Pages.Link>
-      <Pages.Link
-        className=Styles.link
-        activeClassName=Styles.activeLink
-        href="https://github.com/bloodyowl">
+      </a>
+      <a className=Styles.link href="https://github.com/bloodyowl">
         "GitHub"->ReasonReact.string
-      </Pages.Link>
+      </a>
     </div>
   </div>;
 };

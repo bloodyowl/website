@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title><![CDATA[Matthias Le Brun]]></title>
+    <description><![CDATA[Front-end developer and designer. ReasonML, ReasonReact, ReactJS.]]></description>
+    <link>https://bloodyowl.io</link>
+    <lastBuildDate>Wed, 18 Nov 2020 13:12:45 GMT</lastBuildDate>
+    <atom:link href="https:/bloodyowl.io/api/blog/feeds/desc/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title><![CDATA[An alternative migration path for ReasonReact]]></title>
+      <link>https:/bloodyowl.io/blog/2019-04-19-an-alternative-migration-path-for-reason-react</link>
+      <guid isPermalink="false">2019-04-19-an-alternative-migration-path-for-reason-react</guid>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[What is the option type, and what does it solve?]]></title>
+      <link>https:/bloodyowl.io/blog/2019-02-10-what-is-the-option-type-and-what-does-it-solve</link>
+      <guid isPermalink="false">2019-02-10-what-is-the-option-type-and-what-does-it-solve</guid>
+      <pubDate>Sun, 10 Feb 2019 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[How ReasonReact.Router represents a URL]]></title>
+      <link>https:/bloodyowl.io/blog/2019-02-09-how-reason-react-router-represents-a-url</link>
+      <guid isPermalink="false">2019-02-09-how-reason-react-router-represents-a-url</guid>
+      <pubDate>Sat, 09 Feb 2019 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[Orchestrating requests at component level]]></title>
+      <link>https:/bloodyowl.io/blog/2019-01-24-orchestrating-requests-at-component-level</link>
+      <guid isPermalink="false">2019-01-24-orchestrating-requests-at-component-level</guid>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[Generating ReasonReact components with functors]]></title>
+      <link>https:/bloodyowl.io/blog/2019-01-23-generating-reason-react-components-with-functors</link>
+      <guid isPermalink="false">2019-01-23-generating-reason-react-components-with-functors</guid>
+      <pubDate>Wed, 23 Jan 2019 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[Static single page application]]></title>
+      <link>https:/bloodyowl.io/blog/2019-01-22-static-single-page-application</link>
+      <guid isPermalink="false">2019-01-22-static-single-page-application</guid>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[Requests with ReasonML]]></title>
+      <link>https:/bloodyowl.io/blog/2019-01-20-requests-with-reasonml</link>
+      <guid isPermalink="false">2019-01-20-requests-with-reasonml</guid>
+      <pubDate>Sun, 20 Jan 2019 00:00:00 GMT</pubDate>
+   </item>
+  </channel>
+</rss>

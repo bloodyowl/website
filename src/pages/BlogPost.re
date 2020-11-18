@@ -10,7 +10,13 @@ module Styles = {
       width(100.->pct),
       flexGrow(1.),
     ]);
-  let title = style([margin(zero), marginBottom(10->px)]);
+  let title =
+    style([
+      margin(zero),
+      fontSize(48->px),
+      marginBottom(10->px),
+      lineHeight(`abs(1.15)),
+    ]);
   let date = style([fontSize(14->px), opacity(0.5)]);
   let body =
     style([
@@ -33,12 +39,19 @@ module Styles = {
       backgroundColor("F4F7F8"->hex),
       overflowX(auto),
       unsafe("WebkitOverflowScrolling", "touch"),
-      fontSize(14->px),
+      fontSize(16->px),
+      borderLeftWidth(2->px),
+      borderLeftColor(Theme.darkBody->hex),
+      borderLeftStyle(solid),
     ],
   );
   global(
     "code",
-    [fontFamily(`custom(Theme.codeFontFamily)), lineHeight(`abs(1.))],
+    [
+      fontFamily(`custom(Theme.codeFontFamily)),
+      fontSize(0.85->em),
+      lineHeight(`abs(1.)),
+    ],
   );
   global(".hljs-keyword", [color("DA6BB5"->hex)]);
   global(".hljs-constructor", [color("DD792B"->hex)]);
@@ -65,28 +78,23 @@ module Styles = {
 };
 
 [@react.component]
-let make =
-    (~post: RequestStatus.t(Result.t(Post.t, Errors.t)), ~onLoadRequest, ()) => {
-  React.useEffect0(() => {
-    switch (post) {
-    | NotAsked => onLoadRequest()
-    | _ => ()
-    };
-    None;
-  });
+let make = (~slug, ()) => {
+  let post = Pages.useItem("blog", ~id=slug);
   <>
     {switch (post) {
      | NotAsked
      | Loading => <ActivityIndicator />
      | Done(Ok(post)) =>
-       <WithTitle title={post.title}>
+       <>
+         <Pages.Head> <title> post.title->React.string </title> </Pages.Head>
          <div className=Styles.container>
            <h1 className=Styles.title> post.title->ReasonReact.string </h1>
            <div className=Styles.date>
              {post.date
-              ->Js.Date.fromString
-              ->Date.getFormattedString
-              ->ReasonReact.string}
+              ->Option.map(Js.Date.fromString)
+              ->Option.map(Date.getFormattedString)
+              ->Option.map(ReasonReact.string)
+              ->Option.getWithDefault(React.null)}
            </div>
            <div
              className=Styles.body
@@ -94,7 +102,7 @@ let make =
            />
            <BeOpWidget />
          </div>
-       </WithTitle>
+       </>
      | Done(Error(_)) => <ErrorIndicator />
      }}
   </>;

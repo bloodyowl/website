@@ -19,56 +19,47 @@ module Styles = {
       display(flexBox),
       flexDirection(column),
       borderRadius(10->px),
-      hover([backgroundColor(rgba(0, 0, 0, 0.03))]),
-      active([backgroundColor(rgba(0, 0, 0, 0.05))]),
+      hover([backgroundColor(rgba(0, 0, 0, `num(0.03)))]),
+      active([backgroundColor(rgba(0, 0, 0, `num(0.05)))]),
     ]);
   let date = style([fontSize(12->px), opacity(0.5)]);
   let title = style([fontWeight(bold)]);
 };
 
 [@react.component]
-let make =
-    (
-      ~list: RequestStatus.t(Result.t(array(PostShallow.t), Errors.t)),
-      ~onLoadRequest,
-      (),
-    ) => {
-  React.useEffect0(() => {
-    switch (list) {
-    | NotAsked => onLoadRequest()
-    | _ => ()
-    };
-    None;
-  });
+let make = () => {
+  let list = Pages.useCollection("blog");
   <>
     {switch (list) {
      | NotAsked
      | Loading => <ActivityIndicator />
-     | Done(Ok(list)) =>
-       <WithTitle title="Blog">
+     | Done(Ok({items: list})) =>
+       <>
+         <Pages.Head> <title> "Blog"->React.string </title> </Pages.Head>
          <div className=Styles.container>
            {list
             ->Array.map(item =>
-                <Link
+                <Pages.Link
                   className=Styles.link
                   key={item.slug}
                   href={"/blog/" ++ item.slug ++ "/"}>
                   <>
                     <div className=Styles.date>
                       {item.date
-                       ->Js.Date.fromString
-                       ->Date.getFormattedString
-                       ->ReasonReact.string}
+                       ->Option.map(Js.Date.fromString)
+                       ->Option.map(Date.getFormattedString)
+                       ->Option.map(ReasonReact.string)
+                       ->Option.getWithDefault(React.null)}
                     </div>
                     <div className=Styles.title>
                       item.title->ReasonReact.string
                     </div>
                   </>
-                </Link>
+                </Pages.Link>
               )
             ->ReasonReact.array}
          </div>
-       </WithTitle>
+       </>
      | Done(Error(_)) => <ErrorIndicator />
      }}
   </>;

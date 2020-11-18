@@ -27,11 +27,15 @@ module Card = {
         borderRadius(25->px),
         transitionDuration(300),
         transitionTimingFunction(`easeOut),
-        boxShadow(Shadow.box(~y=5->px, ~blur=10->px, rgba(0, 0, 0, 0.1))),
+        boxShadow(
+          Shadow.box(~y=5->px, ~blur=10->px, rgba(0, 0, 0, `num(0.1))),
+        ),
         transitionProperty("transform, box-shadow"),
         hover([
           transforms([scale(0.96, 0.96)]),
-          boxShadow(Shadow.box(~y=3->px, ~blur=7->px, rgba(0, 0, 0, 0.3))),
+          boxShadow(
+            Shadow.box(~y=3->px, ~blur=7->px, rgba(0, 0, 0, `num(0.3))),
+          ),
         ]),
       ]);
     let text =

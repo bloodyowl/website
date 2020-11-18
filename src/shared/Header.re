@@ -60,9 +60,9 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~url, ()) => {
+let make = () => {
   <div className=Styles.container>
-    <Link className=Styles.left href="/">
+    <Pages.Link className=Styles.left href="/">
       <>
         <img
           src="/public/assets/images/owl.svg"
@@ -78,30 +78,27 @@ let make = (~url, ()) => {
           <div> "@bloodyowl"->ReasonReact.string </div>
         </div>
       </>
-    </Link>
+    </Pages.Link>
     <div className=Styles.navigation>
-      <Link
-        url
+      <Pages.Link
         className=Styles.link
         activeClassName=Styles.activeLink
         matchSubroutes=true
         href="/blog/">
         "Blog"->ReasonReact.string
-      </Link>
-      <Link
-        url
+      </Pages.Link>
+      <Pages.Link
         className=Styles.link
         activeClassName=Styles.activeLink
         href="https://twitter.com/bloodyowl">
         "Twitter"->ReasonReact.string
-      </Link>
-      <Link
-        url
+      </Pages.Link>
+      <Pages.Link
         className=Styles.link
         activeClassName=Styles.activeLink
         href="https://github.com/bloodyowl">
         "GitHub"->ReasonReact.string
-      </Link>
+      </Pages.Link>
     </div>
   </div>;
 };

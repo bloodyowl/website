@@ -5,7 +5,23 @@ module Styles = {
 
 [@react.component]
 let make = () => {
-  React.useMemo(() =>
-    <div className=Styles.container> <div className="BeOpWidget" /> </div>
-  );
+  let div =
+    React.useMemo(() =>
+      <div className=Styles.container> <div className="BeOpWidget" /> </div>
+    );
+  <>
+    div
+    <Pages.Head>
+      <script>
+        {js|window.beOpAsyncInit = function() {
+        BeOpSDK.init({
+          account: "556e1d2772a6b60100844051"
+        });
+        BeOpSDK.watch();
+      };|js}
+        ->React.string
+      </script>
+      <script src="https://widget.beop.io/sdk.js" />
+    </Pages.Head>
+  </>;
 };

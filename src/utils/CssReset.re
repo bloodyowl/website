@@ -1,28 +1,32 @@
 Css.(
   global(
     fontFace(
-      ~fontFamily="Madera",
-      ~src=[url("/public/assets/webfonts/madera.ttf")],
+      ~fontFamily="HelveticaNowDisplay",
+      ~src=[
+        url("/public/assets/webfonts/regular.woff2"),
+        url("/public/assets/webfonts/regular.woff"),
+      ],
       ~fontStyle=normal,
       ~fontWeight=`num(400),
       ~fontDisplay=`swap,
       (),
-    )
-    ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),
+    ),
   )
 );
 
 Css.(
   global(
     fontFace(
-      ~fontFamily="Madera",
-      ~src=[url("/public/assets/webfonts/madera-bold.ttf")],
+      ~fontFamily="HelveticaNowDisplay",
+      ~src=[
+        url("/public/assets/webfonts/bold.woff2"),
+        url("/public/assets/webfonts/bold.woff"),
+      ],
       ~fontStyle=normal,
       ~fontWeight=`num(700),
       ~fontDisplay=`swap,
       (),
-    )
-    ->Js.String2.replaceByRe([%re "/\\}$/"], "font-display: swap;}"),
+    ),
   )
 );
 

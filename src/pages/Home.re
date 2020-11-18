@@ -21,7 +21,9 @@ module Styles = {
       zIndex(1),
       borderRadius(100.->pct),
       paddingBottom(100.->pct),
-      backgroundImage(url("https://avatars.githubusercontent.com/bloodyowl?size=200")),
+      backgroundImage(
+        url("https://avatars.githubusercontent.com/bloodyowl?size=200"),
+      ),
       backgroundSize(cover),
     ]);
   let main =
@@ -48,7 +50,10 @@ module Styles = {
 
 [@react.component]
 let make = () => {
-  <WithTitle title="Matthias Le Brun">
+  <>
+    <Pages.Head>
+      <title> "Matthias Le Brun"->React.string </title>
+    </Pages.Head>
     <div className=Styles.container>
       <div className=Styles.column> <div className=Styles.avatar /> </div>
       <div className=Styles.main>
@@ -68,18 +73,18 @@ let make = () => {
         <p
           className=Styles.paragraph
           dangerouslySetInnerHTML={
-            "__html": {js|I <strong>design</strong> and <strong>develop</strong> our dashboard and widget using ReasonML and ReasonReact.|js},
+            "__html": {js|I <strong>design</strong> and <strong>develop</strong> our dashboard and widget using ReScript (ReasonML) and React.|js},
           }
         />
         <Heading text="Things I work with" />
         <CardList
           cards=[|
             (
-              "reason",
+              "rescript",
               {
-                name: "ReasonML",
-                image: "/public/assets/images/technologies/reason.svg",
-                url: Some("https://reasonml.github.io"),
+                name: "ReScript",
+                image: "/public/assets/images/technologies/rescript.svg",
+                url: Some("https://rescript-lang.org"),
               },
             ),
             (
@@ -141,7 +146,7 @@ let make = () => {
         <TalkList
           talks=[|
             (
-              "migrating-reason-react-codebase-to-hooks",
+              "simplify-ui-manager",
               {
                 date: "10/2020",
                 name: "Simplify your UI management with (algebraic data) types",
@@ -234,5 +239,5 @@ let make = () => {
         />
       </div>
     </div>
-  </WithTitle>;
+  </>;
 };

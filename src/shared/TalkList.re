@@ -21,8 +21,8 @@ module Styles = {
       color(Theme.darkBody->hex),
       padding(10->px),
       borderRadius(10->px),
-      hover([backgroundColor(rgba(0, 0, 0, 0.03))]),
-      active([backgroundColor(rgba(0, 0, 0, 0.05))]),
+      hover([backgroundColor(rgba(0, 0, 0, `num(0.03)))]),
+      active([backgroundColor(rgba(0, 0, 0, `num(0.05)))]),
     ]);
   let date = style([opacity(0.5), fontSize(14->px)]);
   let name =

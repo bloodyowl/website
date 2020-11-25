@@ -77,6 +77,7 @@ let default =
     {
       siteTitle: "Matthias Le Brun",
       siteDescription: "Front-end developer and designer. ReasonML, ReasonReact, ReactJS.",
+      mode: SPA,
       distDirectory: "dist",
       baseUrl: "https://bloodyowl.io",
       staticsDirectory: Some("statics"),

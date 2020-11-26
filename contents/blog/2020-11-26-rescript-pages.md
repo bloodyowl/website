@@ -118,7 +118,7 @@ Overall it's been a really fun project to build (and also a bit frustrating, let
 If you're curious, don't hesitate to check:
 
 - [ReScript Pages docs](https://bloodyowl.github.io/rescript-pages/)
-- [ReScript Page source](https://github.com/bloodyowl/rescript-pages)
+- [ReScript Pages source](https://github.com/bloodyowl/rescript-pages)
 - [This website source](https://github.com/bloodyowl/website)
 
 Hope you like it! 👋

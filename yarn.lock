@@ -3697,10 +3697,10 @@ rescript-future@^1.0.4:
   resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.0.4.tgz#8d80d4e5da3cca31887f361a277b816fbcc5ca1f"
   integrity sha512-1p9ieIdSKP4lktDf1H6Un54SXIuIxVRP7YPbueAi2rO8Jcb3NSmxADiJi+6fvfojGHKznmCm3DlCso+w/zO0YQ==
 
-rescript-pages@0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/rescript-pages/-/rescript-pages-0.2.4.tgz#12ec8dc307285faf3fe94dcf1ad9d98a91999d94"
-  integrity sha512-C/V0PindKCdEwQC0AqT+x0BHQ/7W4eP6LS7WAi65hQmmUHfTwBDS7ey2y8AOIGVHqmYv++VMkMwO/JOhyRpvYg==
+rescript-pages@0.2.10:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/rescript-pages/-/rescript-pages-0.2.10.tgz#2b8e7f26689f9232fb2fdef0890250d8b0063403"
+  integrity sha512-yTMJgHH9aCMIH9sDNA/q8aCE4uW+Q1HMvVEIpyKNcuN2NGTMk5MilD72yaelKq2kPF2i0HLt+aoT2IOXXxeUUA==
   dependencies:
     bs-css-emotion "^2.1.0"
     bs-fetch "^0.6.2"

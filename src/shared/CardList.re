@@ -17,6 +17,7 @@ module Card = {
         alignItems(stretch),
         textDecoration(none),
         color(Theme.darkBody->hex),
+        media("(prefers-color-scheme: dark)", [color("fff"->hex)]),
         padding4(~left=zero, ~right=20->px, ~top=20->px, ~bottom=20->px),
         unsafe("scrollSnapAlign", "start"),
       ]);

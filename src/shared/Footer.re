@@ -3,6 +3,7 @@ module Styles = {
   let container =
     style([
       backgroundColor(Theme.darkBody->hex),
+      media("(prefers-color-scheme: dark)", [backgroundColor("000"->hex)]),
       color("fff"->hex),
       textAlign(center),
       padding(20->px),

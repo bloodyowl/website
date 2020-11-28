@@ -44,6 +44,10 @@ module Styles = {
       borderLeftWidth(2->px),
       borderLeftColor(Theme.darkBody->hex),
       borderLeftStyle(solid),
+      media(
+        "(prefers-color-scheme: dark)",
+        [backgroundColor(rgba(255, 255, 255, `num(0.05)))],
+      ),
     ],
   );
   global(

@@ -44,7 +44,16 @@ module Styles = {
   let paragraph =
     style([
       maxWidth(520->px),
-      selector("a", [color(Theme.darkBody->hex)]),
+      selector(
+        "a",
+        [
+          color(Theme.darkBody->hex),
+          media(
+            "(prefers-color-scheme: dark)",
+            [color(Theme.lightBody->hex)],
+          ),
+        ],
+      ),
     ]);
 };
 

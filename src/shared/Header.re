@@ -3,6 +3,7 @@ module Styles = {
   let container =
     style([
       backgroundColor(Theme.lightBody->hex),
+      media("(prefers-color-scheme: dark)", [backgroundColor("111"->hex)]),
       display(flexBox),
       flexDirection(row),
       alignItems(stretch),
@@ -17,6 +18,7 @@ module Styles = {
       flexWrap(wrap),
       flexGrow(1.0),
       color(Theme.darkBody->hex),
+      media("(prefers-color-scheme: dark)", [color(Theme.lightBody->hex)]),
       textDecoration(none),
     ]);
   let heading =
@@ -47,6 +49,7 @@ module Styles = {
       flexShrink(0.0),
       textDecoration(none),
       color(Theme.darkBody->hex),
+      media("(prefers-color-scheme: dark)", [color(Theme.lightBody->hex)]),
       textAlign(center),
       media(
         "(max-width: 620px)",

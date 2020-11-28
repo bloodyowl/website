@@ -42,6 +42,7 @@ module Styles = {
         "(max-width: 620px)",
         [flexGrow(1.), backgroundColor("D4E1E6"->hex)],
       ),
+      media("(max-width: 620px) and (prefers-color-scheme: dark)", [backgroundColor("111"->hex)]),
     ]);
   let link =
     style([

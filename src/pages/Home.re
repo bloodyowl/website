@@ -54,6 +54,7 @@ module Styles = {
           ),
         ],
       ),
+      selector("strong", [whiteSpace(nowrap)]),
     ]);
 };
 

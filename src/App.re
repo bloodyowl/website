@@ -93,6 +93,7 @@ let default =
               getAll("blog")->Array.map(slug => "/blog/" ++ slug),
               [|"404.html"|],
             |]),
+          getRedirectMap: None,
         },
       |],
     },

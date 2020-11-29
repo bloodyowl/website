@@ -70,7 +70,7 @@ let make = () => {
         <p
           className=Styles.paragraph
           dangerouslySetInnerHTML={
-            "__html": {js|My name is <strong>Matthias Le Brun</strong> (aka <strong>@bloodyowl</strong>), and I’m a <strong>front-end developer</strong> living in Paris, France.|js},
+            "__html": {js|My name is <strong>Matthias Le Brun</strong> (aka <strong>@bloodyowl</strong>), and I’m a <strong>front-end&nbsp;developer</strong> living in Paris, France.|js},
           }
         />
         <p

@@ -102,6 +102,7 @@ let make = (~slug, ()) => {
               ->Option.getWithDefault(React.null)}
            </div>
            <div
+             role="article"
              className=Styles.body
              dangerouslySetInnerHTML={"__html": post.body}
            />

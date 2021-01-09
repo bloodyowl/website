@@ -75,7 +75,7 @@ If a piece of code that you don't find perfect brings immediate value to your pr
 
 ![Effort on value](/public/assets/images/EffortValue.png)
 
-**Dumb code mecanically reduces the** immediate and later **effort**, making the the value that you're able to bring more accessible.
+**Dumb code mecanically reduces the** immediate and later **effort**, making the value that you're able to bring more accessible.
 
 If we were code writing machines, we wouldn't bring much to the table. 
 

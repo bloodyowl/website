@@ -25,8 +25,13 @@ module Styles = {
       fontSize(18->px),
       selector(
         "a",
-        [color("135EFF"->hex), hover([color("13A3FF"->hex)])],
+        [
+          color("135EFF"->hex),
+          hover([color("13A3FF"->hex)]),
+          media("(prefers-color-scheme: dark)", [color("13A3FF"->hex)]),
+        ],
       ),
+      selector("img", [maxWidth(100.0->pct), height(auto)]),
     ]);
 };
 

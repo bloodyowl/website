@@ -4,7 +4,7 @@
     <title><![CDATA[Matthias Le Brun]]></title>
     <description><![CDATA[Front-end developer and designer. ReasonML, ReasonReact, ReactJS.]]></description>
     <link>https://bloodyowl.io</link>
-    <lastBuildDate>Sat, 05 Dec 2020 10:21:40 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 09 Jan 2021 20:10:38 GMT</lastBuildDate>
     <atom:link href="https://bloodyowl.io/api/blog/feeds/asc/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title><![CDATA[Requests with ReasonML]]></title>
@@ -53,6 +53,12 @@
       <link>https://bloodyowl.io/blog/2020-11-26-rescript-pages</link>
       <guid isPermaLink="false">2020-11-26-rescript-pages</guid>
       <pubDate>Thu, 26 Nov 2020 00:00:00 GMT</pubDate>
+   </item>
+    <item>
+      <title><![CDATA[Write dumb code]]></title>
+      <link>https://bloodyowl.io/blog/2021-01-09-write-dumb-code</link>
+      <guid isPermaLink="false">2021-01-09-write-dumb-code</guid>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 GMT</pubDate>
    </item>
   </channel>
 </rss>

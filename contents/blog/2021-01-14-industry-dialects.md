@@ -1,5 +1,5 @@
 ---
-title: Dialects
+title: Industry dialects
 date: 2021-01-14
 ---
 

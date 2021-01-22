@@ -37,7 +37,7 @@ On paper, that looks like a fantastic idea: you get a big exchange place where a
 
 Reality is quite different. You don't have a single third-party. You have lots of them. One that manages the demand, one that manages the supply, one that organizes the auction. Of course, each of them takes a cut on the way. Most of them are Google. Then you get smaller companies that plug themselves to that system at various intersections. Even though, on a dollar an advertiser spends on an ad, chances are, most of it will go to Google.
 
-The data that enables user identification is shared with the entire ecosystem on each ad request. Just look a the "partners" list on the box that asks you if you accept cookies. It's impossible that you give a clear consent to a thousand companies you've never heard of. But why is there so much? That's due to the nature of programmatic advertising itself. Because of that auction system between lots and lots of companies. They need the maximum amount of data they can get in order to know if and how much they'll bid on an ad space.
+The data that enables user identification is shared with the entire ecosystem on each ad request. Just look a the "partners" list on the box that asks you if you accept cookies. It's impossible that you give a clear consent to a thousand companies you've never heard of. But why is there so much? That's due to the nature of programmatic advertising itself, because of that auction system between lots and lots of companies. They need the maximum amount of data they can get in order to know if and how much they'll bid on an ad space.
 
 What you get in the end is a system that controls websites from top to bottom, feeds them with leftovers, and doesn't care about user privacy.
 

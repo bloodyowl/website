@@ -9,7 +9,7 @@ Nowadays, in order to generate revenue, most websites sell some of their visual 
 
 On one hand, brands need advertising to build up public awareness. Unless you're extremely lucky and/or have a gigantic network, it can be really hard to make your brand known without ads. Even with a strong consumer base, you'll sometimes need to communicate as a brand, to give it an identity.
 
-On the other hand, the web free culture roots deeply in people's mind. Most people are used to it, and wouldn't pay a specific website a fee to read it. That culture forced websites into mostly relying on ad revenue to be able to exist.
+On the other hand, the web culture of the "free" roots deeply in people's mind. Most people are used to it, and wouldn't pay a specific website a fee to read it. That culture forced websites into mostly relying on ad revenue to be able to exist.
 
 The easy answer is that websites should offer a subscription model, but reality is that people can't subscribe to all the websites that they read: practically, that'd be way too expensive. It would also endanger the ability to cross-check, read various sources and takes on a topic, which is essential to a healthy democracy.
 
@@ -17,7 +17,7 @@ So you get people wanting to buy ad space on websites to show their messages, an
 
 In recent history, ad revenue that used to go to publishers got sucked in by Google & Facebook. Advertisers moved most of their budgets to these two platforms. How can we blame them? That seems like a reasonable choice, as Google & Facebook have undeniable advantages over what the market used to be.
 
-First, they know their users: what they like, what topic catches their attention, their history, what they're currently actively searching for. That alone offered advertisers an unprecedented targeting ability, ensuring them a good return on investment.
+First, they know their users: what they like, what topics catch their attention, their history, what they're currently actively searching for. That alone offered advertisers an unprecedented targeting ability, ensuring them a good return on investment.
 
 Second, they're centralized places: people spend a lot of time on Google & Facebook. They both represent a huge portion of the global internet traffic. It's only logical for advertisers to reduce their effort to buy spaces. Instead of spending most of their time looking to buy spaces on various websites: they buy them in two places and get results.
 
@@ -37,7 +37,7 @@ On paper, that looks like a fantastic idea: you get a big exchange place where a
 
 Reality is quite different. You don't have a single third-party. You have lots of them. One that manages the demand, one that manages the supply, one that organizes the auction. Of course, each of them takes a cut on the way. Most of them are Google. Then you get smaller companies that plug themselves to that system at various intersections. Even though, on a dollar an advertiser spends on an ad, chances are, most of it will go to Google.
 
-The data that enables user identification is shared with the entire ecosystem on each ad request. Just look a the "partners" list on the box that asks you if you accept cookies. It's impossible that you give a clear consent to a thousand companies you've never heard of. But why is there so much? That's due to the nature of programmatic advertising itself, because of that auction system between lots and lots of companies. They need the maximum amount of data they can get in order to know if and how much they'll bid on an ad space.
+The data that enables user identification is shared with the entire ecosystem on each ad request. Just look at the "partners" list on the box that asks you if you accept cookies. It's impossible that you give a clear consent to a thousand companies you've never heard of. But why is there so much? That's due to the nature of programmatic advertising itself, because of that auction system between lots and lots of companies. They need the maximum amount of data they can get in order to know if and how much they'll bid on an ad space.
 
 What you get in the end is a system that controls websites from top to bottom, feeds them with leftovers, and doesn't care about user privacy.
 
@@ -45,7 +45,7 @@ The press needs revenue to exist, but they're now stuck in a system where a hand
 
 With less attractiveness for advertisers, revenues lowered by middlemen cuts, websites are forced to crave ad views to survive.
 
-The news rarely leads media anymore, the views do. Some hot topics are overrepresented and distord the perception of reality for millions. Truth has even become an option as long as the debate brings people in, encouraged by algorithms the same big platforms that control everything around them implement to optimize their own revenue (algorithm is used to hide the word "decision" behind a complex term that makes it seem that you're not responsible because it appears as some magical computer stuff happening behind the curtains).
+The news rarely leads media anymore, the views do. Some hot topics are overrepresented and distort the perception of reality for millions. Truth has even become an option as long as the debate brings people in, encouraged by algorithms the same big platforms that control everything around them implement to optimize their own revenue (algorithm is used to hide the word "decision" behind a complex term that makes it seem that you're not responsible because it appears as some magical computer stuff happening behind the curtains).
 
 We just have to look at what happens on TV, which relies on the same business model, to see where we'll head If we go down that road (and most TV is regulated, just imagine the same situation if not).
 

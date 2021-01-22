@@ -41,7 +41,7 @@ The data that enables user identification is shared with the entire ecosystem on
 
 What you get in the end is a system that controls websites from top to bottom, feeds them with leftovers, and doesn't care about user privacy.
 
-The press needs revenue to exist, but they're now stuck in a system where a handful of companies that sucked their revenues, that continue to enforce the idea that content is free, that control the access to their websites as they act as "internet entry-points" for most users (as deep as the browser people use) and that control the revenues scraps conceded to them.
+The press needs revenue to exist, but they're now stuck in a system where a handful of companies that sucked their revenues, that continue to enforce the idea that content is free, that control the access to their websites as they act as "internet entry-points" for most users (as deep as the browser people use) control the revenues scraps conceded to them.
 
 With less attractiveness for advertisers, revenues lowered by middlemen cuts, websites are forced to crave ad views to survive.
 

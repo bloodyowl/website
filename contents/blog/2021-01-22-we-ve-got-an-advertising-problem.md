@@ -3,7 +3,7 @@ title: We've got an advertising problem
 date: 2021-01-22
 ---
 
-**By successfully transforming private user data into a profit, the richest companies taken advertising a step too far, endangering both the private and the public life.**
+**By successfully transforming private user data into a profit, the richest companies have taken advertising a step too far, endangering both the private and the public life.**
 
 Nowadays, in order to generate revenue, most websites sell some of their visual space to advertisers. That concept has been around for quite a while. It worked in the printed press, and it's a perfectly legitimate business model.
 

@@ -99,7 +99,7 @@ Alternatives might be slightly less convenient, might shake some habits, but als
 
 It's not an easy choice though, especially for individuals. We've gotten used to this confort. Imagine not being able to search on Google, buy on Amazon, contact people on social networks. Most of them changed our lives, expanded possibilities in every direction, good or bad. Alternatives are different, some are really good, some miss a few bits, some made different choices, but it's worth a try. Helping smaller businesses (relative to Facebook and Google, most of them are) to be a serious contender can move the lines.
 
-Let's not loose every aspect of our lives to the hands of ad companies.
+Let's not lose every aspect of our lives to the hands of ad companies.
 
 In recent years we've had a glimpse of what it could be to let these companies do what they want: inference in the democratic process, expansion of false information and conspiracy theories, hate speech normalization, violence. Let's not risk getting deeper.
 

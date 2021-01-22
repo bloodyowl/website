@@ -15,7 +15,7 @@ The easy answer is that websites should offer a subscription model, but reality 
 
 So you get people wanting to buy ad space on websites to show their messages, and people wanting to sell their ad spaces. Everything should be good, right?
 
-In recent history, ad revenue that used to go to publishers got sucked in by Google & Facebook. Advertisers moved most of their budgets to these two platforms. How can we blame them? That seems like a reasonable choice, as Google & Facebook have undeniable advantages over what the market as it used to be.
+In recent history, ad revenue that used to go to publishers got sucked in by Google & Facebook. Advertisers moved most of their budgets to these two platforms. How can we blame them? That seems like a reasonable choice, as Google & Facebook have undeniable advantages over what the market used to be.
 
 First, they know their users: what they like, what topic catches their attention, their history, what they're currently actively searching for. That alone offered advertisers an unprecedented targeting ability, ensuring them a good return on investment.
 

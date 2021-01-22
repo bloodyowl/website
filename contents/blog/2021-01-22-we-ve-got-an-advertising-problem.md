@@ -31,13 +31,13 @@ And that independence is necessary for the freedom of press and for democracy. I
 
 So came the "programmatic" era.
 
-"Programmatic" is an umbrella term for a very complicated system that automates all the online advertising process. Instead of having salespeople in a media reaching to brands and agencies, you let the space you sell be managed by a third-party. Whenever one of your readers loads one of your pages, that third-party will organize a real-time auction for the ad space the user is going to see.
+"Programmatic" is an umbrella term for a very complicated system that automates all the online advertising process. Instead of having salespeople in a media reaching out to brands and agencies, you let the space you sell be managed by a third-party. Whenever one of your readers loads one of your pages, that third-party will organize a real-time auction for the ad space the user is going to see.
 
 On paper, that looks like a fantastic idea: you get a big exchange place where advertisers and publishers meet, the advertiser says how much they're willing to pay to show a user an ad, and that's it. Fully automated. No need for salespeople anymore. The third-party acts as a common denominator. It's the one managing to identify users, artificially grouping these isolated websites to give targeting capabilities across the web.
 
 Reality is quite different. You don't have a single third-party. You have lots of them. One that manages the demand, one that manages the supply, one that organizes the auction. Of course, each of them takes a cut on the way. Most of them are Google. Then you get smaller companies that plug themselves to that system at various intersections. Even though, on a dollar an advertiser spends on an ad, chances are, most of it will go to Google.
 
-The data that enables user identification is shared with the entire ecosystem on each ad request. Just look a the "partners" list on the box that asks you if you accept cookies. It's impossible that you give a clear consent to a thousand companies you've never heard of. But why is there so much? That's due to the nature of programmatic adversing itself. Because of that auction system between lots and lots of companies. They need the maximum amount of data they can get in order to know if and how much they'll bid on an ad space.
+The data that enables user identification is shared with the entire ecosystem on each ad request. Just look a the "partners" list on the box that asks you if you accept cookies. It's impossible that you give a clear consent to a thousand companies you've never heard of. But why is there so much? That's due to the nature of programmatic advertising itself. Because of that auction system between lots and lots of companies. They need the maximum amount of data they can get in order to know if and how much they'll bid on an ad space.
 
 What you get in the end is a system that controls websites from top to bottom, feeds them with leftovers, and doesn't care about user privacy.
 

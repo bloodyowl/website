@@ -1,16 +1,15 @@
 module Styles = {
-  open Css;
-  let container =
-    style([
-      display(flexBox),
-      flexGrow(1.0),
-      alignItems(center),
-      justifyContent(center),
-    ]);
-};
+  open Css
+  let container = style(list{
+    display(flexBox),
+    flexGrow(1.0),
+    alignItems(center),
+    justifyContent(center),
+  })
+}
 
-[@react.component]
-let make = (~color="#" ++ Theme.darkBody, ~size=32, ~strokeWidth=2, ()) => {
+@react.component
+let make = (~color="#" ++ Theme.darkBody, ~size=32, ~strokeWidth=2, ()) =>
   <div className=Styles.container>
     <svg
       width={string_of_int(size)}
@@ -24,7 +23,7 @@ let make = (~color="#" ++ Theme.darkBody, ~size=32, ~strokeWidth=2, ()) => {
       role="alert"
       ariaBusy=true>
       <g fill="none" fillRule="evenodd">
-        <g transform="translate(1 1)" strokeWidth={j|$strokeWidth|j}>
+        <g transform="translate(1 1)" strokeWidth=j`$strokeWidth`>
           <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
           <path d="M36 18c0-9.94-8.06-18-18-18">
             <animateTransform
@@ -39,5 +38,4 @@ let make = (~color="#" ++ Theme.darkBody, ~size=32, ~strokeWidth=2, ()) => {
         </g>
       </g>
     </svg>
-  </div>;
-};
+  </div>

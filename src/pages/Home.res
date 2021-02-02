@@ -58,7 +58,7 @@ let make = () => <>
       <p
         className=Styles.paragraph
         dangerouslySetInnerHTML={
-          "__html": `I'm <a href="https://beop.io" target="_blank"><strong>BeOp</strong></a>'s Head of Product Design, where we're building a new kind of advertising platform.`,
+          "__html": `I'm <a href="https://beop.io" target="_blank"><strong>BeOp</strong></a>'s Head of Product Design. We're building a new kind of advertising platform.`,
         }
       />
       <p

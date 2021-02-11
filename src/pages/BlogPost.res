@@ -3,7 +3,7 @@ open Belt
 module Styles = {
   open Css
   let container = style(list{
-    maxWidth(600->px),
+    maxWidth(640->px),
     padding2(~v=zero, ~h=10->px),
     margin2(~v=20->px, ~h=auto),
     width(100.->pct),
@@ -19,7 +19,8 @@ module Styles = {
   let date = style(list{fontSize(14->px), opacity(0.5), marginBottom(50->px)})
   let body = style(list{
     marginTop(40->px),
-    fontSize(18->px),
+    fontSize(20->px),
+    lineHeight(#abs(1.5)),
     selector(
       "a",
       list{
@@ -40,7 +41,7 @@ module Styles = {
     margin2(~h=auto, ~v=20->px),
     padding(20->px),
     backgroundColor("fff"->hex),
-    media("(prefers-color-scheme: dark)", list{backgroundColor("222"->hex)}),
+    media("(prefers-color-scheme: dark)", list{backgroundColor("111"->hex)}),
     borderRadius(10->px),
     boxShadows(list{
       Shadow.box(~y=15->px, ~blur=15->px, ~spread=-5->px, rgba(0, 0, 0, #num(0.2))),
@@ -76,7 +77,7 @@ module Styles = {
       borderLeftWidth(2->px),
       borderLeftColor(Theme.darkBody->hex),
       borderLeftStyle(solid),
-      media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(255, 255, 255, #num(0.05)))}),
+      media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(0, 0, 0, #num(0.9)))}),
     },
   )
   global(

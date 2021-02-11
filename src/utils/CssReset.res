@@ -40,7 +40,7 @@
       padding(zero),
       margin(zero),
       backgroundColor("fff"->hex),
-      media("(prefers-color-scheme: dark)", list{backgroundColor("040404"->hex)}),
+      media("(prefers-color-scheme: dark)", list{backgroundColor("222"->hex)}),
       fontFamily(#custom(Theme.defaultTextFontFamily)),
       display(flexBox),
       flexDirection(column),

@@ -59,21 +59,21 @@ let make = () =>
           src="/public/assets/images/owl.svg" width="32" height="32" alt="" className=Styles.logo
         />
         <div className=Styles.heading role="heading" ariaLevel=1>
-          <div className=Styles.name> {"Matthias Le Brun"->ReasonReact.string} </div>
-          <div> {"@bloodyowl"->ReasonReact.string} </div>
+          <div className=Styles.name> {"Matthias Le Brun"->React.string} </div>
+          <div> {"@bloodyowl"->React.string} </div>
         </div>
       </>}
     </Pages.Link>
     <div className=Styles.navigation>
       <Pages.Link
         className=Styles.link activeClassName=Styles.activeLink matchSubroutes=true href="/blog/">
-        {"Blog"->ReasonReact.string}
+        {"Blog"->React.string}
       </Pages.Link>
       <a className=Styles.link href="https://twitter.com/bloodyowl">
-        {"Twitter"->ReasonReact.string}
+        {"Twitter"->React.string}
       </a>
       <a className=Styles.link href="https://github.com/bloodyowl">
-        {"GitHub"->ReasonReact.string}
+        {"GitHub"->React.string}
       </a>
     </div>
   </div>

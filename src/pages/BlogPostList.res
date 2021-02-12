@@ -51,14 +51,14 @@ let make = () => {
                   {item.date
                   ->Option.map(Js.Date.fromString)
                   ->Option.map(Date.getFormattedString)
-                  ->Option.map(ReasonReact.string)
+                  ->Option.map(React.string)
                   ->Option.getWithDefault(React.null)}
                 </div>
-                <div className=Styles.title> {item.title->ReasonReact.string} </div>
+                <div className=Styles.title> {item.title->React.string} </div>
               </>}
             </Pages.Link>
           )
-          ->ReasonReact.array}
+          ->React.array}
         </div>
       </>
     | Done(Error(_)) => <ErrorIndicator />

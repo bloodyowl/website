@@ -119,17 +119,17 @@ let make = (~slug, ()) => {
     | Done(Ok(post)) => <>
         <Pages.Head> <title> {post.title->React.string} </title> </Pages.Head>
         <div className=Styles.container>
-          <h1 className=Styles.title> {post.title->ReasonReact.string} </h1>
+          <h1 className=Styles.title> {post.title->React.string} </h1>
           <div className=Styles.date>
             {post.date
             ->Option.map(Js.Date.fromString)
             ->Option.map(Date.getFormattedString)
-            ->Option.map(ReasonReact.string)
+            ->Option.map(React.string)
             ->Option.getWithDefault(React.null)}
           </div>
           <div role="article" className=Styles.body dangerouslySetInnerHTML={"__html": post.body} />
           <div className=Styles.share>
-            <div className=Styles.shareTitle> {j`Liked this article?`->ReasonReact.string} </div>
+            <div className=Styles.shareTitle> {j`Liked this article?`->React.string} </div>
             <Spacer height=10 width=0 />
             <a
               className=Styles.shareButton
@@ -146,7 +146,7 @@ let make = (~slug, ()) => {
               Js.Global.encodeURIComponent(
                 post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
               )}>
-              {`→ Share it on Twitter`->ReasonReact.string}
+              {`→ Share it on Twitter`->React.string}
             </a>
           </div>
           <BeOpWidget />

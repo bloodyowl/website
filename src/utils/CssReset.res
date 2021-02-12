@@ -1,4 +1,4 @@
-{
+let _ = {
   open Css
   global(
     fontFace(
@@ -15,7 +15,7 @@
   )
 }
 
-{
+let _ = {
   open Css
   global(
     fontFace(
@@ -32,7 +32,7 @@
   )
 }
 
-{
+let _ = {
   open Css
   global(
     "body",
@@ -50,12 +50,12 @@
   )
 }
 
-{
+let _ = {
   open Css
   global("#root", list{display(flexBox), flexDirection(column), flexGrow(1.0)})
 }
 
-{
+let _ = {
   open Css
   global(
     "html",
@@ -73,7 +73,7 @@
   )
 }
 
-{
+let _ = {
   open Css
   global("*, *:before, *:after", list{boxSizing(borderBox)})
 }

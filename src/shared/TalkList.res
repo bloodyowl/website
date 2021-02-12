@@ -42,12 +42,12 @@ let make = (~talks, ()) =>
       ->Array.map(((id, talk)) =>
         <div key=id className=Styles.item role="listitem">
           <a href=talk.url className=Styles.link>
-            <div className=Styles.date> {talk.date->ReasonReact.string} </div>
-            <div className=Styles.name> {talk.name->ReasonReact.string} </div>
-            <div className=Styles.description> {talk.description->ReasonReact.string} </div>
+            <div className=Styles.date> {talk.date->React.string} </div>
+            <div className=Styles.name> {talk.name->React.string} </div>
+            <div className=Styles.description> {talk.description->React.string} </div>
           </a>
         </div>
       )
-      ->ReasonReact.array}
+      ->React.array}
     </div>
   </div>

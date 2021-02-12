@@ -13,7 +13,7 @@ module Styles = {
 }
 
 @react.component
-let make = (~url: ReasonReactRouter.url, ~config: Pages.config, ()) =>
+let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) =>
   <div className=Styles.container>
     <Pages.Head>
       <html lang="en" />

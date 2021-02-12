@@ -48,7 +48,7 @@ let make = () => <>
   <div className=Styles.container>
     <div className=Styles.column> <div className=Styles.avatar /> </div>
     <div className=Styles.main>
-      <div className=Styles.hi> {"Hi!"->ReasonReact.string} </div>
+      <div className=Styles.hi> {"Hi!"->React.string} </div>
       <p
         className=Styles.paragraph
         dangerouslySetInnerHTML={

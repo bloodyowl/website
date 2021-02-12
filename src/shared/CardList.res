@@ -41,7 +41,7 @@ module Card = {
     let contents =
       <>
         <img className=Styles.image src=card.image alt="" />
-        <div className=Styles.text> {card.name->ReasonReact.string} </div>
+        <div className=Styles.text> {card.name->React.string} </div>
       </>
     switch card.url {
     | Some(href) => <a href className=Styles.container> contents </a>
@@ -68,6 +68,6 @@ module Styles = {
 let make = (~cards, ()) =>
   <div className=Styles.root>
     <div className=Styles.container>
-      {cards->Array.map(((id, card)) => <Card key=id card />)->ReasonReact.array}
+      {cards->Array.map(((id, card)) => <Card key=id card />)->React.array}
     </div>
   </div>

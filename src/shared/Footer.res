@@ -12,4 +12,4 @@ module Styles = {
 
 @react.component
 let make = () =>
-  <div className=Styles.container> {"Copyright 2020 - Matthias Le Brun"->ReasonReact.string} </div>
+  <div className=Styles.container> {"Copyright 2020 - Matthias Le Brun"->React.string} </div>

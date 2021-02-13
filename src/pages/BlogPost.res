@@ -106,6 +106,13 @@ module Styles = {
       padding2(~h=20->px, ~v=zero),
     },
   )
+  global(
+    "hr",
+    list{
+      borderColor(rgba(0, 0, 0, #num(0.1))),
+      media("(prefers-color-scheme: dark)", list{borderColor(rgba(255, 255, 255, #num(0.1)))}),
+    },
+  )
 }
 
 @react.component

@@ -44,7 +44,7 @@ module Styles = {
     textAlign(center),
     media(
       "(max-width: 620px)",
-      list{flexBasis(33.333->pct), padding3(~h=20->px, ~top=10->px, ~bottom=13->px)},
+      list{flexBasis(25.0->pct), padding3(~h=10->px, ~top=10->px, ~bottom=13->px)},
     ),
   })
   let activeLink = style(list{fontWeight(bold)})
@@ -69,11 +69,10 @@ let make = () =>
         className=Styles.link activeClassName=Styles.activeLink matchSubroutes=true href="/blog/">
         {"Blog"->React.string}
       </Pages.Link>
-      <a className=Styles.link href="https://twitter.com/bloodyowl">
-        {"Twitter"->React.string}
-      </a>
-      <a className=Styles.link href="https://github.com/bloodyowl">
-        {"GitHub"->React.string}
+      <a className=Styles.link href="https://twitter.com/bloodyowl"> {"Twitter"->React.string} </a>
+      <a className=Styles.link href="https://github.com/bloodyowl"> {"GitHub"->React.string} </a>
+      <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
+        {"LinkedIn"->React.string}
       </a>
     </div>
   </div>

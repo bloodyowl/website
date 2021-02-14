@@ -3,7 +3,7 @@ open Belt
 module Styles = {
   open Css
   let container = style(list{
-    maxWidth(620->px),
+    maxWidth(640->px),
     padding2(~v=zero, ~h=10->px),
     margin2(~v=20->px, ~h=auto),
     width(100.->pct),
@@ -11,7 +11,7 @@ module Styles = {
   })
   let link = style(list{
     padding(10->px),
-    fontSize(20->px),
+    fontSize(24->px),
     color(Theme.darkBody->hex),
     textDecoration(none),
     display(flexBox),
@@ -28,7 +28,7 @@ module Styles = {
       },
     ),
   })
-  let date = style(list{fontSize(12->px), opacity(0.5)})
+  let date = style(list{fontSize(18->px), opacity(0.5)})
   let title = style(list{fontWeight(bold)})
 }
 

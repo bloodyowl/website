@@ -30,8 +30,8 @@ module Styles = {
     ),
   })
   let date = style(list{opacity(0.5), fontSize(14->px)})
-  let name = style(list{fontSize(20->px), paddingBottom(5->px), fontWeight(bold)})
-  let description = style(list{fontSize(14->px)})
+  let name = style(list{fontSize(24->px), paddingBottom(5->px), fontWeight(bold)})
+  let description = style(list{fontSize(16->px)})
 }
 
 @react.component

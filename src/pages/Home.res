@@ -30,7 +30,8 @@ module Styles = {
     fontWeight(bold),
   })
   let paragraph = style(list{
-    maxWidth(520->px),
+    maxWidth(640->px),
+    fontSize(20->px),
     selector(
       "a",
       list{
@@ -52,19 +53,19 @@ let make = () => <>
       <p
         className=Styles.paragraph
         dangerouslySetInnerHTML={
-          "__html": `My name is <strong>Matthias Le Brun</strong> (aka <strong>@bloodyowl</strong>), and I’m a <strong>front-end&nbsp;developer</strong> living in Paris, France.`,
+          "__html": `My name is <strong>Matthias Le Brun</strong> (aka <a href="https://twitter.com/bloodyowl" target="_blank"><strong>@bloodyowl</strong></a>).`,
         }
       />
       <p
         className=Styles.paragraph
         dangerouslySetInnerHTML={
-          "__html": `I'm <a href="https://beop.io" target="_blank"><strong>BeOp</strong></a>'s Head of Product Design. We're building a new kind of advertising platform.`,
+          "__html": `I’m a <strong>front-end&nbsp;developer</strong> living in Paris, France.`,
         }
       />
       <p
         className=Styles.paragraph
         dangerouslySetInnerHTML={
-          "__html": `I <strong>design</strong> and <strong>develop</strong> our dashboard and widget using ReScript (ReasonML) and React.`,
+          "__html": `I'm <strong>Head of Product Design</strong> at <a href="https://beop.io" target="_blank"><strong>BeOp</strong></a>, where we're building a new kind of advertising platform.`,
         }
       />
       <Heading text="Things I work with" />

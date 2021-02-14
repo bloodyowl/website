@@ -7,7 +7,7 @@ date: 2021-02-13
 
 ## 1. Know your audience
 
-It might seem obvious, but that's the **#1 problem** with most presentations, especially internal or technical ones. We tend to bloat our presentations with information that's **unnecessary for our audience** while paradoxically **not being forgiving to people that don't start at the same level of information as you do**.
+It might seem obvious, but that's the **#1 problem** with most presentations, especially internal or technical ones. We tend to bloat our presentations with information that's **unnecessary for our audience** while paradoxically **not being forgiving to people that don't start at the same level of information as we do**.
 
 **Who are you talking to?** Are you sure they know your [jargon](/blog/2021-01-14-industry-dialects/)? What depth are your taking them to in your explanation?
 

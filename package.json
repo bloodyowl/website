@@ -23,7 +23,7 @@
     "gh-pages": "^2.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rescript-pages": "^1.0.0"
+    "rescript-pages": "^1.0.2"
   },
   "devDependencies": {
     "bs-platform": "^8.3.0"

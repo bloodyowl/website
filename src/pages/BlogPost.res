@@ -95,7 +95,11 @@ module Styles = {
   global("table", list{width(100.->pct), textAlign(center)})
   global(
     "table thead th",
-    list{backgroundColor(Theme.lightBody->hex), padding2(~v=10->px, ~h=zero)},
+    list{
+      backgroundColor(Theme.lightBody->hex),
+      padding2(~v=10->px, ~h=zero),
+      media("(prefers-color-scheme: dark)", list{backgroundColor("111"->hex)}),
+    },
   )
   global(
     "blockquote",

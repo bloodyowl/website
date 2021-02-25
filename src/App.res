@@ -12,8 +12,14 @@ module Styles = {
   })
 }
 
+@val external window: {..} = "window"
 @react.component
-let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) =>
+let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
+  React.useEffect1(() => {
+    let () = window["scrollTo"](0, 0)
+    None
+  }, [url.path->List.toArray->Js.Array.joinWith("/", _)])
+
   <div className=Styles.container>
     <Pages.Head>
       <html lang="en" />
@@ -52,6 +58,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) =>
     }}
     <Footer />
   </div>
+}
 
 let default = Pages.make(
   make,

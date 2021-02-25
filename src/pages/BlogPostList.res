@@ -30,6 +30,23 @@ module Styles = {
   })
   let date = style(list{fontSize(18->px), opacity(0.5)})
   let title = style(list{fontWeight(bold)})
+  let pulse = keyframes(list{(50, list{opacity(0.5)})})
+  let datePlaceholder = style(list{
+    width(100.0->pct),
+    height(18->px),
+    margin2(~v=3->px, ~h=zero),
+    maxWidth(90->px),
+    backgroundColor(rgba(0, 0, 0, #num(0.05))),
+    animation(~duration=2000, ~iterationCount=infinite, pulse),
+  })
+  let titlePlaceholder = style(list{
+    width(100.0->pct),
+    height(24->px),
+    margin2(~v=3->px, ~h=zero),
+    maxWidth(440->px),
+    backgroundColor(rgba(0, 0, 0, #num(0.05))),
+    animation(~duration=2000, ~iterationCount=infinite, pulse),
+  })
 }
 
 @react.component
@@ -39,7 +56,15 @@ let make = () => {
     {switch list {
     | NotAsked
     | Loading =>
-      <ActivityIndicator />
+      <div className=Styles.container ariaLabel="Loading" role="alert" ariaBusy=true>
+        {Array.range(0, 6)
+        ->Array.map(index =>
+          <div className=Styles.link key={index->Int.toString}>
+            <div className=Styles.datePlaceholder /> <div className=Styles.titlePlaceholder />
+          </div>
+        )
+        ->React.array}
+      </div>
     | Done(Ok({items: list})) => <>
         <Pages.Head> <title> {"Blog"->React.string} </title> </Pages.Head>
         <div className=Styles.container>

@@ -16,6 +16,32 @@ module Styles = {
     marginBottom(10->px),
     lineHeight(#abs(1.15)),
   })
+  let pulse = keyframes(list{(50, list{opacity(0.5)})})
+  let titlePlaceholder = style(list{
+    width(100.0->pct),
+    height(48->px),
+    marginTop(50->px),
+    marginBottom(10->px),
+    maxWidth(440->px),
+    backgroundColor(rgba(0, 0, 0, #num(0.05))),
+    animation(~duration=2000, ~iterationCount=infinite, pulse),
+  })
+  let datePlaceholder = style(list{
+    width(100.0->pct),
+    height(18->px),
+    marginBottom(50->px),
+    maxWidth(90->px),
+    backgroundColor(rgba(0, 0, 0, #num(0.05))),
+    animation(~duration=2000, ~iterationCount=infinite, pulse),
+  })
+  let bodyPlaceholder = style(list{
+    marginTop(40->px),
+    width(100.0->pct),
+    height(200->px),
+    margin2(~v=3->px, ~h=zero),
+    backgroundColor(rgba(0, 0, 0, #num(0.05))),
+    animation(~duration=2000, ~iterationCount=infinite, pulse),
+  })
   let date = style(list{fontSize(14->px), opacity(0.5), marginBottom(50->px)})
   let body = style(list{
     marginTop(40->px),
@@ -126,7 +152,11 @@ let make = (~slug, ()) => {
     {switch post {
     | NotAsked
     | Loading =>
-      <ActivityIndicator />
+      <div className=Styles.container ariaLabel="Loading" role="alert" ariaBusy=true>
+        <div className=Styles.titlePlaceholder />
+        <div className=Styles.datePlaceholder />
+        <div className=Styles.bodyPlaceholder />
+      </div>
     | Done(Ok(post)) => <>
         <Pages.Head> <title> {post.title->React.string} </title> </Pages.Head>
         <div className=Styles.container>

@@ -25,6 +25,7 @@ module Styles = {
     maxWidth(440->px),
     backgroundColor(rgba(0, 0, 0, #num(0.05))),
     animation(~duration=2000, ~iterationCount=infinite, pulse),
+    media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(255, 255, 255, #num(0.05)))}),
   })
   let datePlaceholder = style(list{
     width(100.0->pct),
@@ -33,6 +34,7 @@ module Styles = {
     maxWidth(90->px),
     backgroundColor(rgba(0, 0, 0, #num(0.05))),
     animation(~duration=2000, ~iterationCount=infinite, pulse),
+    media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(255, 255, 255, #num(0.05)))}),
   })
   let bodyPlaceholder = style(list{
     marginTop(40->px),
@@ -41,6 +43,7 @@ module Styles = {
     margin2(~v=3->px, ~h=zero),
     backgroundColor(rgba(0, 0, 0, #num(0.05))),
     animation(~duration=2000, ~iterationCount=infinite, pulse),
+    media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(255, 255, 255, #num(0.05)))}),
   })
   let date = style(list{fontSize(14->px), opacity(0.5), marginBottom(50->px)})
   let body = style(list{

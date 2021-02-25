@@ -38,6 +38,7 @@ module Styles = {
     maxWidth(90->px),
     backgroundColor(rgba(0, 0, 0, #num(0.05))),
     animation(~duration=2000, ~iterationCount=infinite, pulse),
+    media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(255, 255, 255, #num(0.05)))}),
   })
   let titlePlaceholder = style(list{
     width(100.0->pct),
@@ -46,6 +47,8 @@ module Styles = {
     maxWidth(440->px),
     backgroundColor(rgba(0, 0, 0, #num(0.05))),
     animation(~duration=2000, ~iterationCount=infinite, pulse),
+    margin2(~v=3->px, ~h=zero),
+    media("(prefers-color-scheme: dark)", list{backgroundColor(rgba(255, 255, 255, #num(0.05)))}),
   })
 }
 

@@ -22,7 +22,7 @@ I really like Simon Sinek's [«Start with why»](https://www.youtube.com/watch?v
 
 To paraphrase a little: **start from the vision, then figure out how to make it happen, then do it**.
 
-<img src="/public/assets/images/GoldenCircle.png" onload="this.style.opacity=1" alt="Why, how and what" width="1258" height="708" loading="lazy" />
+<img src="/public/assets/images/GoldenCircle.webp" onload="this.style.opacity=1" alt="Why, how and what" width="1258" height="708" loading="lazy" />
 
 Of course Sinek talks about a general principle, but in our case it also works in the small.
 
@@ -73,7 +73,7 @@ When you write **smart code**, the most likely person you'll outsmart is your fu
 
 If a piece of code that you don't find perfect brings immediate value to your product, why wouldn't you add it?
 
-<img src="/public/assets/images/EffortValue.png" onload="this.style.opacity=1" alt="Effort on value" width="1252" height="698" loading="lazy" />
+<img src="/public/assets/images/EffortValue.webp" onload="this.style.opacity=1" alt="Effort on value" width="1252" height="698" loading="lazy" />
 
 **Dumb code mecanically reduces the** immediate and later **effort**, making the value that you're able to bring more accessible.
 

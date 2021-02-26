@@ -3,7 +3,7 @@ title: A guide for simple presentations
 date: 2021-02-13
 ---
 
-<img src="/public/assets/images/keynote.png" alt="Keynote screenshot" width="2904" height="1456" onload="this.style.opacity=1" loading="lazy"/>
+<img src="/public/assets/images/keynote.webp" alt="Keynote screenshot" width="2904" height="1456" onload="this.style.opacity=1" loading="lazy"/>
 
 ## 1. Know your audience
 

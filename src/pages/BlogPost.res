@@ -58,7 +58,15 @@ module Styles = {
         media("(prefers-color-scheme: dark)", list{color("13A3FF"->hex)}),
       },
     ),
-    selector("img", list{maxWidth(100.0->pct), height(auto)}),
+    selector(
+      "img",
+      list{
+        maxWidth(100.0->pct),
+        height(auto),
+        opacity(0.0),
+        transition(~duration=300, ~timingFunction=#easeOut, "opacity"),
+      },
+    ),
   })
   let share = style(list{
     maxWidth(640->px),

@@ -10,7 +10,7 @@ The main websites I've built with the previous solutions are quite different:
 - [Putain de code!](https://putaindecode.io), which has a bit more content
 - [BeOp](https://beop.io), our company website, which needs i18n, and requires more ease of use, as not only tech people work on it
 
-<img alt="BeOp" src="/public/assets/images/beop.png" width="2644" height="1644" />
+<img alt="BeOp" onload="this.style.opacity=1" src="/public/assets/images/beop.png" width="2644" height="1644" loading="lazy" />
 
 I recently rebuilt the latter, and wanted to share the resources between the three. I believe that in development, it is good to **repeat yourself** at first, observe what time does, **then** commonise what you can. 
 

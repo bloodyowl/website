@@ -3,7 +3,7 @@ title: A guide for simple presentations
 date: 2021-02-13
 ---
 
-![Keynote screenshot](/public/assets/images/keynote.png)
+<img src="/public/assets/images/keynote.png" alt="Keynote screenshot" width="2904" height="1456" />
 
 ## 1. Know your audience
 

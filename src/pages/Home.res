@@ -88,14 +88,6 @@ let make = () => <>
             },
           ),
           (
-            "jest",
-            {
-              name: "Jest",
-              image: "/public/assets/images/technologies/jest.svg",
-              url: Some("http://jestjs.io/"),
-            },
-          ),
-          (
             "sketch",
             {
               name: "Sketch",

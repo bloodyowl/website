@@ -26,7 +26,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
       <meta charSet="UTF-8" />
       <style> {`@import url("//hello.myfonts.net/count/3cae5f")`->React.string} </style>
       <meta name="google-site-verification" content="w75-P-0ywXWkyZvYPbkSM3VSM2hny25UrfeiWJt3B1k" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={config.baseUrl ++ "/public/assets/images/share.jpg"} />

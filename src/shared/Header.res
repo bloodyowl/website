@@ -7,6 +7,10 @@ module Styles = {
     flexDirection(row),
     alignItems(stretch),
     flexWrap(wrap),
+    unsafe(
+      "padding",
+      "0 env(safe-area-inset-right) 0 env(safe-area-inset-left)",
+    ),
     media("(max-width: 620px)", list{flexDirection(column)}),
   })
   let left = style(list{

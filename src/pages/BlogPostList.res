@@ -55,7 +55,7 @@ module Styles = {
 @react.component
 let make = () => {
   let list = Pages.useCollection("blog")
-  <>
+  <SafeArea>
     {switch list {
     | NotAsked
     | Loading =>
@@ -91,5 +91,5 @@ let make = () => {
       </>
     | Done(Error(_)) => <ErrorIndicator />
     }}
-  </>
+  </SafeArea>
 }

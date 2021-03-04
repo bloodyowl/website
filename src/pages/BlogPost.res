@@ -4,8 +4,8 @@ module Styles = {
   open Css
   let container = style(list{
     maxWidth(640->px),
-    padding2(~v=zero, ~h=10->px),
     margin2(~v=20->px, ~h=auto),
+    padding2(~v=zero, ~h=10->px),
     width(100.->pct),
     flexGrow(1.),
   })
@@ -159,7 +159,7 @@ module Styles = {
 @react.component
 let make = (~slug, ()) => {
   let post = Pages.useItem("blog", ~id=slug)
-  <>
+  <SafeArea>
     {switch post {
     | NotAsked
     | Loading =>
@@ -206,5 +206,5 @@ let make = (~slug, ()) => {
       </>
     | Done(Error(_)) => <ErrorIndicator />
     }}
-  </>
+  </SafeArea>
 }

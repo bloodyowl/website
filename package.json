@@ -7,8 +7,8 @@
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d dist",
-    "server": "pages start src/App.bs.js 3000",
-    "prerender": "pages build src/App.bs.js",
+    "server": "pages start src/App.mjs 3000",
+    "prerender": "pages build src/App.mjs",
     "release": "rm -fr dist && yarn build && yarn prerender && yarn deploy",
     "format": "find ./src -iname '*.re' | xargs bsrefmt --in-place && find ./src -iname '*.rei' | xargs bsrefmt -i true --in-place"
   },
@@ -23,9 +23,9 @@
     "gh-pages": "^2.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rescript-pages": "^1.0.2"
+    "rescript-pages": "^2.0.1"
   },
   "devDependencies": {
-    "bs-platform": "^8.3.0"
+    "bs-platform": "^9.0.0"
   }
 }

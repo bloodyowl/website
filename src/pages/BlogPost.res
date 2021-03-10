@@ -72,7 +72,7 @@ module Styles = {
     maxWidth(640->px),
     width(100.->pct),
     display(flexBox),
-    flexDirection(row),
+    flexDirection(column),
     alignItems(center),
     justifyContent(spaceBetween),
     margin2(~h=auto, ~v=20->px),
@@ -87,6 +87,12 @@ module Styles = {
     media("(max-width: 540px)", list{flexDirection(column)}),
   })
   let shareTitle = style(list{fontWeight(extraBold), fontSize(18->px)})
+  let shareButtons = style(list{
+    display(flexBox),
+    flexDirection(row),
+    alignItems(center),
+    justifyContent(center),
+  })
   let shareButton = style(list{
     backgroundColor("00aced"->hex),
     color("fff"->hex),
@@ -96,9 +102,18 @@ module Styles = {
     fontWeight(extraBold),
     active(list{opacity(0.5)}),
   })
+  let sponsorButton = style(list{
+    backgroundColor("ea4aaa"->hex),
+    color("fff"->hex),
+    padding2(~h=20->px, ~v=10->px),
+    textDecoration(none),
+    borderRadius(5->px),
+    fontWeight(extraBold),
+    active(list{opacity(0.5)}),
+  })
 }
 
-@bs.val external window: {..} = "window"
+@val external window: {..} = "window"
 
 {
   open Css
@@ -183,23 +198,33 @@ let make = (~slug, ()) => {
           <div className=Styles.share>
             <div className=Styles.shareTitle> {j`Liked this article?`->React.string} </div>
             <Spacer height=10 width=0 />
-            <a
-              className=Styles.shareButton
-              onClick={event => {
-                event->ReactEvent.Mouse.preventDefault
-                window["open"](
-                  (event->ReactEvent.Mouse.target)["href"],
-                  "",
-                  "width=500,height=400",
-                )->ignore
-              }}
-              target="_blank"
-              href={"https://www.twitter.com/intent/tweet?text=" ++
-              Js.Global.encodeURIComponent(
-                post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
-              )}>
-              {`→ Share it on Twitter`->React.string}
-            </a>
+            <div className=Styles.shareButtons>
+              <a
+                className=Styles.shareButton
+                onClick={event => {
+                  event->ReactEvent.Mouse.preventDefault
+                  window["open"](
+                    (event->ReactEvent.Mouse.target)["href"],
+                    "",
+                    "width=500,height=400",
+                  )->ignore
+                }}
+                target="_blank"
+                href={"https://www.twitter.com/intent/tweet?text=" ++
+                Js.Global.encodeURIComponent(
+                  post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
+                )}>
+                {`→ Share it on Twitter`->React.string}
+              </a>
+              <Spacer height=0 width=10 />
+              <a
+                className=Styles.sponsorButton
+                rel="noopener"
+                target="_blank"
+                href={"https://github.com/sponsors/bloodyowl"}>
+                {`→ Sponsor me on GitHub`->React.string}
+              </a>
+            </div>
           </div>
           <BeOpWidget />
         </div>

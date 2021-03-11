@@ -8,7 +8,7 @@ module Styles = {
     padding(20->px),
     fontSize(14->px),
   })
-  let link = style(list{color("ea4aaa"->hex), hover(list{color("EC8AC5"->hex)})})
+  let link = style(list{color("EC8AC5"->hex), hover(list{color("F9BDE1"->hex)})})
   let text = style(list{opacity(0.5)})
 }
 

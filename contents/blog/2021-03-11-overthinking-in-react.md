@@ -13,7 +13,7 @@ You end up managing a worse codebase, for a little to none benefit, you just cyc
 
 As in most industries, we have a certain kind of underlying social contract of trust with influence. Some famous tech person says something, therefore it's a _best practices_, everyone needs to update their codebase.
 
-Some call that the [Dan Abramov effect](https://twitter.com/ThePracticalDev/status/718462272335704064) (even though [Dan](https://twitter.com/dan_abramov) actually mostly writes about how not to fall for the hype). Back in the days, henever Dan tweeted some repository, people took it for an endorsement, and jumped right in.
+Some call that the [Dan Abramov effect](https://twitter.com/ThePracticalDev/status/718462272335704064) (even though [Dan](https://twitter.com/dan_abramov) actually mostly writes about how not to fall for the hype). Back in the days, whenever Dan tweeted some repository, people took it for an endorsement, and jumped right in.
 
 This is the case for a **lot** of influential people in tech, in different areas. We tend to fall for the status, for the hype, while undermining our actual needs.
 

@@ -5,7 +5,7 @@ date: 2021-03-11
 
 Now and then, I stumble opon online pieces about how to make React applications the right way™, whether on an optimization angle or a scalability one.
 
-Some will tell you that in order to be performant, you'll need to make `useMemo` and `useCallback` your best friends, and use it in every component. Some will tell you that you need to put your data in some kind of external store like [Redux](https://redux.js.org) or [mobx](https://mobx.js.org/README.html). Some will argue about the best way to organize your [styled components](https://styled-components.com). Some will you how the [Context API](https://reactjs.org/docs/context.html) is the solution to all your pains.
+Some will tell you that in order to be performant, you'll need to make `useMemo` and `useCallback` your best friends, and use it in every component. Some will tell you that you need to put your data in some kind of external store like [Redux](https://redux.js.org) or [mobx](https://mobx.js.org/README.html). Some will argue about the best way to organize your [styled components](https://styled-components.com). Some will tell you how the [Context API](https://reactjs.org/docs/context.html) is the solution to all your pains.
 
 The thing is, when you look at it, that **most of these advices are whether aesthetical choices or premature optimizations**. Managing an external store can be a pain for data invalidation and effect management, `useMemo` and `useCallback` can sometimes hurt more than they fix anything in terms of performance.
 

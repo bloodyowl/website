@@ -92,7 +92,7 @@ module Styles = {
     flexDirection(row),
     alignItems(center),
     justifyContent(center),
-    flexWrap(wrap),
+    media("(max-width: 540px)", list{flexDirection(column)}),
   })
   let shareButton = style(list{
     backgroundColor("00aced"->hex),

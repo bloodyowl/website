@@ -92,6 +92,7 @@ module Styles = {
     flexDirection(row),
     alignItems(center),
     justifyContent(center),
+    flexWrap(wrap),
   })
   let shareButton = style(list{
     backgroundColor("00aced"->hex),
@@ -216,7 +217,7 @@ let make = (~slug, ()) => {
                 )}>
                 {`→ Share it on Twitter`->React.string}
               </a>
-              <Spacer height=0 width=10 />
+              <Spacer height=10 width=10 />
               <a
                 className=Styles.sponsorButton
                 rel="noopener"

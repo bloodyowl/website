@@ -8,30 +8,35 @@ type talk = {
 }
 
 module Styles = {
-  open Css
-  let container = style(list{display(flexBox), flexDirection(row)})
-  let list = style(list{display(flexBox), flexDirection(column), alignItems(stretch)})
-  let item = style(list{marginLeft(-10->px), display(flexBox), flexDirection(row)})
-  let link = style(list{
-    flexGrow(1.0),
-    textDecoration(none),
-    color(Theme.darkBody->hex),
-    padding(10->px),
-    borderRadius(10->px),
-    hover(list{backgroundColor(rgba(0, 0, 0, #num(0.03)))}),
-    active(list{backgroundColor(rgba(0, 0, 0, #num(0.05)))}),
-    media(
-      "(prefers-color-scheme: dark)",
-      list{
-        color(Theme.lightBody->hex),
-        hover(list{backgroundColor(rgba(255, 255, 255, #num(0.1)))}),
-        active(list{backgroundColor(rgba(255, 255, 255, #num(0.15)))}),
+  open Emotion
+  let container = css({"display": "flex", "flexDirection": "row"})
+  let list = css({"display": "flex", "flexDirection": "column", "alignItems": "stretch"})
+  let item = css({"marginLeft": -10, "display": "flex", "flexDirection": "row"})
+  let link = css({
+    "flexGrow": 1,
+    "textDecoration": "none",
+    "padding": 10,
+    "borderRadius": 10,
+    "color": `#${Theme.darkBody}`,
+    ":hover": {
+      "backgroundColor": "rgba(0, 0, 0, 0.03)",
+    },
+    ":active": {
+      "backgroundColor": "rgba(0, 0, 0, 0.05)",
+    },
+    "@media (prefers-color-scheme: dark)": {
+      "color": `#${Theme.lightBody}`,
+      ":hover": {
+        "backgroundColor": "rgba(255, 255, 255, 0.1)",
       },
-    ),
+      ":active": {
+        "backgroundColor": "rgba(255, 255, 255, 0.15)",
+      },
+    },
   })
-  let date = style(list{opacity(0.5), fontSize(14->px)})
-  let name = style(list{fontSize(24->px), paddingBottom(2->px), fontWeight(bold)})
-  let description = style(list{fontSize(16->px), paddingBottom(4->px)})
+  let date = css({"opacity": 0.5, "fontSize": 14})
+  let name = css({"fontSize": 24, "paddingBottom": 2, "fontWeight": "bold"})
+  let description = css({"fontSize": 16, "paddingBottom": 4})
 }
 
 @react.component

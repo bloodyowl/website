@@ -1,57 +1,60 @@
 module Styles = {
-  open Css
-  let container = style(list{
-    backgroundColor(Theme.lightBody->hex),
-    media("(prefers-color-scheme: dark)", list{backgroundColor("111"->hex)}),
-    display(flexBox),
-    flexDirection(row),
-    alignItems(stretch),
-    flexWrap(wrap),
-    unsafe(
-      "padding",
-      "0 env(safe-area-inset-right) 0 env(safe-area-inset-left)",
-    ),
-    media("(max-width: 620px)", list{flexDirection(column)}),
+  open Emotion
+  let container = css({
+    "backgroundColor": `#${Theme.lightBody}`,
+    "@media (prefers-color-scheme: dark)": {
+      "backgroundColor": "#111",
+    },
+    "display": "flex",
+    "flexDirection": "row",
+    "alignItems": "stretch",
+    "flexWrap": "wrap",
+    "padding": "0 env(safe-area-inset-right) 0 env(safe-area-inset-left)",
+    "@media (max-width: 620px)": {
+      "flexDirection": "column",
+    },
   })
-  let left = style(list{
-    display(flexBox),
-    flexDirection(row),
-    alignItems(stretch),
-    flexWrap(wrap),
-    flexGrow(1.0),
-    color(Theme.darkBody->hex),
-    media("(prefers-color-scheme: dark)", list{color(Theme.lightBody->hex)}),
-    textDecoration(none),
+  let left = css({
+    "display": "flex",
+    "flexDirection": "row",
+    "alignItems": "stretch",
+    "flexWrap": "wrap",
+    "flexGrow": 1,
+    "color": `#${Theme.darkBody}`,
+    "@media (prefers-color-scheme: dark)": {
+      "color": `#${Theme.lightBody}`,
+    },
+    "textDecoration": "none",
   })
-  let heading = style(list{
-    padding4(~left=zero, ~right=20->px, ~top=20->px, ~bottom=23->px),
-    display(flexBox),
-    flexDirection(row),
-    alignItems(center),
-    flexGrow(1.0),
+  let heading = css({
+    "padding": "20px 20px 23px 0",
+    "display": "flex",
+    "flexDirection": "row",
+    "alignItems": "center",
+    "flexGrow": 1,
   })
-  let name = style(list{fontWeight(bold), marginRight(10->px), whiteSpace(nowrap)})
-  let logo = style(list{marginRight(10->px), marginLeft(20->px), alignSelf(center)})
-  let navigation = style(list{
-    display(flexBox),
-    flexDirection(row),
-    alignItems(center),
-    media("(max-width: 620px)", list{flexGrow(1.), backgroundColor("D4E1E6"->hex)}),
-    media("(max-width: 620px) and (prefers-color-scheme: dark)", list{backgroundColor("111"->hex)}),
+  let name = css({"fontWeight": "bold", "marginRight": 10, "whiteSpace": "nowrap"})
+  let logo = css({"marginRight": 10, "marginLeft": 20, "alignSelf": "center"})
+  let navigation = css({
+    "display": "flex",
+    "flexDirection": "row",
+    "alignItems": "center",
+    "@media (max-width: 620px)": {"flexGrow": 1, "backgroundColor": "#D4E1E6"},
+    "@media (max-width: 620px) and (prefers-color-scheme: dark)": {"backgroundColor": "#111"},
   })
-  let link = style(list{
-    padding3(~h=20->px, ~top=20->px, ~bottom=23->px),
-    flexShrink(0.0),
-    textDecoration(none),
-    color(Theme.darkBody->hex),
-    media("(prefers-color-scheme: dark)", list{color(Theme.lightBody->hex)}),
-    textAlign(center),
-    media(
-      "(max-width: 620px)",
-      list{flexBasis(25.0->pct), padding3(~h=10->px, ~top=10->px, ~bottom=13->px)},
-    ),
+  let link = css({
+    "padding": "20px 20px 23px",
+    "flexShrink": 0,
+    "textDecoration": "none",
+    "color": `#${Theme.darkBody}`,
+    "@media (prefers-color-scheme: dark)": {"color": `#${Theme.lightBody}`},
+    "textAlign": "center",
+    "@media (max-width: 620px)": {
+      "flexBasis": "25%",
+      "padding": "10px 10px 13px",
+    },
   })
-  let activeLink = style(list{fontWeight(bold)})
+  let activeLink = css({"fontWeight": "bold"})
 }
 
 @react.component

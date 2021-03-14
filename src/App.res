@@ -1,14 +1,69 @@
-include CssReset
+Emotion.injectGlobal(`
+@font-face {
+  font-family: HelveticaNowDisplay;
+  src: url("/public/assets/webfonts/regular.woff2"),
+    url("/public/assets/webfonts/regular.woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: HelveticaNowDisplay;
+  src: url("/public/assets/webfonts/bold.woff2"),
+    url("/public/assets/webfonts/bold.woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-family: HelveticaNowDisplay, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+  }
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+html {
+  color: #46515b;
+  font-size: 1em;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    color: #e4ebee;
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+`)
 
 open Belt
 
 module Styles = {
-  open Css
-  let container = style(list{
-    minHeight(100.->vh),
-    display(flexBox),
-    flexDirection(column),
-    alignItems(stretch),
+  open Emotion
+  let container = css({
+    "minHeight": "100vh",
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": "stretch",
   })
 }
 
@@ -26,7 +81,10 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
       <meta charSet="UTF-8" />
       <style> {`@import url("//hello.myfonts.net/count/3cae5f")`->React.string} </style>
       <meta name="google-site-verification" content="w75-P-0ywXWkyZvYPbkSM3VSM2hny25UrfeiWJt3B1k" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={config.baseUrl ++ "/public/assets/images/share.jpg"} />

@@ -1,13 +1,13 @@
 module Styles = {
-  open Css
-  let container = style(list{
-    display(flexBox),
-    flexDirection(column),
-    alignItems(stretch),
-    justifyContent(center),
-    flexGrow(1.0),
-    unsafe("paddingLeft", "env(safe-area-inset-left)"),
-    unsafe("paddingRight", "env(safe-area-inset-right)"),
+  open Emotion
+  let container = css({
+    "display": "flex",
+    "flexDirection": "column",
+    "alignItems": "stretch",
+    "justifyContent": "center",
+    "flexGrow": 1,
+    "paddingLeft": "env(safe-area-inset-left)",
+    "paddingRight": "env(safe-area-inset-right)",
   })
 }
 

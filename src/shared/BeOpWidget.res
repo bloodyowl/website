@@ -1,6 +1,6 @@
 module Styles = {
-  open Css
-  let container = style(list{padding2(~v=10->px, ~h=zero)})
+  open Emotion
+  let container = css({"padding": "10px 0"})
 }
 
 @react.component

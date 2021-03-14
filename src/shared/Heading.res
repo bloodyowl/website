@@ -1,6 +1,6 @@
 module Styles = {
-  open Css
-  let title = style(list{margin2(~v=20->px, ~h=zero), fontSize(42->px), fontWeight(bold)})
+  open Emotion
+  let title = css({"margin": "20px 0", "fontSize": 42, "fontWeight": "bold"})
 }
 
 @react.component

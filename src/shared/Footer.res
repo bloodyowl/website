@@ -1,15 +1,20 @@
 module Styles = {
-  open Css
-  let container = style(list{
-    backgroundColor(Theme.darkBody->hex),
-    media("(prefers-color-scheme: dark)", list{backgroundColor("000"->hex)}),
-    color("fff"->hex),
-    textAlign(center),
-    padding(20->px),
-    fontSize(14->px),
+  open Emotion
+  let container = css({
+    "backgroundColor": `#${Theme.darkBody}`,
+    "@media (prefers-color-scheme: dark)": {
+      "backgroundColor": "#000",
+    },
+    "color": "#fff",
+    "textAlign": "center",
+    "padding": 20,
+    "fontSize": 14,
   })
-  let link = style(list{color("EC8AC5"->hex), hover(list{color("F9BDE1"->hex)})})
-  let text = style(list{opacity(0.5)})
+  let link = css({
+    "color": "#EC8AC5",
+    ":hover": {"color": "#F9BDE1"},
+  })
+  let text = css({"opacity": 0.5})
 }
 
 @react.component

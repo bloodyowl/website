@@ -1,10 +1,10 @@
 module Styles = {
-  open Css
-  let container = style(list{
-    display(flexBox),
-    flexGrow(1.0),
-    alignItems(center),
-    justifyContent(center),
+  open Emotion
+  let container = css({
+    "display": "flex",
+    "flexGrow": 1,
+    "alignItems": "center",
+    "justifyContent": "center",
   })
 }
 

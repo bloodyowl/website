@@ -14,12 +14,5 @@
     }
   ],
   "suffix": ".mjs",
-  "bs-dependencies": [
-    "@rescript/react",
-    "bs-css",
-    "bs-css-emotion",
-    "rescript-pages",
-    "rescript-asyncdata"
-  ],
-  "refmt": 3
+  "bs-dependencies": ["@rescript/react", "rescript-pages", "rescript-asyncdata"]
 }

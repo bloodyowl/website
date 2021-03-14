@@ -1,45 +1,47 @@
 module Styles = {
-  open Css
-  let container = style(list{
-    padding2(~h=10->px, ~v=50->px),
-    display(flexBox),
-    flexDirection(row),
-    alignItems(stretch),
+  open Emotion
+  let container = css({
+    "padding": "50px 10px",
+    "display": "flex",
+    "flexDirection": "row",
+    "alignItems": "stretch",
   })
-  let column = style(list{
-    position(relative),
-    width(10.->pct),
-    padding3(~h=10->px, ~top=zero, ~bottom=10->px),
-    media("(max-width: 620px)", list{display(none)}),
+  let column = css({
+    "position": "relative",
+    "width": "10%",
+    "padding": "0 10px 10px",
+    "@media (max-width: 620px)": {"display": "none"},
   })
-  let avatar = style(list{
-    position(sticky),
-    top(10->px),
-    zIndex(1),
-    borderRadius(100.->pct),
-    paddingBottom(100.->pct),
-    backgroundImage(url("https://avatars.githubusercontent.com/bloodyowl?size=200")),
-    backgroundSize(cover),
+  let avatar = css({
+    "position": "sticky",
+    "top": 10,
+    "zIndex": 1,
+    "borderRadius": "100%",
+    "paddingBottom": "100%",
+    "backgroundImage": `url("https://avatars.githubusercontent.com/bloodyowl?size=200")`,
+    "backgroundSize": "cover",
   })
-  let main = style(list{position(relative), flexGrow(1.0), paddingLeft(20->px), minWidth(zero)})
-  let hi = style(list{
-    fontSize(12.0->vw),
-    lineHeight(#abs(0.5)),
-    marginBottom(10.0->vw),
-    transform(translateX(-1.0->vw)),
-    fontWeight(bold),
+  let main = css({
+    "position": "relative",
+    "flexGrow": 1,
+    "paddingLeft": 20,
+    "minWidth": "0",
   })
-  let paragraph = style(list{
-    maxWidth(640->px),
-    fontSize(20->px),
-    selector(
-      "a",
-      list{
-        color(Theme.darkBody->hex),
-        media("(prefers-color-scheme: dark)", list{color(Theme.lightBody->hex)}),
-      },
-    ),
-    selector("strong", list{whiteSpace(nowrap)}),
+  let hi = css({
+    "fontSize": "12vw",
+    "lineHeight": "0.5",
+    "marginBottom": "10vw",
+    "transform": "translateX(-1vw)",
+    "fontWeight": "bold",
+  })
+  let paragraph = css({
+    "maxWidth": 640,
+    "fontSize": 20,
+    "a": {
+      "color": `#${Theme.darkBody}`,
+      "@media (prefers-color-scheme: dark)": {"color": `#${Theme.lightBody}`},
+    },
+    "strong": {"whiteSpace": "nowrap"},
   })
 }
 

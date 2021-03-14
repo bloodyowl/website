@@ -1,12 +1,12 @@
 module Styles = {
-  open Css
-  let container = style(list{
-    display(flexBox),
-    flexGrow(1.0),
-    alignItems(center),
-    justifyContent(center),
+  open Emotion
+  let container = css({
+    "display": "flex",
+    "flexGrow": 1,
+    "alignItems": "center",
+    "justifyContent": "center",
   })
-  let text = style(list{fontSize(22->px), fontWeight(bold), textAlign(center)})
+  let text = css({"fontSize": 22, "fontWeight": "bold", "textAlign": "center"})
 }
 
 @react.component

@@ -15,7 +15,7 @@ module Card = {
       "flexDirection": "column",
       "alignItems": "stretch",
       "textDecoration": "none",
-      "color": `#${Theme.darkBody}`,
+      "color": Theme.darkBody,
       "@media (prefers-color-scheme: dark)": {"color": "#FFF"},
       "padding": "20px 20px 20px 0",
       "scrollSnapAlign": "start",

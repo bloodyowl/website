@@ -1,7 +1,7 @@
 module Styles = {
   open Emotion
   let container = css({
-    "backgroundColor": `#${Theme.lightBody}`,
+    "backgroundColor": Theme.lightBody,
     "@media (prefers-color-scheme: dark)": {
       "backgroundColor": "#111",
     },
@@ -20,9 +20,9 @@ module Styles = {
     "alignItems": "stretch",
     "flexWrap": "wrap",
     "flexGrow": 1,
-    "color": `#${Theme.darkBody}`,
+    "color": Theme.darkBody,
     "@media (prefers-color-scheme: dark)": {
-      "color": `#${Theme.lightBody}`,
+      "color": Theme.lightBody,
     },
     "textDecoration": "none",
   })
@@ -46,8 +46,8 @@ module Styles = {
     "padding": "20px 20px 23px",
     "flexShrink": 0,
     "textDecoration": "none",
-    "color": `#${Theme.darkBody}`,
-    "@media (prefers-color-scheme: dark)": {"color": `#${Theme.lightBody}`},
+    "color": Theme.darkBody,
+    "@media (prefers-color-scheme: dark)": {"color": Theme.lightBody},
     "textAlign": "center",
     "@media (max-width: 620px)": {
       "flexBasis": "25%",

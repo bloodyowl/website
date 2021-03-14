@@ -38,8 +38,8 @@ module Styles = {
     "maxWidth": 640,
     "fontSize": 20,
     "a": {
-      "color": `#${Theme.darkBody}`,
-      "@media (prefers-color-scheme: dark)": {"color": `#${Theme.lightBody}`},
+      "color": Theme.darkBody,
+      "@media (prefers-color-scheme: dark)": {"color": Theme.lightBody},
     },
     "strong": {"whiteSpace": "nowrap"},
   })

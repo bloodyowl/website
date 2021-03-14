@@ -12,7 +12,7 @@ module Styles = {
   let link = css({
     "padding": 10,
     "fontSize": 24,
-    "color": `#${Theme.darkBody}`,
+    "color": Theme.darkBody,
     "textDecoration": "none",
     "display": "flex",
     "flexDirection": "column",
@@ -20,7 +20,7 @@ module Styles = {
     ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
     ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
     "@media (prefers-color-scheme: dark)": {
-      "color": `#${Theme.lightBody}`,
+      "color": Theme.lightBody,
       ":hover": {"backgroundColor": "rgba(255, 255, 255, 0.1)"},
       ":active": {"backgroundColor": "rgba(255, 255, 255, 0.15)"},
     },

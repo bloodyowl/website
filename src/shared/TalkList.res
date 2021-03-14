@@ -17,7 +17,7 @@ module Styles = {
     "textDecoration": "none",
     "padding": 10,
     "borderRadius": 10,
-    "color": `#${Theme.darkBody}`,
+    "color": Theme.darkBody,
     ":hover": {
       "backgroundColor": "rgba(0, 0, 0, 0.03)",
     },
@@ -25,7 +25,7 @@ module Styles = {
       "backgroundColor": "rgba(0, 0, 0, 0.05)",
     },
     "@media (prefers-color-scheme: dark)": {
-      "color": `#${Theme.lightBody}`,
+      "color": Theme.lightBody,
       ":hover": {
         "backgroundColor": "rgba(255, 255, 255, 0.1)",
       },

@@ -1,7 +1,7 @@
 module Styles = {
   open Emotion
   let container = css({
-    "backgroundColor": `#${Theme.darkBody}`,
+    "backgroundColor": Theme.darkBody,
     "@media (prefers-color-scheme: dark)": {
       "backgroundColor": "#000",
     },

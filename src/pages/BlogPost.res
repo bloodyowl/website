@@ -79,7 +79,7 @@ module Styles = {
       "overflowX": "auto",
       "WebkitOverflowScrolling": "touch",
       "fontSize": 16,
-      "borderLeft": `2px solid #${Theme.darkBody}`,
+      "borderLeft": `2px solid ${Theme.darkBody}`,
       "borderLeftWidth": 2,
       "@media (prefers-color-scheme: dark)": {
         "backgroundColor": "rgba(0, 0, 0, 0.9)",
@@ -100,7 +100,7 @@ module Styles = {
     ".hljs-attribute": {"color": "#4CB877"},
     "table": {"width": "100%", "textAlign": "center"},
     "table thead th": {
-      "backgroundColor": `#${Theme.lightBody}`,
+      "backgroundColor": Theme.lightBody,
       "padding": "10px 0",
       "@media (prefers-color-scheme: dark)": {
         "backgroundColor": "#111",
@@ -108,7 +108,7 @@ module Styles = {
     },
     "blockquote": {
       "opacity": 0.6,
-      "borderLeft": `4px solid #${Theme.darkBody}`,
+      "borderLeft": `4px solid ${Theme.darkBody}`,
       "margin": 0,
       "padding": "20px 0",
     },

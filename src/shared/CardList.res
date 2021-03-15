@@ -27,6 +27,7 @@ module Card = {
       "transition": "300ms ease-out transform, 300ms ease-out box-shadow",
       "boxShadow": "0 5px 10px rgba(0, 0, 0, 0.1)",
       ":hover": {
+        "transform": "scale(0.96)",
         "boxShadow": "0 3px 7px rgba(0, 0, 0, 0.3)",
       },
     })

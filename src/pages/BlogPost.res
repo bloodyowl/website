@@ -110,7 +110,7 @@ module Styles = {
       "opacity": 0.6,
       "borderLeft": `4px solid ${Theme.darkBody}`,
       "margin": 0,
-      "padding": "20px 0",
+      "padding": "0 20px",
     },
     "hr": {
       "borderColor": "rgba(0, 0, 0, 0.1)",

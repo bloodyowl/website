@@ -47,7 +47,7 @@ These parameters give to the tracker the information about what they can or cann
 
 Most actors in that field don't need any of that to work, but with Google tracking, the story is different. If the GDPR applies and the user refused to give any consent, Google stops operating.
 
-That means that even if your ad doesn't require any personal data and is displayed to a used who refused personal data collection, Google will:
+That means that even if your ad doesn't require any personal data and is displayed to a user who refused personal data collection, Google will:
 
 - **not count your ad views**
 - **redirect people who clicked on your ad to an `about:blank` page**

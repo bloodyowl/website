@@ -20,7 +20,7 @@ module Styles = {
 @react.component
 let make = () =>
   <div className=Styles.container>
-    <div> {"Copyright 2020 - Matthias Le Brun"->React.string} </div>
+    <div> {"Copyright 2021 - Matthias Le Brun"->React.string} </div>
     <div>
       <span className=Styles.text> {"Do you like the content? "->React.string} </span>
       <a className=Styles.link href="https://github.com/sponsors/bloodyowl">

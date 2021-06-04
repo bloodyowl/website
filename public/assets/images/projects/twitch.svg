@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="216px" height="216px" viewBox="0 0 216 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#9146FF" fill-rule="nonzero" x="0" y="0" width="216" height="216"></rect>
+        <g id="Twitch_Glitch_Logo_Purple" transform="translate(57.000000, 49.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Layer_1-2">
+                <path d="M21.25,0 L0,21.25 L0,97.75 L25.5,97.75 L25.5,119 L46.75,97.75 L63.75,97.75 L102,59.5 L102,0 L21.25,0 Z M93.5,55.25 L76.5,72.25 L59.5,72.25 L44.625,87.125 L44.625,72.25 L25.5,72.25 L25.5,8.5 L93.5,8.5 L93.5,55.25 Z" id="Shape"></path>
+                <rect id="Rectangle" x="72.25" y="23.375" width="8.5" height="25.5"></rect>
+                <rect id="Rectangle" x="48.875" y="23.375" width="8.5" height="25.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

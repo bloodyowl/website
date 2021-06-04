@@ -127,6 +127,14 @@ let make = () => <>
                 url: Some("https://soundcloud.com/putaindecode"),
               },
             ),
+            (
+              "twitch",
+              {
+                name: "Twitch",
+                image: "/public/assets/images/projects/twitch.svg",
+                url: Some("https://www.twitch.tv/bldwl"),
+              },
+            ),
           ]
         />
         <Heading text="Talks" />

@@ -2390,10 +2390,10 @@ rescript-js@^0.5.14:
   dependencies:
     "@ryyppy/rescript-promise" "^2.0.0"
 
-rescript-pages@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/rescript-pages/-/rescript-pages-3.0.0.tgz#4b92db6f8cfbbc69a5359bb220542a92ba501b0e"
-  integrity sha512-BfwcKgyc4Grd5r+5BrhSemh91MoAXS3ib2Tindzubn0ye4azRKY4uo6lxvQkvyy8KS+OzMlL3XyLKkZvzlDuWw==
+rescript-pages@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/rescript-pages/-/rescript-pages-3.0.1.tgz#0eb525b554ad51f0084b0481b1f2f446ccc07b9f"
+  integrity sha512-/XtTedOcihird9Dyk3bWninDS1w7tD+dhg5K7IxlAoHB7d9LKHJBavnN5KGS6XxENh2oF14tQ1Yxzra0wTu6fw==
   dependencies:
     "@emotion/css" "^11.1.3"
     "@emotion/server" "^11.0.0"

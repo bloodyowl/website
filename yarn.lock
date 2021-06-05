@@ -568,11 +568,6 @@ bs-fetch@^0.6.2:
   resolved "https://registry.yarnpkg.com/bs-fetch/-/bs-fetch-0.6.2.tgz#37d982e9f79b9bc44c23e87ae78ccbee1f869adf"
   integrity sha512-VXEjp8kY3vHPckaoy3d96Bx0KYjJAPLNISBwfpwMN26K6DtuZYwI2HKhx7zeHBajz1bRArfx7O8OOLcdtujMvg==
 
-bs-platform@^9.0.0:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-9.0.1.tgz#069dae007aadb400963cec25c8349ea1f3f6cae0"
-  integrity sha512-RxUrwxVBCx9AiiyFIthZwfPn+tAn9noRHCb9xJK4Uw2deGxIytqyoWDepMbH35v7EpxX0OhfXL5RrjHTaXersA==
-
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -638,10 +633,10 @@ chalk@^2.0.0:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
-  integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
+chalk@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
+  integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -1256,6 +1251,11 @@ fs-monkey@1.0.1:
   resolved "https://registry.yarnpkg.com/fs-monkey/-/fs-monkey-1.0.1.tgz#4a82f36944365e619f4454d9fff106553067b781"
   integrity sha512-fcSa+wyTqZa46iWweI7/ZiUfegOZl0SG8+dltIwFXo7+zYU9J9kpS3NB6pZcSlJdhvIwp81Adx2XhZorncxiaA==
 
+fs-monkey@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/fs-monkey/-/fs-monkey-1.0.3.tgz#ae3ac92d53bb328efe0e9a1d9541f6ad8d48e2d3"
+  integrity sha512-cybjIfiiE+pTWicSCLFHSrXZ6EilF30oh91FDP9S2B051prEa7QWfrVTQm10/dDpswBDXZugPa1Ogu8Yh+HV0Q==
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -1773,6 +1773,13 @@ memfs@^3.2.0:
   integrity sha512-f/xxz2TpdKv6uDn6GtHee8ivFyxwxmPuXatBb1FBwxYNuVpbM3k/Y1Z+vC0mH/dIXXrukYfe3qe5J32Dfjg93A==
   dependencies:
     fs-monkey "1.0.1"
+
+memfs@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.2.2.tgz#5de461389d596e3f23d48bb7c2afb6161f4df40e"
+  integrity sha512-RE0CwmIM3CEvpcdK3rZ19BC4E6hv9kADkMN5rPduRak58cNArWLi/9jFLsa4rhsjfVxMP3v0jO7FHXq7SvFY5Q==
+  dependencies:
+    fs-monkey "1.0.3"
 
 merge-descriptors@1.0.1:
   version "1.0.1"
@@ -2356,20 +2363,30 @@ rescript-asyncdata@^2.0.0:
   dependencies:
     reason-react "^0.9.1"
 
+rescript-devserver-tools@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/rescript-devserver-tools/-/rescript-devserver-tools-1.0.15.tgz#6584e268b004f385474eb3c5350bddd80ad693e7"
+  integrity sha512-qxpFpSj1JnbRPj+/xwyGCyX5jTDxbd9a9/IzTy0bg0mCcfqDf3YDZT7zQFYAmFGPsYZVkRr7kLcfmHkQw2EY6g==
+  dependencies:
+    chalk "^4.1.1"
+    get-port "^5.1.1"
+    memfs "^3.2.2"
+    ws "^7.4.6"
+
 rescript-future@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-1.0.4.tgz#8d80d4e5da3cca31887f361a277b816fbcc5ca1f"
   integrity sha512-1p9ieIdSKP4lktDf1H6Un54SXIuIxVRP7YPbueAi2rO8Jcb3NSmxADiJi+6fvfojGHKznmCm3DlCso+w/zO0YQ==
 
-rescript-pages@3.0.0-beta1:
-  version "3.0.0-beta1"
-  resolved "https://registry.yarnpkg.com/rescript-pages/-/rescript-pages-3.0.0-beta1.tgz#cbd3d341d339bf03d26938f3c3e066956cafcc88"
-  integrity sha512-pD1unIgGKujTzJIASPDMAyidQOIv6YtqKuUFMMcYsjI7/1+X6rnyVQgrW/DlXdMBHcXsG5MTYI3FmzNIR2XxNw==
+rescript-pages@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rescript-pages/-/rescript-pages-3.0.0.tgz#4b92db6f8cfbbc69a5359bb220542a92ba501b0e"
+  integrity sha512-BfwcKgyc4Grd5r+5BrhSemh91MoAXS3ib2Tindzubn0ye4azRKY4uo6lxvQkvyy8KS+OzMlL3XyLKkZvzlDuWw==
   dependencies:
     "@emotion/css" "^11.1.3"
     "@emotion/server" "^11.0.0"
     bs-fetch "^0.6.2"
-    chalk "^4.1.0"
+    chalk "^4.1.1"
     chokidar "^3.4.3"
     copy-webpack-plugin "^6.3.0"
     express "^4.17.1"
@@ -2387,6 +2404,7 @@ rescript-pages@3.0.0-beta1:
     reason-highlightjs "^0.2.1"
     remarkable "^2.0.1"
     rescript-asyncdata "^2.0.0"
+    rescript-devserver-tools "^1.0.15"
     rescript-future "^1.0.4"
     rescript-request "^1.0.2"
     script-ext-html-webpack-plugin "^2.1.5"
@@ -2400,6 +2418,11 @@ rescript-request@^1.0.2:
   integrity sha512-4D3kJYbpSCPX1PC0mKhIXklAMpV5uiRVwTCCFgh7iuBfai3QZNhdvf0JOl3ZUFlleDka3/1EFy6xRMJeGqqsrA==
   dependencies:
     rescript-future "^1.0.4"
+
+rescript@^9.1.3:
+  version "9.1.3"
+  resolved "https://registry.yarnpkg.com/rescript/-/rescript-9.1.3.tgz#1a0f41342acd8dc4e26fd1782d0997b8a7577698"
+  integrity sha512-TpfW3DakgCJtWbRvAek7cysuikBWarjqt8PrbFg0Rk3O+o4dt0inBdxyZe/+u3LOAWzyKK+2UlqC0xiCBgs6pQ==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
@@ -2942,7 +2965,7 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
-ws@^7.4.0:
+ws@^7.4.0, ws@^7.4.6:
   version "7.4.6"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
   integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==

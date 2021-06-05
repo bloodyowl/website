@@ -71,7 +71,7 @@ module Styles = {
 @react.component
 let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
   React.useEffect1(() => {
-    let () = window["scrollTo"](0, 0)
+    let () = window["scrollTo"](. 0, 0)
     None
   }, [url.path->List.toArray->Js.Array.joinWith("/", _)])
 

@@ -2,9 +2,9 @@
   "name": "bloodyowl",
   "version": "0.1.0",
   "scripts": {
-    "build": "bsb -make-world",
-    "start": "bsb -make-world -w",
-    "clean": "bsb -clean-world",
+    "build": "rescript build -with-deps",
+    "start": "rescript build -with-deps -w -ws 9999",
+    "clean": "rescript clean",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gh-pages -d dist",
     "server": "pages start src/App.mjs 3000",
@@ -23,9 +23,9 @@
     "gh-pages": "^2.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rescript-pages": "3.0.0-beta1"
+    "rescript-pages": "^3.0.0"
   },
   "devDependencies": {
-    "bs-platform": "^9.0.0"
+    "rescript": "^9.1.3"
   }
 }

@@ -65,7 +65,6 @@ module Styles = {
   })
 }
 
-@val external window: {..} = "window"
 @react.component
 let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
   React.useEffect1(() => {

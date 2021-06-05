@@ -166,8 +166,6 @@ module Styles = {
   })
 }
 
-@val external window: {..} = "window"
-
 @react.component
 let make = (~slug, ()) => {
   let post = Pages.useItem("blog", ~id=slug)

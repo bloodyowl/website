@@ -1,5 +1,3 @@
-open Belt
-
 module Styles = {
   open Emotion
   let container = css({
@@ -60,7 +58,7 @@ let make = () => {
     | NotAsked
     | Loading =>
       <div className=Styles.container ariaLabel="Loading" role="alert" ariaBusy=true>
-        {Array.range(0, 6)
+        {Belt.Array.range(0, 6)
         ->Array.map(index =>
           <div className=Styles.link key={index->Int.toString}>
             <div className=Styles.datePlaceholder /> <div className=Styles.titlePlaceholder />
@@ -77,8 +75,8 @@ let make = () => {
               {<>
                 <div className=Styles.date>
                   {item.date
-                  ->Option.map(Js.Date.fromString)
-                  ->Option.map(Date.getFormattedString)
+                  ->Option.map(Date.fromString)
+                  ->Option.map(DateUtils.getFormattedString)
                   ->Option.map(React.string)
                   ->Option.getWithDefault(React.null)}
                 </div>

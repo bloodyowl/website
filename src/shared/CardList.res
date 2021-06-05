@@ -1,5 +1,3 @@
-open Belt
-
 type card = {
   image: string,
   name: string,

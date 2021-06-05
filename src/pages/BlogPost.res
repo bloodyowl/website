@@ -1,5 +1,3 @@
-open Belt
-
 module Styles = {
   open Emotion
   let container = css({
@@ -188,8 +186,8 @@ let make = (~slug, ()) => {
           <h1 className=Styles.title> {post.title->React.string} </h1>
           <div className=Styles.date>
             {post.date
-            ->Option.map(Js.Date.fromString)
-            ->Option.map(Date.getFormattedString)
+            ->Option.map(Date.fromString)
+            ->Option.map(DateUtils.getFormattedString)
             ->Option.map(React.string)
             ->Option.getWithDefault(React.null)}
           </div>
@@ -210,7 +208,7 @@ let make = (~slug, ()) => {
                 }}
                 target="_blank"
                 href={"https://www.twitter.com/intent/tweet?text=" ++
-                Js.Global.encodeURIComponent(
+                encodeURIComponent(
                   post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
                 )}>
                 {`→ Share it on Twitter`->React.string}

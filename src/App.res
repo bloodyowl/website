@@ -55,8 +55,6 @@ html {
 }
 `)
 
-open Belt
-
 module Styles = {
   open Emotion
   let container = css({
@@ -73,7 +71,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
   React.useEffect1(() => {
     let () = window["scrollTo"](. 0, 0)
     None
-  }, [url.path->List.toArray->Js.Array.joinWith("/", _)])
+  }, [url.path->List.toArray->Array.joinWith("/")])
 
   <div className=Styles.container>
     <Pages.Head>
@@ -94,8 +92,8 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
       <meta property="og:image:height" content="777" />
       <link rel="shortcut icon" href="/public/assets/images/favicon.png" />
       {
-        let url = config.baseUrl ++ ("/" ++ String.concat("/", url.path))
-        <link rel="canonical" href={url->Js.String2.endsWith("/") ? url : url ++ "/"} />
+        let url = config.baseUrl ++ ("/" ++ url.path->List.toArray->Array.joinWith("/"))
+        <link rel="canonical" href={url->String.endsWith("/") ? url : url ++ "/"} />
       }
       <script>
         {`window.beOpAsyncInit = function() {
@@ -134,7 +132,7 @@ let default = Pages.make(
         localeFile: None,
         contentDirectory: "contents",
         getUrlsToPrerender: ({getAll}) =>
-          Array.concatMany([
+          Belt.Array.concatMany([
             ["/", "blog"],
             getAll("blog")->Array.map(slug => "/blog/" ++ slug),
             ["404.html"],

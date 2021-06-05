@@ -14,5 +14,16 @@
     }
   ],
   "suffix": ".mjs",
-  "bs-dependencies": ["@rescript/react", "rescript-pages", "rescript-asyncdata"]
+  "bs-dependencies": [
+    "@rescript/react",
+    "rescript-pages",
+    "rescript-asyncdata",
+    "@ryyppy/rescript-promise",
+    "rescript-js"
+  ],
+  "bsc-flags": [
+    "-nopervasives",
+    "-open Belt",
+    "-open ReScriptJs__JsWithPervasives"
+  ]
 }

@@ -1,5 +1,3 @@
-open Belt
-
 type talk = {
   date: string,
   name: string,

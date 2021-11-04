@@ -128,6 +128,14 @@ let make = () => <>
               },
             ),
             (
+              "parisjs",
+              {
+                name: "Paris.JS",
+                image: "/public/assets/images/projects/parisjs.svg",
+                url: Some("https://parisjs.org"),
+              },
+            ),
+            (
               "twitch",
               {
                 name: "Twitch",

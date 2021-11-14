@@ -39,7 +39,12 @@ module Styles = {
     "display": "flex",
     "flexDirection": "row",
     "alignItems": "center",
-    "@media (max-width: 620px)": {"flexGrow": 1, "backgroundColor": "#D4E1E6"},
+    "@media (max-width: 620px)": {
+      "flexGrow": 1,
+      "backgroundColor": "#D4E1E6",
+      "overflowX": "auto",
+      "scrollSnapType": "x mandatory",
+    },
     "@media (max-width: 620px) and (prefers-color-scheme: dark)": {"backgroundColor": "#111"},
   })
   let link = css({
@@ -49,8 +54,9 @@ module Styles = {
     "color": Theme.darkBody,
     "@media (prefers-color-scheme: dark)": {"color": Theme.lightBody},
     "textAlign": "center",
+    "scrollSnapAlign": "start",
     "@media (max-width: 620px)": {
-      "flexBasis": "25%",
+      "flexBasis": "28%",
       "padding": "10px 10px 13px",
     },
   })
@@ -78,6 +84,9 @@ let make = () =>
       </Pages.Link>
       <a className=Styles.link href="https://twitter.com/bloodyowl"> {"Twitter"->React.string} </a>
       <a className=Styles.link href="https://github.com/bloodyowl"> {"GitHub"->React.string} </a>
+      <a className=Styles.link href="https://dribbble.com/bloodyowl">
+        {"Dribbble"->React.string}
+      </a>
       <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
         {"LinkedIn"->React.string}
       </a>

@@ -30,7 +30,8 @@ module Styles = {
   let hi = css({
     "fontSize": "12vw",
     "lineHeight": "0.5",
-    "marginBottom": "10vw",
+    "marginTop": "1vw",
+    "marginBottom": "5vw",
     "transform": "translateX(-1vw)",
     "fontWeight": "bold",
   })
@@ -39,7 +40,6 @@ module Styles = {
     "fontSize": 20,
     "a": {
       "color": Theme.darkBody,
-      "@media (prefers-color-scheme: dark)": {"color": Theme.lightBody},
     },
     "strong": {"whiteSpace": "nowrap"},
   })

@@ -25,9 +25,6 @@ module Styles = {
     "maxWidth": 440,
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "rgba(255, 255, 255, 0.05)",
-    },
   })
   let datePlaceholder = css({
     "width": "100%",
@@ -36,9 +33,6 @@ module Styles = {
     "maxWidth": 90,
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "rgba(255, 255, 255, 0.05)",
-    },
   })
   let bodyPlaceholder = css({
     "marginTop": 40,
@@ -47,9 +41,6 @@ module Styles = {
     "margin": "3px 0",
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "rgba(255, 255, 255, 0.05)",
-    },
   })
   let date = css({
     "fontSize": 14,
@@ -63,7 +54,6 @@ module Styles = {
     "a": {
       "color": "#135EFF",
       ":hover": {"color": "#13A3FF"},
-      "@media (prefers-color-scheme: dark)": {"color": "#13A3FF"},
     },
     "img": {
       "maxWidth": "100%",
@@ -87,9 +77,6 @@ module Styles = {
     "table thead th": {
       "backgroundColor": Theme.lightBody,
       "padding": "10px 0",
-      "@media (prefers-color-scheme: dark)": {
-        "backgroundColor": "#111",
-      },
     },
     "blockquote": {
       "opacity": 0.6,
@@ -99,9 +86,6 @@ module Styles = {
     },
     "hr": {
       "borderColor": "rgba(0, 0, 0, 0.1)",
-      "@media (prefers-color-scheme: dark)": {
-        "borderColor": "rgba(255, 255, 255, 0.1)",
-      },
     },
   })
   let share = css({
@@ -114,9 +98,6 @@ module Styles = {
     "margin": "20px 0",
     "padding": 20,
     "backgroundColor": "#FFF",
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "#111",
-    },
     "borderRadius": 10,
     "boxShadow": "0 15px 15px 5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1)",
     "@media (max-width: 540px)": {

@@ -2,9 +2,6 @@ module Styles = {
   open Emotion
   let container = css({
     "backgroundColor": Theme.darkBody,
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "#000",
-    },
     "color": "#fff",
     "textAlign": "center",
     "padding": 20,

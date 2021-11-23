@@ -26,27 +26,17 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #222;
-  }
-}
 #root {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 html {
-  color: #46515b;
+  color: #111;
   font-size: 1em;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    color: #e4ebee;
-  }
 }
 *,
 *:before,

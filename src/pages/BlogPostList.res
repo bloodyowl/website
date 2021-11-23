@@ -17,11 +17,6 @@ module Styles = {
     "borderRadius": 10,
     ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
     ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
-    "@media (prefers-color-scheme: dark)": {
-      "color": Theme.lightBody,
-      ":hover": {"backgroundColor": "rgba(255, 255, 255, 0.1)"},
-      ":active": {"backgroundColor": "rgba(255, 255, 255, 0.15)"},
-    },
   })
   let date = css({"fontSize": 18, "opacity": 0.5})
   let title = css({"fontWeight": "bold"})
@@ -33,9 +28,6 @@ module Styles = {
     "maxWidth": 90,
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "rgba(255, 255, 255, 0.05)",
-    },
   })
   let titlePlaceholder = css({
     "width": "100%",
@@ -44,9 +36,6 @@ module Styles = {
     "maxWidth": 440,
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
-    "@media (prefers-color-scheme: dark)": {
-      "backgroundColor": "rgba(255, 255, 255, 0.05)",
-    },
   })
 }
 

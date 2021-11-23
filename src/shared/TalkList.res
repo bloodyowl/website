@@ -22,15 +22,6 @@ module Styles = {
     ":active": {
       "backgroundColor": "rgba(0, 0, 0, 0.05)",
     },
-    "@media (prefers-color-scheme: dark)": {
-      "color": Theme.lightBody,
-      ":hover": {
-        "backgroundColor": "rgba(255, 255, 255, 0.1)",
-      },
-      ":active": {
-        "backgroundColor": "rgba(255, 255, 255, 0.15)",
-      },
-    },
   })
   let date = css({"opacity": 0.5, "fontSize": 14})
   let name = css({"fontSize": 24, "paddingBottom": 2, "fontWeight": "bold"})

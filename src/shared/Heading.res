@@ -1,6 +1,13 @@
 module Styles = {
   open Emotion
-  let title = css({"margin": "20px 0", "fontSize": 42, "fontWeight": "bold"})
+  let title = css({
+    "margin": "20px 0",
+    "fontSize": 42,
+    "fontWeight": "bold",
+    "@media (max-width: 450px)": {
+      "fontSize": 32,
+    },
+  })
 }
 
 @react.component

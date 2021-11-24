@@ -14,7 +14,7 @@ module Styles = {
   })
   let avatar = css({
     "position": "sticky",
-    "top": 10,
+    "top": 20,
     "zIndex": 1,
     "borderRadius": "100%",
     "paddingBottom": "100%",

@@ -15,16 +15,21 @@ Emotion.injectGlobal(`
   font-weight: 700;
   font-display: swap;
 }
+html {
+  background-color: #000;
+  overflow: hidden;
+}
 body {
-  padding: 0;
   margin: 0;
   background-color: #fff;
   font-family: HelveticaNowDisplay, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   overflow-x: hidden;
+  height: calc(100vh - 20px);
+  margin: 10px;
+  border-radius: 10px;
 }
 #root {
   display: flex;

@@ -16,20 +16,28 @@ Emotion.injectGlobal(`
   font-display: swap;
 }
 html {
-  background-color: #000;
+  background-color: #65E197;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  height: 100vh;
 }
 body {
-  margin: 0;
+  padding-top: 10px;
   background-color: #fff;
   font-family: HelveticaNowDisplay, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  height: calc(100vh - 20px);
-  margin: 10px;
-  border-radius: 10px;
+  flex-grow: 1;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 20px;
+  box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.3);
 }
 #root {
   display: flex;

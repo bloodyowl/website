@@ -1,7 +1,7 @@
 module Styles = {
   open Emotion
   let container = css({
-    "padding": "50px 10px",
+    "padding": "50px 0",
     "display": "flex",
     "flexDirection": "row",
     "alignItems": "stretch",
@@ -36,12 +36,18 @@ module Styles = {
     "fontWeight": "bold",
   })
   let paragraph = css({
-    "maxWidth": 640,
     "fontSize": 20,
+    "paddingRight": 10,
     "a": {
       "color": Theme.darkBody,
     },
     "strong": {"whiteSpace": "nowrap"},
+  })
+  let link = css({
+    "display": " block",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "color": "inherit",
   })
 }
 
@@ -71,6 +77,18 @@ let make = () => <>
             "__html": `I'm <strong>Head of Product Design</strong> at <a href="https://beop.io" target="_blank"><strong>BeOp</strong></a>, where we're building a new kind of advertising platform.`,
           }
         />
+        <a className=Styles.link href="https://twitter.com/bloodyowl">
+          {`→ Twitter`->React.string}
+        </a>
+        <a className=Styles.link href="https://github.com/bloodyowl">
+          {`→ GitHub`->React.string}
+        </a>
+        <a className=Styles.link href="https://dribbble.com/bloodyowl">
+          {`→ Dribbble`->React.string}
+        </a>
+        <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
+          {`→ LinkedIn`->React.string}
+        </a>
         <Heading text="Things I work with" />
         <CardList
           cards=[

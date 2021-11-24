@@ -8,9 +8,6 @@ module Styles = {
     "flexWrap": "wrap",
     "fontSize": 18,
     "padding": "0 env(safe-area-inset-right) 0 env(safe-area-inset-left)",
-    "@media (max-width: 760px)": {
-      "flexDirection": "column",
-    },
   })
   let left = css({
     "display": "flex",
@@ -35,12 +32,6 @@ module Styles = {
     "display": "flex",
     "flexDirection": "row",
     "alignItems": "center",
-    "@media (max-width: 760px)": {
-      "flexGrow": 1,
-      "backgroundColor": "#eee",
-      "overflowX": "auto",
-      "scrollSnapType": "x mandatory",
-    },
   })
   let link = css({
     "padding": "20px 20px 23px",
@@ -49,10 +40,7 @@ module Styles = {
     "color": Theme.darkBody,
     "textAlign": "center",
     "scrollSnapAlign": "start",
-    "@media (max-width: 760px)": {
-      "flexBasis": "28%",
-      "padding": "10px 10px 13px",
-    },
+    "fontSize": 20,
   })
   let activeLink = css({"fontWeight": "bold"})
 }
@@ -95,15 +83,7 @@ let make = () =>
     <div className=Styles.navigation>
       <Pages.Link
         className=Styles.link activeClassName=Styles.activeLink matchSubroutes=true href="/blog/">
-        {"Blog"->React.string}
+        {`→ Blog`->React.string}
       </Pages.Link>
-      <a className=Styles.link href="https://twitter.com/bloodyowl"> {"Twitter"->React.string} </a>
-      <a className=Styles.link href="https://github.com/bloodyowl"> {"GitHub"->React.string} </a>
-      <a className=Styles.link href="https://dribbble.com/bloodyowl">
-        {"Dribbble"->React.string}
-      </a>
-      <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
-        {"LinkedIn"->React.string}
-      </a>
     </div>
   </div>

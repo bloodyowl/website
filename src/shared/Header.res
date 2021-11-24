@@ -1,7 +1,6 @@
 module Styles = {
   open Emotion
   let container = css({
-    "backgroundColor": Theme.lightBody,
     "display": "flex",
     "flexDirection": "row",
     "alignItems": "stretch",

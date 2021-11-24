@@ -27,14 +27,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: #fff;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 1200px;
-  padding-top: 10px;
-  overflow: hidden;
-  margin: 0 auto;
-  box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.3);
 }
 html {
   color: #111;

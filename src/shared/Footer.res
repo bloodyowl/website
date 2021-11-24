@@ -1,7 +1,6 @@
 module Styles = {
   open Emotion
   let container = css({
-    "backgroundColor": "#eee",
     "color": "#111",
     "textAlign": "center",
     "padding": 20,

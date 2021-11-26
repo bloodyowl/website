@@ -76,6 +76,7 @@ module Styles = {
     "table": {"width": "100%", "textAlign": "center"},
     "table thead th": {
       "backgroundColor": "#000",
+      "color": "#FFF",
       "padding": "10px 0",
     },
     "blockquote": {

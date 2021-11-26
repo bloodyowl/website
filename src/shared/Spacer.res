@@ -1,5 +1,5 @@
 @react.component
-let make = (~width=10, ~height=10, ()) =>
+let make = (~width="10px", ~height="10px", ()) =>
   <div
     className={
       open Emotion

@@ -39,7 +39,7 @@ module Styles = {
 
 @react.component
 let make = () => {
-  let list = Pages.useCollection("blog")
+  let list = Pages.useCollection("talks")
 
   <>
     <WidthContainer>
@@ -61,18 +61,21 @@ let make = () => {
           <div className=Styles.container>
             {list
             ->Array.map(item =>
-              <Pages.Link className=Styles.link key=item.slug href={"/blog/" ++ (item.slug ++ "/")}>
+              <a
+                className=Styles.link
+                key=item.slug
+                href={switch item.meta->Dict.get("url")->Option.map(JSON.Decode.classify) {
+                | Some(String(value)) => value
+                | _ => "/"
+                }}>
                 {<>
-                  <div className=Styles.date>
-                    {item.date
-                    ->Option.map(Date.fromString)
-                    ->Option.map(DateUtils.getFormattedString)
-                    ->Option.map(React.string)
-                    ->Option.getWithDefault(React.null)}
-                  </div>
+                  {switch item.meta->Dict.get("firstDate")->Option.map(JSON.Decode.classify) {
+                  | Some(String(value)) => <div className=Styles.date> {value->React.string} </div>
+                  | _ => React.null
+                  }}
                   <div className=Styles.title> {item.title->React.string} </div>
                 </>}
-              </Pages.Link>
+              </a>
             )
             ->React.array}
           </div>

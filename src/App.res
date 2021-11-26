@@ -1,22 +1,30 @@
-include CssReset
-
-module Styles = {
-  open Emotion
-  let container = css({
-    "position": "relative",
-    "minHeight": "100vh",
-    "display": "flex",
-    "flexDirection": "column",
-    "alignItems": "stretch",
-    "backgroundColor": "#fff",
-    "borderRadius": 20,
-    "width": "100%",
-    "maxWidth": 1200,
-    "paddingTop": 10,
-    "margin": "0 auto",
-    "boxShadow": "0 20px 20px -10px rgba(0, 0, 0, 0.3)",
-  })
+Emotion.injectGlobal(`
+@font-face {
+  font-family: HelveticaNowDisplay;
+  src: url("/public/assets/webfonts/regular.woff2"),
+    url("/public/assets/webfonts/regular.woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
+@font-face {
+  font-family: HelveticaNowDisplay;
+  src: url("/public/assets/webfonts/bold.woff2"),
+    url("/public/assets/webfonts/bold.woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+   font-family: HelveticaNowDisplay, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+    margin: 0; padding: 0;
+    background-color: #65E197;}
+*, *::before, *::after { box-sizing: border-box; }
+:root {--scroll-progress: 0;}
+a:active, button:active {opacity: 0.5}
+`)
 
 @react.component
 let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
@@ -26,7 +34,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
   }, [url.path->List.toArray->Array.joinWith("/")])
 
   <>
-    <div className=Styles.container>
+    <div>
       <Pages.Head>
         <html lang="en" />
         <meta charSet="UTF-8" />
@@ -50,24 +58,27 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
           let url = config.baseUrl ++ ("/" ++ url.path->List.toArray->Array.joinWith("/"))
           <link rel="canonical" href={url->String.endsWith("/") ? url : url ++ "/"} />
         }
-        <script>
-          {`window.beOpAsyncInit = function() {
-        BeOpSDK.init({
-          account: "556e1d2772a6b60100844051"
-        });
-        BeOpSDK.watch();
-      };`->React.string}
-        </script>
-        <script async=true src="https://widget.beop.io/sdk.js" />
       </Pages.Head>
-      <Header />
       {switch url.path {
       | list{} => <Home />
+      | list{"design"} => <Design />
+      | list{"talks"} => <Talks />
       | list{"blog"} => <BlogPostList />
       | list{"blog", slug} => <BlogPost slug />
-      | _ => <ErrorIndicator />
+      | _ => React.null
       }}
-      <Footer />
+      <div
+        style={ReactDOM.Style.make(
+          ~position="fixed",
+          ~top="0",
+          ~left="0",
+          ~right="0",
+          ~bottom="0",
+          ~backgroundImage=`linear-gradient(to left bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 49.9%,rgba(0, 0, 0, 0.1) 50%,rgba(0, 0, 0, 0) 50.1%, rgba(0, 0, 0, 0) 100%)`,
+          ~pointerEvents="none",
+          (),
+        )}
+      />
     </div>
   </>
 }
@@ -89,7 +100,7 @@ let default = Pages.make(
         contentDirectory: "contents",
         getUrlsToPrerender: ({getAll}) =>
           Belt.Array.concatMany([
-            ["/", "blog"],
+            ["/", "blog", "design", "talks"],
             getAll("blog")->Array.map(slug => "/blog/" ++ slug),
             ["404.html"],
           ]),

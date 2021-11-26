@@ -69,18 +69,18 @@ module Styles = {
       "borderRadius": 8,
     },
     "code": {
-      "fontFamily": Theme.codeFontFamily,
+      "fontFamily": "SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace",
       "fontSize": "0.85em",
       "lineHeight": 1.0,
     },
     "table": {"width": "100%", "textAlign": "center"},
     "table thead th": {
-      "backgroundColor": Theme.lightBody,
+      "backgroundColor": "#000",
       "padding": "10px 0",
     },
     "blockquote": {
       "opacity": 0.6,
-      "borderLeft": `4px solid ${Theme.darkBody}`,
+      "borderLeft": `4px solid`,
       "margin": 0,
       "padding": "0 20px",
     },
@@ -97,9 +97,8 @@ module Styles = {
     "justifyContent": "spaceBetween",
     "margin": "20px 0",
     "padding": 20,
-    "backgroundColor": "#FFF",
+    "border": "1px dashed",
     "borderRadius": 10,
-    "boxShadow": "0 15px 15px 5px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1)",
     "@media (max-width: 540px)": {
       "flexDirection": "column",
     },
@@ -137,62 +136,67 @@ module Styles = {
 @react.component
 let make = (~slug, ()) => {
   let post = Pages.useItem("blog", ~id=slug)
-  <SafeArea>
-    {switch post {
-    | NotAsked
-    | Loading =>
-      <div className=Styles.container ariaLabel="Loading" role="alert" ariaBusy=true>
-        <div className=Styles.titlePlaceholder />
-        <div className=Styles.datePlaceholder />
-        <div className=Styles.bodyPlaceholder />
-      </div>
-    | Done(Ok(post)) => <>
-        <Pages.Head> <title> {post.title->React.string} </title> </Pages.Head>
-        <div className=Styles.container>
-          <h1 className=Styles.title> {post.title->React.string} </h1>
-          <div className=Styles.date>
-            {post.date
-            ->Option.map(Date.fromString)
-            ->Option.map(DateUtils.getFormattedString)
-            ->Option.map(React.string)
-            ->Option.getWithDefault(React.null)}
-          </div>
-          <div role="article" className=Styles.body dangerouslySetInnerHTML={"__html": post.body} />
-          <div className=Styles.share>
-            <div className=Styles.shareTitle> {j`Liked this article?`->React.string} </div>
-            <Spacer height=10 width=0 />
-            <div className=Styles.shareButtons>
-              <a
-                className=Styles.shareButton
-                onClick={event => {
-                  event->ReactEvent.Mouse.preventDefault
-                  window["open"](.
-                    (event->ReactEvent.Mouse.target)["href"],
-                    "",
-                    "width=500,height=400",
-                  )->ignore
-                }}
-                target="_blank"
-                href={"https://www.twitter.com/intent/tweet?text=" ++
-                encodeURIComponent(
-                  post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
-                )}>
-                {`→ Share it on Twitter`->React.string}
-              </a>
-              <Spacer height=10 width=10 />
-              <a
-                className=Styles.sponsorButton
-                rel="noopener"
-                target="_blank"
-                href={"https://github.com/sponsors/bloodyowl"}>
-                {`→ Sponsor me on GitHub`->React.string}
-              </a>
+
+  <>
+    <WidthContainer>
+      <Header />
+      {switch post {
+      | NotAsked
+      | Loading =>
+        <div className=Styles.container ariaLabel="Loading" role="alert" ariaBusy=true>
+          <div className=Styles.titlePlaceholder />
+          <div className=Styles.datePlaceholder />
+          <div className=Styles.bodyPlaceholder />
+        </div>
+      | Done(Ok(post)) => <>
+          <Pages.Head> <title> {post.title->React.string} </title> </Pages.Head>
+          <div className=Styles.container>
+            <h1 className=Styles.title> {post.title->React.string} </h1>
+            <div className=Styles.date>
+              {post.date
+              ->Option.map(Date.fromString)
+              ->Option.map(DateUtils.getFormattedString)
+              ->Option.map(React.string)
+              ->Option.getWithDefault(React.null)}
+            </div>
+            <div
+              role="article" className=Styles.body dangerouslySetInnerHTML={"__html": post.body}
+            />
+            <div className=Styles.share>
+              <div className=Styles.shareTitle> {j`Liked this article?`->React.string} </div>
+              <Spacer height="10px" width="0" />
+              <div className=Styles.shareButtons>
+                <a
+                  className=Styles.shareButton
+                  onClick={event => {
+                    event->ReactEvent.Mouse.preventDefault
+                    window["open"](.
+                      (event->ReactEvent.Mouse.target)["href"],
+                      "",
+                      "width=500,height=400",
+                    )->ignore
+                  }}
+                  target="_blank"
+                  href={"https://www.twitter.com/intent/tweet?text=" ++
+                  encodeURIComponent(
+                    post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
+                  )}>
+                  {`→ Share it on Twitter`->React.string}
+                </a>
+                <Spacer height="10px" width="10px" />
+                <a
+                  className=Styles.sponsorButton
+                  rel="noopener"
+                  target="_blank"
+                  href={"https://github.com/sponsors/bloodyowl"}>
+                  {`→ Sponsor me on GitHub`->React.string}
+                </a>
+              </div>
             </div>
           </div>
-          <BeOpWidget />
-        </div>
-      </>
-    | Done(Error(_)) => <ErrorIndicator />
-    }}
-  </SafeArea>
+        </>
+      | Done(Error(_)) => <Pages.ErrorIndicator />
+      }}
+    </WidthContainer>
+  </>
 }

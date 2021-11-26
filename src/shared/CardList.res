@@ -13,20 +13,20 @@ module Card = {
       "flexDirection": "column",
       "alignItems": "stretch",
       "textDecoration": "none",
-      "color": Theme.darkBody,
       "padding": "20px 20px 20px 0",
-      "scrollSnapAlign": "start",
+      "color": "inherit",
+    })
+    let imageContainer = css({
+      "padding": 10,
+      "border": "1px dashed",
+      "borderRadius": 50,
     })
     let image = css({
       "width": 128,
       "height": 128,
-      "borderRadius": 25,
-      "transition": "300ms ease-out transform, 300ms ease-out box-shadow",
-      "boxShadow": "0 5px 10px rgba(0, 0, 0, 0.1)",
-      ":hover": {
-        "transform": "scale(0.96)",
-        "boxShadow": "0 3px 7px rgba(0, 0, 0, 0.3)",
-      },
+      "borderRadius": 40,
+      "display": "block",
+      "mixBlendMode": "hard-light",
     })
     let text = css({"textAlign": "center", "fontSize": 18, "paddingTop": 10})
   }
@@ -35,7 +35,9 @@ module Card = {
   let make = (~card, ()) => {
     let contents =
       <>
-        <img className=Styles.image src=card.image alt="" />
+        <div className=Styles.imageContainer>
+          <img className=Styles.image src=card.image alt="" />
+        </div>
         <div className=Styles.text> {card.name->React.string} </div>
       </>
     switch card.url {
@@ -49,13 +51,11 @@ module Styles = {
   open Emotion
   let root = css({"display": "block"})
   let container = css({
-    "overflowX": "auto",
     "display": "flex",
     "flexDirection": "row",
-    "alignItems": "flexStart",
-    "justifyContent": "flexStart",
-    "WebkitOverflowScrolling": "touch",
-    "scrollSnapType": "x mandatory",
+    "alignItems": "center",
+    "justifyContent": "center",
+    "flexWrap": "wrap",
   })
 }
 

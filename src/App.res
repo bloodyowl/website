@@ -38,7 +38,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
       window["navigator"]["platform"]->String.includes("iPhone") ||
         window["navigator"]["platform"]->String.includes("iPod")
     ) {
-      Css.injectGlobal(`#root {height: 100vh;overflow: auto;}`)
+      Emotion.injectGlobal(`#root {height: 100vh;overflow: auto;}`)
     }
     None
   })

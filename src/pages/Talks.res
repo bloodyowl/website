@@ -35,11 +35,36 @@ module Styles = {
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
   })
+  let bigTitle = css({
+    "margin": "20px 10px 0",
+    "fontSize": "4rem",
+    "fontWeight": "bold",
+    "@media (max-width: 450px)": {
+      "fontSize": "2rem",
+    },
+  })
+  let paragraph = css({
+    "fontSize": "1.2rem",
+		"margin": "0 20px 20px",
+    "@media (max-width: 450px)": {
+      "fontSize": "1rem",
+    },
+  })
+  let email = css({
+    "color": "inherit",
+    "fontWeight": "700",
+  })
 }
 
 @react.component
 let make = () => {
   let list = Pages.useCollection("talks")
+  let (email, setEmail) = React.useState(() => "#")
+
+  React.useEffect0(() => {
+    setEmail(_ => "mailto:bloodyowl@icloud.com?subject=Talk%20invitation")
+    None
+  })
 
   <>
     <WidthContainer>
@@ -57,7 +82,12 @@ let make = () => {
           ->React.array}
         </div>
       | Done(Ok({items: list})) => <>
-          <Pages.Head> <title> {"Blog"->React.string} </title> </Pages.Head>
+          <Pages.Head> <title> {"Talks"->React.string} </title> </Pages.Head>
+          <h2 className={Styles.bigTitle}> {"Talks"->React.string} </h2>
+          <p className={Styles.paragraph}>
+            {"Want me talk at your event? "->React.string}
+            <a href={email} className={Styles.email}> {`Contact me →`->React.string} </a>
+          </p>
           <div className=Styles.container>
             {list
             ->Array.map(item =>

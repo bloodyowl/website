@@ -35,6 +35,14 @@ module Styles = {
     "backgroundColor": "rgba(0, 0, 0, 0.05)",
     "animation": `2000ms infinite ${pulse}`,
   })
+  let bigTitle = css({
+    "margin": "20px 10px",
+    "fontSize": "4rem",
+    "fontWeight": "bold",
+    "@media (max-width: 450px)": {
+      "fontSize": "2rem",
+    },
+  })
 }
 
 @react.component
@@ -58,6 +66,7 @@ let make = () => {
         </div>
       | Done(Ok({items: list})) => <>
           <Pages.Head> <title> {"Blog"->React.string} </title> </Pages.Head>
+          <h2 className={Styles.bigTitle}> {"Blog"->React.string} </h2>
           <div className=Styles.container>
             {list
             ->Array.map(item =>

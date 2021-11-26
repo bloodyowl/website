@@ -39,6 +39,13 @@ module Styles = {
 }
 @react.component
 let make = () => {
+  let (email, setEmail) = React.useState(() => "#")
+
+  React.useEffect0(() => {
+    setEmail(_ => "mailto:bloodyowl@icloud.com?subject=Hello")
+    None
+  })
+
   <div className={Styles.container}>
     <div className={Styles.imageContainer}>
       <div className={Styles.imageContents}>
@@ -70,6 +77,7 @@ let make = () => {
       <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
         {`→ LinkedIn`->React.string}
       </a>
+      <a className=Styles.link href={email}> {`→ Email`->React.string} </a>
     </div>
   </div>
 }

@@ -33,6 +33,16 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
     None
   }, [url.path->List.toArray->Array.joinWith("/")])
 
+  React.useEffect0(() => {
+    if (
+      window["navigator"]["platform"]->String.includes("iPhone") ||
+        window["navigator"]["platform"]->String.includes("iPod")
+    ) {
+      Css.injectGlobal(`#root {height: 100vh;overflow: auto;}`)
+    }
+    None
+  })
+
   <>
     <div>
       <Pages.Head>

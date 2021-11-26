@@ -9,6 +9,9 @@ module Styles = {
     "alignItems": "stretch",
     "justifyContent": "center",
     "flexGrow": 1,
+    "@media (max-width: 600px)": {
+      "margin": "0",
+    },
   })
   let imageContent = css({
     "paddingBottom": "75%",

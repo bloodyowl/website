@@ -98,7 +98,7 @@ module Styles = {
     "justifyContent": "spaceBetween",
     "margin": "20px 0",
     "padding": 20,
-    "border": "1px dashed",
+    "border": "0.5px dashed",
     "borderRadius": 10,
     "@media (max-width: 540px)": {
       "flexDirection": "column",

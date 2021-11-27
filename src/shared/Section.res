@@ -37,7 +37,7 @@ module Styles = {
     "left": -1,
     "right": 0,
     "bottom": 0,
-    "borderLeft": "1px dashed",
+    "borderLeft": "0.5px dashed",
     "transform": "translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
   })
   let borderTopContainer = css({
@@ -55,7 +55,7 @@ module Styles = {
     "left": 0,
     "right": 0,
     "bottom": 0,
-    "borderLeft": "1px dashed",
+    "borderLeft": "0.5px dashed",
     "transform": "translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
   })
   let backgroundOverflow = css({
@@ -69,7 +69,7 @@ module Styles = {
   let contents = css({
     "position": "relative",
     "flexGrow": 1,
-    "borderBottom": "1px dashed",
+    "borderBottom": "0.5px dashed",
     "paddingLeft": "var(--body-start-margin)",
     "display": "flex",
     "flexDirection": "column",

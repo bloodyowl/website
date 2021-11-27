@@ -18,7 +18,7 @@ module Card = {
     })
     let imageContainer = css({
       "padding": 10,
-      "border": "1px dashed",
+      "border": "0.5px dashed",
       "borderRadius": 50,
     })
     let image = css({

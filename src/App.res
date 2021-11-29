@@ -76,6 +76,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
           ~bottom="0",
           ~backgroundImage=`linear-gradient(to left bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 49.9%,rgba(0, 0, 0, 0.1) 50%,rgba(0, 0, 0, 0) 50.1%, rgba(0, 0, 0, 0) 100%)`,
           ~pointerEvents="none",
+          ~transform="translateZ(0)",
           (),
         )}
       />

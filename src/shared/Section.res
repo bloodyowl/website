@@ -15,6 +15,7 @@ module Styles = {
     "bottom": "0",
     "overflow": "hidden",
     "pointerEvents": "none",
+    "transform": "translateZ(0)",
   })
   let backgroundRef = css({
     "position": "absolute",
@@ -38,7 +39,7 @@ module Styles = {
     "right": 0,
     "bottom": 0,
     "borderLeft": "0.5px dashed",
-    "transform": "translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
+    "transform": "translateZ(0) translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
   })
   let borderTopContainer = css({
     "position": "absolute",
@@ -48,6 +49,7 @@ module Styles = {
     "height": "100vh",
     "overflow": "hidden",
     "pointerEvents": "none",
+    "transform": "translateZ(0)",
   })
   let borderTop = css({
     "position": "absolute",
@@ -56,7 +58,7 @@ module Styles = {
     "right": 0,
     "bottom": 0,
     "borderLeft": "0.5px dashed",
-    "transform": "translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
+    "transform": "translateZ(0) translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
   })
   let backgroundOverflow = css({
     "position": "absolute",
@@ -65,6 +67,7 @@ module Styles = {
     "right": 0,
     "height": "100vh",
     "pointerEvents": "none",
+    "transform": "translateZ(0)",
   })
   let contents = css({
     "position": "relative",

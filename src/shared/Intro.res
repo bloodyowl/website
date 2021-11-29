@@ -25,6 +25,7 @@ module Styles = {
     "objectFit": "contain",
     "objectPosition": "50% 50%",
     "mixBlendMode": "multiply",
+    "transform": "translateZ(0)",
   })
   let text = css({
     "padding": 20,

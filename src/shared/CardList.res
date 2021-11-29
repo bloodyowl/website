@@ -27,6 +27,7 @@ module Card = {
       "borderRadius": 40,
       "display": "block",
       "mixBlendMode": "hard-light",
+      "transform": "translateZ(0)",
     })
     let text = css({"textAlign": "center", "fontSize": 18, "paddingTop": 10})
   }

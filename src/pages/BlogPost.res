@@ -140,7 +140,6 @@ let make = (~slug, ()) => {
 
   <>
     <WidthContainer>
-      <Header />
       {switch post {
       | NotAsked
       | Loading =>

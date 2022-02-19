@@ -11,10 +11,14 @@ module Styles = {
   })
   let imageContainer = css({
     "width": "30%",
+    "padding": 10,
+    "border": "0.5px dashed",
+    "borderRadius": 50,
   })
   let imageContents = css({
     "paddingBottom": "100%",
     "position": "relative",
+    "overflow": "hidden",
   })
   let image = css({
     "position": "absolute",
@@ -24,12 +28,15 @@ module Styles = {
     "height": "100%",
     "objectFit": "contain",
     "objectPosition": "50% 50%",
-    "mixBlendMode": "multiply",
     "transform": "translateZ(0)",
+    "borderRadius": 40,
   })
   let text = css({
     "padding": 20,
     "fontSize": "1.25rem",
+  })
+  let firstParagraph = css({
+    "marginTop": 0,
   })
 
   let link = css({
@@ -57,8 +64,9 @@ let make = () => {
         />
       </div>
     </div>
+    <Spacer width="30px" />
     <div className={Styles.text}>
-      <p>
+      <p className={Styles.firstParagraph}>
         <strong>
           {`My name is Matthias Le Brun (aka @bloodyowl).`->React.string}
           <br />

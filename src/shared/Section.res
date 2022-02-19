@@ -1,7 +1,7 @@
 module Styles = {
   open Emotion
   let container = css({
-    "minHeight": "100vh",
+    "padding": "10vh 0",
     "position": "relative",
     "display": "flex",
     "flexDirection": "column",
@@ -24,23 +24,6 @@ module Styles = {
     "right": 0,
     "bottom": "0",
   })
-  let backgroundOverlay = css({
-    "position": "absolute",
-    "top": "0",
-    "left": 0,
-    "right": 0,
-    "bottom": "0",
-    "opacity": "calc(0.2 + var(--scroll-progress) / 2)",
-  })
-  let background = css({
-    "position": "absolute",
-    "top": "0",
-    "left": -1,
-    "right": 0,
-    "bottom": 0,
-    "borderLeft": "0.5px dashed",
-    "transform": "translateZ(0) translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
-  })
   let borderTopContainer = css({
     "position": "absolute",
     "top": "-100vh",
@@ -50,15 +33,6 @@ module Styles = {
     "overflow": "hidden",
     "pointerEvents": "none",
     "transform": "translateZ(0)",
-  })
-  let borderTop = css({
-    "position": "absolute",
-    "top": 0,
-    "left": 0,
-    "right": 0,
-    "bottom": 0,
-    "borderLeft": "0.5px dashed",
-    "transform": "translateZ(0) translateX(calc(calc(1 - var(--scroll-progress)) * 1px)) translateX(calc(calc(1 - var(--scroll-progress)) * 100vw))",
   })
   let backgroundOverflow = css({
     "position": "absolute",
@@ -72,7 +46,6 @@ module Styles = {
   let contents = css({
     "position": "relative",
     "flexGrow": 1,
-    "borderBottom": "0.5px dashed",
     "paddingLeft": "var(--body-start-margin)",
     "display": "flex",
     "flexDirection": "column",
@@ -81,48 +54,8 @@ module Styles = {
 }
 
 @react.component
-let make = (~isLast=false, ~backgroundColor, ~color, ~children) => {
-  let backgroundRef = React.useRef(Nullable.null)
-  let containerRef = React.useRef(Nullable.null)
-
-  Hooks.useScrollProgress(~containerRef, ~scrollRef=backgroundRef)
-
-  <div
-    className={Emotion.cx([Styles.container, Emotion.css({"color": color})])}
-    ref={ReactDOM.Ref.domRef(containerRef)}>
-    <div className={Styles.borderTopContainer}>
-      <div className={Styles.borderTop}>
-        <div
-          className={Emotion.cx([
-            Styles.backgroundOverlay,
-            Emotion.css({"backgroundColor": backgroundColor}),
-          ])}
-        />
-      </div>
-    </div>
-    <div className={Styles.backgroundContainer}>
-      <div ref={ReactDOM.Ref.domRef(backgroundRef)} className={Styles.backgroundRef} />
-      <div
-        className={Emotion.cx([
-          Styles.backgroundOverlay,
-          Emotion.css({"backgroundColor": backgroundColor}),
-        ])}
-      />
-      <div
-        className={Emotion.cx([
-          Styles.background,
-          Emotion.css({"backgroundColor": backgroundColor}),
-        ])}
-      />
-    </div>
+let make = (~children) => {
+  <div className={Styles.container}>
     <div className={Styles.contents}> <WidthContainer> {children} </WidthContainer> </div>
-    {isLast
-      ? React.null
-      : <div
-          className={Emotion.cx([
-            Styles.backgroundOverflow,
-            Emotion.css({"backgroundColor": backgroundColor}),
-          ])}
-        />}
   </div>
 }

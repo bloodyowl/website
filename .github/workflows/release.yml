@@ -3,7 +3,9 @@ name: Release
 on:
   push:
     branches:
-      - 'main'
+      - "main"
+  schedule:
+    - cron: "0 0 * * *" # every day at midnight
 
 jobs:
   release:

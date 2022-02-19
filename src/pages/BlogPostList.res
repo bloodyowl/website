@@ -51,7 +51,6 @@ let make = () => {
 
   <>
     <WidthContainer>
-      <Header />
       {switch list {
       | NotAsked
       | Loading =>

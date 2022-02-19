@@ -5,7 +5,7 @@ module Styles = {
     "flexDirection": "row",
     "alignItems": "center",
     "flexGrow": 1,
-    "minHeight": "70vh",
+    "minHeight": "50vh",
     "justifyContent": "space-between",
     "padding": "20px 0",
     "@media (max-width: 600px)": {

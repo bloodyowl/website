@@ -20,9 +20,8 @@ body {
    font-family: HelveticaNowDisplay, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
     margin: 0; padding: 0;
-    background-color: #65E197;}
+    }
 *, *::before, *::after { box-sizing: border-box; }
-:root {--scroll-progress: 0;}
 a:active, button:active {opacity: 0.5}
 `)
 
@@ -141,6 +140,19 @@ Emotion.injectGlobal(`pre, .hljs {
   /* purposely ignored */
 }`)
 
+module Styles = {
+  open Emotion
+  let animation = keyframes({
+    "from": {
+      "opacity": 0,
+      "transform": "translateY(20px)",
+    },
+  })
+  let route = css({
+    "animation": `300ms ease-in-out ${animation}`,
+  })
+}
+
 @react.component
 let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
   React.useEffect1(() => {
@@ -174,27 +186,18 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
           <link rel="canonical" href={url->String.endsWith("/") ? url : url ++ "/"} />
         }
       </Pages.Head>
-      {switch url.path {
-      | list{} => <Home />
-      | list{"design"} => <Design />
-      | list{"talks"} => <Talks />
-      | list{"blog"} => <BlogPostList />
-      | list{"blog", slug} => <BlogPost slug />
-      | _ => React.null
-      }}
-      <div
-        style={ReactDOM.Style.make(
-          ~position="fixed",
-          ~top="0",
-          ~left="0",
-          ~right="0",
-          ~bottom="0",
-          ~backgroundImage=`linear-gradient(to left bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 49.9%,rgba(0, 0, 0, 0.1) 50%,rgba(0, 0, 0, 0) 50.1%, rgba(0, 0, 0, 0) 100%)`,
-          ~pointerEvents="none",
-          ~transform="translateZ(0)",
-          (),
-        )}
-      />
+      <WidthContainer> <Header /> </WidthContainer>
+      <div className={Styles.route} key={url.path->List.toArray->Array.joinWith("/")}>
+        {switch url.path {
+        | list{} => <Home />
+        | list{"design"} => <Design />
+        | list{"talks"} => <Talks />
+        | list{"blog"} => <BlogPostList />
+        | list{"blog", slug} => <BlogPost slug />
+        | _ => React.null
+        }}
+      </div>
+      <WidthContainer> <Footer /> </WidthContainer>
     </div>
   </>
 }

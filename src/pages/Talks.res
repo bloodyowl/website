@@ -45,7 +45,7 @@ module Styles = {
   })
   let paragraph = css({
     "fontSize": "1.2rem",
-		"margin": "0 20px 20px",
+    "margin": "0 20px 20px",
     "@media (max-width: 450px)": {
       "fontSize": "1rem",
     },
@@ -68,7 +68,6 @@ let make = () => {
 
   <>
     <WidthContainer>
-      <Header />
       {switch list {
       | NotAsked
       | Loading =>

@@ -1,4 +1,4 @@
-let colors = ["#8D90FC", "#C181FC", "#65E197"]
+let colors = ["#fff", "#eee", "#e9e9e9"]
 
 module Styles = {
   open Emotion
@@ -33,20 +33,12 @@ let make = () => {
   let list = Pages.useCollection("design")
 
   <>
-    <WidthContainer> <Header /> </WidthContainer>
     {switch list {
-    | NotAsked | Loading | Done(Error(_)) =>
-      <Section backgroundColor="#8D90FC" color="#000"> <Pages.ActivityIndicator /> </Section>
+    | NotAsked | Loading | Done(Error(_)) => <Section> <Pages.ActivityIndicator /> </Section>
     | Done(Ok(designs)) =>
       designs.items
-      ->Array.mapWithIndex((design, index) => {
-        <Section
-          key=design.slug
-          isLast={index == designs.items->Array.length - 1}
-          color="#000"
-          backgroundColor={colors
-          ->Array.get(mod(index, colors->Array.length))
-          ->Option.getWithDefault("#65E197")}>
+      ->Array.map(design => {
+        <Section key=design.slug>
           <WidthContainer>
             <div className=Styles.container>
               <div>

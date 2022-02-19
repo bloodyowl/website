@@ -3,9 +3,8 @@ open CardList
 @react.component
 let make = () => {
   <>
-    <WidthContainer> <Header /> </WidthContainer>
-    <Section backgroundColor="#8D90FC" color="#000"> <Intro /> </Section>
-    <Section backgroundColor="#C181FC" color="#000">
+    <Section> <Intro /> </Section>
+    <Section>
       <Center>
         <Heading text="Things I work with" />
         <CardList
@@ -46,7 +45,7 @@ let make = () => {
         />
       </Center>
     </Section>
-    <Section isLast=true backgroundColor="#FC74EC" color="#000">
+    <Section>
       <Center>
         <Heading text="Projects" />
         <CardList

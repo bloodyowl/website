@@ -27,7 +27,7 @@ A common error, especially on presentations giving details about a specific topi
 
 You're making a presentation or a PDF to make information simpler to grasp than with boring old text : **continous, long lines of prose don't work in that context**.
 
-If you need to manipulate complex ideas: **go step by step** and introduce concepts individually in separate slides, then **simplify** their reprentation in further slides.
+If you need to manipulate complex ideas: **go step by step** and introduce concepts individually in separate slides, then **simplify** their representation in further slides.
 
 You should end up with only two types of slides:
 

@@ -13,7 +13,7 @@ It might seem obvious, but that's the **#1 problem** with most presentations, es
 
 Be forgiving to people whose knowledge is focused on something else than yours by **summing up the essentials**, that's also useful for people who are familiar as it helps them immediately **contextualize**.
 
-Don't go over unnecessary, overly complex explanations, you might loose people on that. At each step, ask yourself: **is this a necessary information** to proceed? Some things might _feel_ important to _you_, but aren't to your audience. Be empathetic.
+Don't go over unnecessary, overly complex explanations, you might lose people on that. At each step, ask yourself: **is this a necessary information** to proceed? Some things might _feel_ important to _you_, but aren't to your audience. Be empathetic.
 
 ## 2. Make the information flow naturally
 
@@ -23,7 +23,7 @@ It's actually a good thing if people can guess what's next in your presentation,
 
 ## 3. Don't put too much in a slide
 
-A common error, especially on presentations giving details about a specific topic, is too overcrowd your slides.
+A common error, especially on presentations giving details about a specific topic, is to overcrowd your slides.
 
 You're making a presentation or a PDF to make information simpler to grasp than with boring old text : **continous, long lines of prose don't work in that context**.
 

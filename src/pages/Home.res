@@ -34,6 +34,14 @@ let make = () => {
               },
             ),
             (
+              "ts",
+              {
+                name: "TypeScript",
+                image: "/public/assets/images/technologies/typescript.svg",
+                url: Some("https://www.typescriptlang.org"),
+              },
+            ),
+            (
               "js",
               {
                 name: "JavaScript",

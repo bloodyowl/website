@@ -70,7 +70,7 @@ let make = () => {
         <strong>
           {`My name is Matthias Le Brun (aka @bloodyowl).`->React.string}
           <br />
-          {`I'm currently Lead Front-End Developer at Swan.`->React.string}
+          {`I'm currently Front-End Lead Manager at Swan.`->React.string}
         </strong>
       </p>
       <p> <strong> {`Want to get in touch?`->React.string} </strong> </p>

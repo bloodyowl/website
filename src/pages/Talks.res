@@ -13,8 +13,25 @@ module Styles = {
     "textDecoration": "none",
     "display": "flex",
     "flexDirection": "column",
+    "paddingRight": "60px",
     ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
     ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
+  })
+  let linkContainer = css({
+    "position": "relative",
+  })
+  let videoLink = css({
+    "position": "absolute",
+    "right": 10,
+    "top": "50%",
+    "transform": "translateY(-50%)",
+    "padding": 10,
+    "backgroundColor": "#66E197",
+    "borderRadius": "100%",
+    ":hover": {"backgroundColor": "#44AE6E"},
+  })
+  let videoLinkSvg = css({
+    "display": "block",
   })
   let date = css({"fontSize": 18, "opacity": 0.5})
   let title = css({"fontWeight": "bold"})
@@ -90,21 +107,42 @@ let make = () => {
           <div className=Styles.container>
             {list
             ->Array.map(item =>
-              <a
-                className=Styles.link
-                key=item.slug
-                href={switch item.meta->Dict.get("url")->Option.map(JSON.Decode.classify) {
-                | Some(String(value)) => value
-                | _ => "/"
-                }}>
-                {<>
-                  {switch item.meta->Dict.get("firstDate")->Option.map(JSON.Decode.classify) {
-                  | Some(String(value)) => <div className=Styles.date> {value->React.string} </div>
-                  | _ => React.null
-                  }}
-                  <div className=Styles.title> {item.title->React.string} </div>
-                </>}
-              </a>
+              <div className=Styles.linkContainer>
+                <a
+                  className=Styles.link
+                  key=item.slug
+                  href={switch item.meta->Dict.get("url")->Option.map(JSON.Decode.classify) {
+                  | Some(String(value)) => value
+                  | _ => "/"
+                  }}>
+                  {<>
+                    {switch item.meta->Dict.get("firstDate")->Option.map(JSON.Decode.classify) {
+                    | Some(String(value)) =>
+                      <div className=Styles.date> {value->React.string} </div>
+                    | _ => React.null
+                    }}
+                    <div className=Styles.title> {item.title->React.string} </div>
+                  </>}
+                </a>
+                {switch item.meta->Dict.get("video")->Option.map(JSON.Decode.classify) {
+                | Some(String(videoUrl)) =>
+                  <a href={videoUrl} title="Video" className=Styles.videoLink>
+                    <svg
+                      className=Styles.videoLinkSvg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M6.25 4h11.5a3.25 3.25 0 0 1 3.245 3.066L21 7.25v9.5a3.25 3.25 0 0 1-3.066 3.245L17.75 20H6.25a3.25 3.25 0 0 1-3.245-3.066L3 16.75v-9.5a3.25 3.25 0 0 1 3.066-3.245L6.25 4h11.5-11.5Zm3.803 5.585A.5.5 0 0 0 10 9.81v4.382a.5.5 0 0 0 .724.447l4.382-2.19a.5.5 0 0 0 0-.895l-4.382-2.191a.5.5 0 0 0-.671.223Z"
+                        fill="#fff"
+                      />
+                    </svg>
+                  </a>
+                | _ => React.null
+                }}
+              </div>
             )
             ->React.array}
           </div>

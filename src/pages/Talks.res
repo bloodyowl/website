@@ -107,10 +107,9 @@ let make = () => {
           <div className=Styles.container>
             {list
             ->Array.map(item =>
-              <div className=Styles.linkContainer>
+              <div className=Styles.linkContainer key=item.slug>
                 <a
                   className=Styles.link
-                  key=item.slug
                   href={switch item.meta->Dict.get("url")->Option.map(JSON.Decode.classify) {
                   | Some(String(value)) => value
                   | _ => "/"

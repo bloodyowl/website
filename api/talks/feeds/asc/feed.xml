@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title><![CDATA[Matthias Le Brun]]></title>
+    <title><![CDATA[Matthias Le Brun (@bloodyowl) - Software Engineer in Paris]]></title>
     <description><![CDATA[Front-end developer and designer. ReasonML, ReasonReact, ReactJS.]]></description>
     <link>https://bloodyowl.io</link>
-    <lastBuildDate>Sat, 11 Feb 2023 22:14:56 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Feb 2023 22:18:27 GMT</lastBuildDate>
     <atom:link href="https://bloodyowl.io/api/talks/feeds/asc/feed.xml" rel="self" type="application/rss+xml"/>
     
   </channel>

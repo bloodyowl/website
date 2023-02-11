@@ -21,17 +21,19 @@ module Styles = {
     "& h3 span": {
       "position": "relative",
     },
-    ":hover": {
-      "& h3 span::after": {
-        "content": `""`,
-        "position": "absolute",
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "height": 3,
-        "backgroundColor": "#000",
-        "transformOrigin": "0 0",
-        "animation": `200ms ease-in-out ${animationName}`,
+    "@media (hover: hover)": {
+      ":hover": {
+        "& h3 span::after": {
+          "content": `""`,
+          "position": "absolute",
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "height": 3,
+          "backgroundColor": "#000",
+          "transformOrigin": "0 0",
+          "animation": `200ms ease-in-out ${animationName}`,
+        },
       },
     },
   })

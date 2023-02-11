@@ -26,17 +26,19 @@ module Styles = {
     "& h3 span": {
       "position": "relative",
     },
-    ":hover": {
-      "& h3 span::after": {
-        "content": `""`,
-        "position": "absolute",
-        "bottom": 0,
-        "left": 0,
-        "right": 0,
-        "height": 3,
-        "backgroundColor": "#000",
-        "transformOrigin": "0 0",
-        "animation": `200ms ease-in-out ${animationName}`,
+    "@media (hover: hover)": {
+      ":hover": {
+        "& h3 span::after": {
+          "content": `""`,
+          "position": "absolute",
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "height": 3,
+          "backgroundColor": "#000",
+          "transformOrigin": "0 0",
+          "animation": `200ms ease-in-out ${animationName}`,
+        },
       },
     },
   })
@@ -49,10 +51,12 @@ module Styles = {
     "border": "0.5px dashed",
     "color": "#000",
     "borderRadius": "100%",
-    "&:hover": {
-      "border": "0.5px solid",
-      "backgroundColor": " #000",
-      "color": "#fff",
+    "@media (hover: hover)": {
+      "&:hover": {
+        "border": "0.5px solid",
+        "backgroundColor": " #000",
+        "color": "#fff",
+      },
     },
   })
   let videoLinkSvg = css({

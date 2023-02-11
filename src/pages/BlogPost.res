@@ -52,8 +52,11 @@ module Styles = {
     "fontSize": 20,
     "lineHeight": 1.5,
     "a": {
-      "color": "#135EFF",
-      ":hover": {"color": "#13A3FF"},
+      "color": "#000",
+      "transition": "200ms ease-in-out color",
+      "@media (hover: hover)": {
+        ":hover": {"color": "#13C35A"},
+      },
     },
     "img": {
       "maxWidth": "100%",
@@ -148,8 +151,11 @@ let make = (~slug, ()) => {
           <div className=Styles.datePlaceholder />
           <div className=Styles.bodyPlaceholder />
         </div>
-      | Done(Ok(post)) => <>
-          <Pages.Head> <title> {post.title->React.string} </title> </Pages.Head>
+      | Done(Ok(post)) =>
+        <>
+          <Pages.Head>
+            <title> {post.title->React.string} </title>
+          </Pages.Head>
           <div className=Styles.container>
             <h1 className=Styles.title> {post.title->React.string} </h1>
             <div className=Styles.date>

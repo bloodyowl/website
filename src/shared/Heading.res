@@ -4,6 +4,7 @@ module Styles = {
     "margin": "20px 0",
     "fontSize": "2.625rem",
     "fontWeight": "bold",
+    "textAlign": "center",
     "@media (max-width: 450px)": {
       "fontSize": "2rem",
     },

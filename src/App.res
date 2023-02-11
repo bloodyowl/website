@@ -16,6 +16,17 @@ Emotion.injectGlobal(`
   font-display: swap;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
    font-family: HelveticaNowDisplay, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
@@ -186,7 +197,9 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
           <link rel="canonical" href={url->String.endsWith("/") ? url : url ++ "/"} />
         }
       </Pages.Head>
-      <WidthContainer> <Header /> </WidthContainer>
+      <WidthContainer>
+        <Header />
+      </WidthContainer>
       <div className={Styles.route} key={url.path->List.toArray->Array.joinWith("/")}>
         {switch url.path {
         | list{} => <Home />
@@ -197,7 +210,9 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
         | _ => React.null
         }}
       </div>
-      <WidthContainer> <Footer /> </WidthContainer>
+      <WidthContainer>
+        <Footer />
+      </WidthContainer>
     </div>
   </>
 }

@@ -88,7 +88,7 @@ let make = () => {
       | Done(Ok({items: list})) =>
         <>
           <Pages.Head>
-            <title> {"Blog"->React.string} </title>
+            <title> {"Blog - Matthias Le Brun (@bloodyowl)"->React.string} </title>
           </Pages.Head>
           <h2 className={Styles.bigTitle}> {"blog"->React.string} </h2>
           <div className=Styles.container>

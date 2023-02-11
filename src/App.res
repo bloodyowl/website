@@ -220,7 +220,7 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
 let default = Pages.make(
   make,
   {
-    siteTitle: "Matthias Le Brun",
+    siteTitle: "Matthias Le Brun (@bloodyowl) - Software Engineer in Paris",
     siteDescription: "Front-end developer and designer. ReasonML, ReasonReact, ReactJS.",
     mode: SPA,
     distDirectory: "dist",

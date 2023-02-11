@@ -154,7 +154,7 @@ let make = (~slug, ()) => {
       | Done(Ok(post)) =>
         <>
           <Pages.Head>
-            <title> {post.title->React.string} </title>
+            <title> {`${post.title} - Matthias Le Brun (@bloodyowl)`->React.string} </title>
           </Pages.Head>
           <div className=Styles.container>
             <h1 className=Styles.title> {post.title->React.string} </h1>

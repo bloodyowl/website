@@ -142,7 +142,7 @@ let make = () => {
       | Done(Ok({items: list})) =>
         <>
           <Pages.Head>
-            <title> {"Talks"->React.string} </title>
+            <title> {"Talks - Matthias Le Brun (@bloodyowl)"->React.string} </title>
           </Pages.Head>
           <h2 className={Styles.bigTitle}> {"talks"->React.string} </h2>
           <p className={Styles.paragraph}>

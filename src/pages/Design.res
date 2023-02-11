@@ -42,33 +42,40 @@ let make = () => {
         <Pages.ActivityIndicator />
       </Section>
     | Done(Ok(designs)) =>
-      designs.items
-      ->Array.map(design => {
-        <Section key=design.slug>
-          <WidthContainer>
-            <div className=Styles.container>
-              <div>
-                <div className=Styles.imageContent>
-                  {<img
-                    src=?{switch design.meta
-                    ->Js.Dict.get("image")
-                    ->Option.map(JSON.Decode.classify) {
-                    | Some(String(value)) => Some(value)
-                    | _ => None
-                    }}
-                    alt=?{switch design.meta->Js.Dict.get("alt")->Option.map(JSON.Decode.classify) {
-                    | Some(String(value)) => Some(value)
-                    | _ => None
-                    }}
-                    className=Styles.image
-                  />->React.cloneElement({"loading": "lazy"})}
+      <>
+        <Pages.Head>
+          <title> {"Design - Matthias Le Brun (@bloodyowl)"->React.string} </title>
+        </Pages.Head>
+        {designs.items
+        ->Array.map(design => {
+          <Section key=design.slug>
+            <WidthContainer>
+              <div className=Styles.container>
+                <div>
+                  <div className=Styles.imageContent>
+                    {<img
+                      src=?{switch design.meta
+                      ->Js.Dict.get("image")
+                      ->Option.map(JSON.Decode.classify) {
+                      | Some(String(value)) => Some(value)
+                      | _ => None
+                      }}
+                      alt=?{switch design.meta
+                      ->Js.Dict.get("alt")
+                      ->Option.map(JSON.Decode.classify) {
+                      | Some(String(value)) => Some(value)
+                      | _ => None
+                      }}
+                      className=Styles.image
+                    />->React.cloneElement({"loading": "lazy"})}
+                  </div>
                 </div>
               </div>
-            </div>
-          </WidthContainer>
-        </Section>
-      })
-      ->React.array
+            </WidthContainer>
+          </Section>
+        })
+        ->React.array}
+      </>
     }}
   </>
 }

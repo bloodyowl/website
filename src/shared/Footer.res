@@ -3,7 +3,7 @@ module Styles = {
   let container = css({
     "textAlign": "center",
     "padding": "10vh 0",
-    "opacity": 0.5,
+    "opacity": 0.7,
   })
 }
 

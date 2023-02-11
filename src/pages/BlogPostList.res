@@ -38,7 +38,7 @@ module Styles = {
     },
   })
   let date = css({"fontSize": 18, "opacity": 0.5})
-  let title = css({"fontWeight": "bold", "fontSize": "1em", "margin": 0})
+  let title = css({"fontWeight": "bold", "fontSize": "1em", "margin": 0, "lineHeight": 1.2})
   let pulse = keyframes({"50%": {"opacity": 0.5}})
   let datePlaceholder = css({
     "width": "100%",

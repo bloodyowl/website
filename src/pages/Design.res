@@ -17,6 +17,9 @@ module Styles = {
     "paddingBottom": "75%",
     "position": "relative",
     "margin": "auto",
+    "overflow": "hidden",
+    "borderRadius": 20,
+    "boxShadow": "0 20px 30px rgba(0, 0, 0, 0.1)",
   })
   let image = css({
     "position": "absolute",
@@ -34,7 +37,10 @@ let make = () => {
 
   <>
     {switch list {
-    | NotAsked | Loading | Done(Error(_)) => <Section> <Pages.ActivityIndicator /> </Section>
+    | NotAsked | Loading | Done(Error(_)) =>
+      <Section>
+        <Pages.ActivityIndicator />
+      </Section>
     | Done(Ok(designs)) =>
       designs.items
       ->Array.map(design => {

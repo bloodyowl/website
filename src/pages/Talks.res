@@ -14,11 +14,11 @@ module Styles = {
     "display": "flex",
     "flexDirection": "column",
     "paddingRight": "60px",
-    ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
-    ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
   })
   let linkContainer = css({
     "position": "relative",
+    ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
+    ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
   })
   let videoLink = css({
     "position": "absolute",
@@ -26,9 +26,9 @@ module Styles = {
     "top": "50%",
     "transform": "translateY(-50%)",
     "padding": 10,
-    "backgroundColor": "#66E197",
+    "backgroundColor": "#ccc",
     "borderRadius": "100%",
-    ":hover": {"backgroundColor": "#44AE6E"},
+    ":hover": {"backgroundColor": "#aaa"},
   })
   let videoLinkSvg = css({
     "display": "block",
@@ -92,13 +92,17 @@ let make = () => {
           {Belt.Array.range(0, 6)
           ->Array.map(index =>
             <div className=Styles.link key={index->Int.toString}>
-              <div className=Styles.datePlaceholder /> <div className=Styles.titlePlaceholder />
+              <div className=Styles.datePlaceholder />
+              <div className=Styles.titlePlaceholder />
             </div>
           )
           ->React.array}
         </div>
-      | Done(Ok({items: list})) => <>
-          <Pages.Head> <title> {"Talks"->React.string} </title> </Pages.Head>
+      | Done(Ok({items: list})) =>
+        <>
+          <Pages.Head>
+            <title> {"Talks"->React.string} </title>
+          </Pages.Head>
           <h2 className={Styles.bigTitle}> {"Talks"->React.string} </h2>
           <p className={Styles.paragraph}>
             {"Want me talk at your event? "->React.string}

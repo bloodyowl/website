@@ -3,7 +3,7 @@ module Styles = {
   let container = css({
     "display": "flex",
     "flexDirection": "row",
-    "alignItems": "center",
+    "alignItems": "flex-start",
     "flexGrow": 1,
     "@media (max-width: 500px)": {
       "flexDirection": "column",
@@ -14,6 +14,7 @@ module Styles = {
     "padding": 10,
     "border": "0.5px dashed",
     "borderRadius": 50,
+    "marginTop": 40,
   })
   let imageContents = css({
     "paddingBottom": "100%",
@@ -37,6 +38,11 @@ module Styles = {
   })
   let firstParagraph = css({
     "marginTop": 0,
+  })
+
+  let inlineLink = css({
+    "fontWeight": "bold",
+    "color": "inherit",
   })
 
   let link = css({
@@ -66,27 +72,33 @@ let make = () => {
     </div>
     <Spacer width="30px" />
     <div className={Styles.text}>
+      <h2> {`hello 👋`->React.string} </h2>
       <p className={Styles.firstParagraph}>
         <strong>
-          {`My name is Matthias Le Brun (aka @bloodyowl).`->React.string}
-          <br />
-          {`I'm currently Front-End Lead Manager at Swan.`->React.string}
+          {`my name is Matthias Le Brun (aka @bloodyowl), I'm a software engineer from Paris, France.`->React.string}
         </strong>
       </p>
-      <p> <strong> {`Want to get in touch?`->React.string} </strong> </p>
+      <p className={Styles.firstParagraph}>
+        <strong>
+          {`I'm currently Front-End Lead Manager (& Chief Shitpost Officer) at `->React.string}
+          <a className=Styles.inlineLink href="https://swan.io"> {"Swan"->React.string} </a>
+          {`, where we build embedded banking solutions.`->React.string}
+        </strong>
+      </p>
+      <h2> {`get in touch`->React.string} </h2>
       <a className=Styles.link href="https://twitter.com/bloodyowl">
-        {`→ Twitter`->React.string}
+        {`→ twitter`->React.string}
       </a>
       <a className=Styles.link href="https://github.com/bloodyowl">
-        {`→ GitHub`->React.string}
+        {`→ github`->React.string}
       </a>
       <a className=Styles.link href="https://dribbble.com/bloodyowl">
-        {`→ Dribbble`->React.string}
+        {`→ dribbble`->React.string}
       </a>
       <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
-        {`→ LinkedIn`->React.string}
+        {`→ linkedIn`->React.string}
       </a>
-      <a className=Styles.link href={email}> {`→ Email`->React.string} </a>
+      <a className=Styles.link href={email}> {`→ email`->React.string} </a>
     </div>
   </div>
 }

@@ -3,34 +3,20 @@ open CardList
 @react.component
 let make = () => {
   <>
-    <Section> <Intro /> </Section>
+    <Section>
+      <Intro />
+    </Section>
     <Section>
       <Center>
-        <Heading text="Things I work with" />
+        <Heading text="tools I work with" />
         <CardList
           cards=[
-            (
-              "rescript",
-              {
-                name: "ReScript",
-                image: "/public/assets/images/technologies/rescript.svg",
-                url: Some("https://rescript-lang.org"),
-              },
-            ),
             (
               "react",
               {
                 name: "React",
                 image: "/public/assets/images/technologies/react.svg",
-                url: Some("https://reasonml.github.io/reason-react"),
-              },
-            ),
-            (
-              "sketch",
-              {
-                name: "Sketch",
-                image: "/public/assets/images/technologies/sketch.svg",
-                url: Some("https://sketchapp.com"),
+                url: "https://reasonml.github.io/reason-react",
               },
             ),
             (
@@ -38,7 +24,31 @@ let make = () => {
               {
                 name: "TypeScript",
                 image: "/public/assets/images/technologies/typescript.svg",
-                url: Some("https://www.typescriptlang.org"),
+                url: "https://www.typescriptlang.org",
+              },
+            ),
+            (
+              "graphql",
+              {
+                name: "GraphQL",
+                image: "/public/assets/images/technologies/graphql.svg",
+                url: "https://graphql.org",
+              },
+            ),
+            (
+              "sketch",
+              {
+                name: "Sketch",
+                image: "/public/assets/images/technologies/sketch.svg",
+                url: "https://sketchapp.com",
+              },
+            ),
+            (
+              "rescript",
+              {
+                name: "ReScript",
+                image: "/public/assets/images/technologies/rescript.svg",
+                url: "https://rescript-lang.org",
               },
             ),
             (
@@ -46,7 +56,6 @@ let make = () => {
               {
                 name: "JavaScript",
                 image: "/public/assets/images/technologies/js.svg",
-                url: None,
               },
             ),
           ]
@@ -55,39 +64,67 @@ let make = () => {
     </Section>
     <Section>
       <Center>
-        <Heading text="Projects" />
+        <Heading text="I'm involved in" />
         <CardList
           cards=[
+            (
+              "parisjs",
+              {
+                name: "Paris.JS",
+                description: "Organizer",
+                image: "/public/assets/images/projects/parisjs.svg",
+                url: "https://parisjs.org",
+              },
+            ),
             (
               "putaindecode",
               {
                 name: "Putain de Code !",
+                description: "Co-Founder",
                 image: "/public/assets/images/projects/putaindecode.svg",
-                url: Some("https://putaindecode.io"),
+                url: "https://putaindecode.io",
               },
             ),
             (
               "podcast",
               {
                 name: "Podcast",
+                description: "Host",
                 image: "/public/assets/images/projects/podcast.svg",
-                url: Some("https://soundcloud.com/putaindecode"),
+                url: "https://soundcloud.com/putaindecode",
+              },
+            ),
+          ]
+        />
+      </Center>
+    </Section>
+    <Section>
+      <Center>
+        <Heading text="some stuff I open-sourced" />
+        <CardList
+          cards=[
+            (
+              "boxed",
+              {
+                name: "Boxed",
+                image: "/public/assets/images/open-source/boxed.svg",
+                url: "https://swan-io.github.io/boxed/",
               },
             ),
             (
-              "parisjs",
+              "rescript-pages",
               {
-                name: "Paris.JS",
-                image: "/public/assets/images/projects/parisjs.svg",
-                url: Some("https://parisjs.org"),
+                name: "ReScript Pages",
+                image: "/public/assets/images/open-source/rescript-pages.svg",
+                url: "https://bloodyowl.github.io/rescript-pages/",
               },
             ),
             (
-              "twitch",
+              "rescript-test",
               {
-                name: "Twitch",
-                image: "/public/assets/images/projects/twitch.svg",
-                url: Some("https://www.twitch.tv/bldwl"),
+                name: "ReScript Test",
+                image: "/public/assets/images/open-source/rescript-test.svg",
+                url: "https://bloodyowl.github.io/rescript-test/",
               },
             ),
           ]

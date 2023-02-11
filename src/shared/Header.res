@@ -64,8 +64,27 @@ module Styles = {
     "padding": "10px 20px",
     "textDecoration": "none",
     "color": "inherit",
+    "position": "relative",
     "::before": {
       "content": `"→ "`,
+    },
+  })
+  let animationName = keyframes({
+    "from": {
+      "transform": "scaleX(0)",
+    },
+  })
+  let activeLink = css({
+    "::after": {
+      "content": `""`,
+      "position": "absolute",
+      "top": "100%",
+      "left": 20,
+      "right": 15,
+      "height": 4,
+      "backgroundColor": "#000",
+      "transformOrigin": "0 0",
+      "animation": `200ms ease-in-out ${animationName}`,
     },
   })
 }
@@ -87,9 +106,19 @@ let make = () => {
     </Pages.Link>
     <Spacer height="20px" width="0" />
     <nav className={Styles.nav}>
-      <Pages.Link href="/design" className={Styles.link}> {"Design"->React.string} </Pages.Link>
-      <Pages.Link href="/talks" className={Styles.link}> {"Talks"->React.string} </Pages.Link>
-      <Pages.Link href="/blog" className={Styles.link}> {"Blog"->React.string} </Pages.Link>
+      <Pages.Link href="/design" className={Styles.link} activeClassName={Styles.activeLink}>
+        {"design"->React.string}
+      </Pages.Link>
+      <Pages.Link href="/talks" className={Styles.link} activeClassName={Styles.activeLink}>
+        {"talks"->React.string}
+      </Pages.Link>
+      <Pages.Link
+        href="/blog"
+        matchSubroutes=true
+        className={Styles.link}
+        activeClassName={Styles.activeLink}>
+        {"blog"->React.string}
+      </Pages.Link>
     </nav>
   </header>
 }

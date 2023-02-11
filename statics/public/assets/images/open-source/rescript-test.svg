@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="216px" height="216px" viewBox="0 0 216 216" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>rescript-test</title>
+    <g id="rescript-test" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#231740" x="0" y="0" width="216" height="216"></rect>
+        <g id="rst">
+            <rect id="Rectangle" fill="#2F393F" fill-rule="nonzero" x="0" y="0" width="216" height="216"></rect>
+            <circle id="Oval" fill="#4CB877" fill-rule="nonzero" cx="108" cy="108" r="67.5"></circle>
+            <polyline id="Path" stroke="#FFFFFF" stroke-width="13.5" stroke-linecap="round" stroke-linejoin="round" points="79.8793947 114.799438 101.25 132.204669 150.981812 78.3072509"></polyline>
+        </g>
+    </g>
+</svg>

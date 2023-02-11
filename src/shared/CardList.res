@@ -1,7 +1,8 @@
 type card = {
   image: string,
   name: string,
-  url: option<string>,
+  description?: string,
+  url?: string,
 }
 
 module Card = {
@@ -29,6 +30,7 @@ module Card = {
       "transform": "translateZ(0)",
     })
     let text = css({"textAlign": "center", "fontSize": 18, "paddingTop": 10})
+    let textSmall = css({"textAlign": "center", "fontSize": 14})
   }
 
   @react.component
@@ -39,6 +41,10 @@ module Card = {
           <img className=Styles.image src=card.image alt="" />
         </div>
         <div className=Styles.text> {card.name->React.string} </div>
+        {switch card.description {
+        | Some(description) => <div className=Styles.textSmall> {description->React.string} </div>
+        | None => React.null
+        }}
       </>
     switch card.url {
     | Some(href) => <a href className=Styles.container> contents </a>
@@ -56,6 +62,7 @@ module Styles = {
     "alignItems": "center",
     "justifyContent": "center",
     "flexWrap": "wrap",
+    "maxWidth": 1024 / 2,
   })
 }
 

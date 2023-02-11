@@ -15,6 +15,11 @@ module Styles = {
     "border": "0.5px dashed",
     "borderRadius": 50,
     "marginTop": 40,
+    "@media (max-width: 500px)": {
+      "marginTop": 0,
+      "marginLeft": 10,
+      "borderRadius": 30,
+    },
   })
   let imageContents = css({
     "paddingBottom": "100%",
@@ -31,6 +36,10 @@ module Styles = {
     "objectPosition": "50% 50%",
     "transform": "translateZ(0)",
     "borderRadius": 40,
+    "@media (max-width: 500px)": {
+      "marginTop": 0,
+      "borderRadius": 20,
+    },
   })
   let text = css({
     "padding": 20,

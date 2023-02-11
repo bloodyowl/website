@@ -65,7 +65,8 @@ let make = () => {
   let (email, setEmail) = React.useState(() => "#")
 
   React.useEffect0(() => {
-    setEmail(_ => "mailto:bloodyowl@icloud.com?subject=Hello")
+    let subject = encodeURIComponent("Hello 👋")
+    setEmail(_ => `mailto:bloodyowl@icloud.com?subject=${subject}`)
     None
   })
 
@@ -105,7 +106,7 @@ let make = () => {
         {`→ dribbble`->React.string}
       </a>
       <a className=Styles.link href="https://www.linkedin.com/in/bloodyowl">
-        {`→ linkedIn`->React.string}
+        {`→ linkedin`->React.string}
       </a>
       <a className=Styles.link href={email}> {`→ email`->React.string} </a>
     </div>

@@ -79,7 +79,8 @@ let make = () => {
   let (email, setEmail) = React.useState(() => "#")
 
   React.useEffect0(() => {
-    setEmail(_ => "mailto:bloodyowl@icloud.com?subject=Talk%20invitation")
+    let subject = encodeURIComponent("Hello 👋")
+    setEmail(_ => `mailto:bloodyowl@icloud.com?subject=${subject}`)
     None
   })
 

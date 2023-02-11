@@ -9,6 +9,14 @@ module Styles = {
       "flexDirection": "column",
     },
   })
+  let bigTitle = css({
+    "margin": "20px 0 10px",
+    "fontSize": "4rem",
+    "fontWeight": "bold",
+    "@media (max-width: 450px)": {
+      "fontSize": "2rem",
+    },
+  })
   let imageContainer = css({
     "width": "30%",
     "padding": 10,
@@ -82,7 +90,7 @@ let make = () => {
     </div>
     <Spacer width="30px" />
     <div className={Styles.text}>
-      <h2> {`hello 👋`->React.string} </h2>
+      <h2 className={Styles.bigTitle}> {`hello 👋`->React.string} </h2>
       <p className={Styles.firstParagraph}>
         <strong>
           {`my name is Matthias Le Brun (aka @bloodyowl), I'm a software engineer from Paris, France.`->React.string}

@@ -7,7 +7,8 @@ module Styles = {
     "flexGrow": 1,
   })
   let link = css({
-    "padding": 10,
+    "padding": "20px",
+    "margin": "0 -10px",
     "fontSize": 24,
     "color": "inherit",
     "textDecoration": "none",
@@ -15,10 +16,29 @@ module Styles = {
     "flexDirection": "column",
     "paddingRight": "60px",
   })
+  let animationName = keyframes({
+    "from": {
+      "transform": "scaleX(0)",
+    },
+  })
   let linkContainer = css({
     "position": "relative",
-    ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
-    ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
+    "& h3 span": {
+      "position": "relative",
+    },
+    ":hover": {
+      "& h3 span::after": {
+        "content": `""`,
+        "position": "absolute",
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "height": 3,
+        "backgroundColor": "#000",
+        "transformOrigin": "0 0",
+        "animation": `200ms ease-in-out ${animationName}`,
+      },
+    },
   })
   let videoLink = css({
     "position": "absolute",
@@ -26,15 +46,26 @@ module Styles = {
     "top": "50%",
     "transform": "translateY(-50%)",
     "padding": 10,
-    "backgroundColor": "#ccc",
+    "border": "0.5px dashed",
+    "color": "#000",
     "borderRadius": "100%",
-    ":hover": {"backgroundColor": "#aaa"},
+    "&:hover": {
+      "border": "0.5px solid",
+      "backgroundColor": " #000",
+      "color": "#fff",
+    },
   })
   let videoLinkSvg = css({
     "display": "block",
   })
   let date = css({"fontSize": 18, "opacity": 0.5})
-  let title = css({"fontWeight": "bold"})
+  let title = css({
+    "fontWeight": "bold",
+    "lineHeight": 1.2,
+    "margin": 0,
+    "fontSize": "1em",
+    "position": "relative",
+  })
   let pulse = keyframes({"50%": {"opacity": 0.5}})
   let datePlaceholder = css({
     "width": "100%",
@@ -60,9 +91,14 @@ module Styles = {
       "fontSize": "2rem",
     },
   })
+  let description = css({
+    "color": "rgba(0, 0, 0, .5)",
+    "fontSize": "1.2rem",
+    "paddingTop": 5,
+  })
   let paragraph = css({
     "fontSize": "1.2rem",
-    "margin": "0 20px 20px",
+    "margin": "0 15px 20px",
     "@media (max-width: 450px)": {
       "fontSize": "1rem",
     },
@@ -104,10 +140,11 @@ let make = () => {
           <Pages.Head>
             <title> {"Talks"->React.string} </title>
           </Pages.Head>
-          <h2 className={Styles.bigTitle}> {"Talks"->React.string} </h2>
+          <h2 className={Styles.bigTitle}> {"talks"->React.string} </h2>
           <p className={Styles.paragraph}>
-            {"Want me talk at your event? "->React.string}
-            <a href={email} className={Styles.email}> {`Contact me →`->React.string} </a>
+            {"want me talk at your event? "->React.string}
+            <br />
+            <a href={email} className={Styles.email}> {`→ drop me an email`->React.string} </a>
           </p>
           <div className=Styles.container>
             {list
@@ -125,7 +162,14 @@ let make = () => {
                       <div className=Styles.date> {value->React.string} </div>
                     | _ => React.null
                     }}
-                    <div className=Styles.title> {item.title->React.string} </div>
+                    <h3 className=Styles.title>
+                      <span> {item.title->React.string} </span>
+                    </h3>
+                    {switch item.meta->Dict.get("description")->Option.map(JSON.Decode.classify) {
+                    | Some(String(description)) =>
+                      <div className=Styles.description> {description->React.string} </div>
+                    | _ => React.null
+                    }}
                   </>}
                 </a>
                 {switch item.meta->Dict.get("video")->Option.map(JSON.Decode.classify) {
@@ -140,7 +184,7 @@ let make = () => {
                       xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M6.25 4h11.5a3.25 3.25 0 0 1 3.245 3.066L21 7.25v9.5a3.25 3.25 0 0 1-3.066 3.245L17.75 20H6.25a3.25 3.25 0 0 1-3.245-3.066L3 16.75v-9.5a3.25 3.25 0 0 1 3.066-3.245L6.25 4h11.5-11.5Zm3.803 5.585A.5.5 0 0 0 10 9.81v4.382a.5.5 0 0 0 .724.447l4.382-2.19a.5.5 0 0 0 0-.895l-4.382-2.191a.5.5 0 0 0-.671.223Z"
-                        fill="#fff"
+                        fill="currentColor"
                       />
                     </svg>
                   </a>

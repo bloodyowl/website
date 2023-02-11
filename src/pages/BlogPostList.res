@@ -6,6 +6,11 @@ module Styles = {
     "width": "100%",
     "flexGrow": 1,
   })
+  let animationName = keyframes({
+    "from": {
+      "transform": "scaleX(0)",
+    },
+  })
   let link = css({
     "padding": 10,
     "fontSize": 24,
@@ -13,11 +18,25 @@ module Styles = {
     "textDecoration": "none",
     "display": "flex",
     "flexDirection": "column",
-    ":hover": {"backgroundColor": "rgba(0, 0, 0, 0.03)"},
-    ":active": {"backgroundColor": "rgba(0, 0, 0, 0.05)"},
+    "& h3 span": {
+      "position": "relative",
+    },
+    ":hover": {
+      "& h3 span::after": {
+        "content": `""`,
+        "position": "absolute",
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "height": 3,
+        "backgroundColor": "#000",
+        "transformOrigin": "0 0",
+        "animation": `200ms ease-in-out ${animationName}`,
+      },
+    },
   })
   let date = css({"fontSize": 18, "opacity": 0.5})
-  let title = css({"fontWeight": "bold"})
+  let title = css({"fontWeight": "bold", "fontSize": "1em", "margin": 0})
   let pulse = keyframes({"50%": {"opacity": 0.5}})
   let datePlaceholder = css({
     "width": "100%",
@@ -58,14 +77,18 @@ let make = () => {
           {Belt.Array.range(0, 6)
           ->Array.map(index =>
             <div className=Styles.link key={index->Int.toString}>
-              <div className=Styles.datePlaceholder /> <div className=Styles.titlePlaceholder />
+              <div className=Styles.datePlaceholder />
+              <div className=Styles.titlePlaceholder />
             </div>
           )
           ->React.array}
         </div>
-      | Done(Ok({items: list})) => <>
-          <Pages.Head> <title> {"Blog"->React.string} </title> </Pages.Head>
-          <h2 className={Styles.bigTitle}> {"Blog"->React.string} </h2>
+      | Done(Ok({items: list})) =>
+        <>
+          <Pages.Head>
+            <title> {"Blog"->React.string} </title>
+          </Pages.Head>
+          <h2 className={Styles.bigTitle}> {"blog"->React.string} </h2>
           <div className=Styles.container>
             {list
             ->Array.map(item =>
@@ -78,7 +101,9 @@ let make = () => {
                     ->Option.map(React.string)
                     ->Option.getWithDefault(React.null)}
                   </div>
-                  <div className=Styles.title> {item.title->React.string} </div>
+                  <h3 className=Styles.title>
+                    <span> {item.title->React.string} </span>
+                  </h3>
                 </>}
               </Pages.Link>
             )

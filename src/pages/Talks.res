@@ -7,14 +7,13 @@ module Styles = {
     "flexGrow": 1,
   })
   let link = css({
-    "padding": "20px",
-    "margin": "0 -10px",
+    "padding": "20px 0",
     "fontSize": 24,
     "color": "inherit",
     "textDecoration": "none",
     "display": "flex",
     "flexDirection": "column",
-    "paddingRight": "60px",
+    "paddingRight": "70px",
   })
   let animationName = keyframes({
     "from": {

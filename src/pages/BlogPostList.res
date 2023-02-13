@@ -12,7 +12,7 @@ module Styles = {
     },
   })
   let link = css({
-    "padding": 10,
+    "padding": "10px 0",
     "fontSize": 24,
     "color": "inherit",
     "textDecoration": "none",

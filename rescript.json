@@ -1,15 +1,13 @@
 {
   "name": "bloodyowl",
-  "reason": {
-    "react-jsx": 3
-  },
+  "jsx": { "version": 4 },
   "sources": {
     "dir": "src",
     "subdirs": true
   },
   "package-specs": [
     {
-      "module": "es6",
+      "module": "esmodule",
       "in-source": true
     }
   ],
@@ -18,12 +16,7 @@
     "@rescript/react",
     "rescript-pages",
     "rescript-asyncdata",
-    "@ryyppy/rescript-promise",
-    "rescript-js"
+    "@rescript/core"
   ],
-  "bsc-flags": [
-    "-nopervasives",
-    "-open Belt",
-    "-open ReScriptJs__JsWithPervasives"
-  ]
+  "bsc-flags": ["-open RescriptCore"]
 }

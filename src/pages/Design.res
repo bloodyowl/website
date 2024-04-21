@@ -55,14 +55,14 @@ let make = () => {
                   <div className=Styles.imageContent>
                     {<img
                       src=?{switch design.meta
-                      ->Js.Dict.get("image")
-                      ->Option.map(JSON.Decode.classify) {
+                      ->Dict.get("image")
+                      ->Option.map(JSON.Classify.classify) {
                       | Some(String(value)) => Some(value)
                       | _ => None
                       }}
                       alt=?{switch design.meta
-                      ->Js.Dict.get("alt")
-                      ->Option.map(JSON.Decode.classify) {
+                      ->Dict.get("alt")
+                      ->Option.map(JSON.Classify.classify) {
                       | Some(String(value)) => Some(value)
                       | _ => None
                       }}

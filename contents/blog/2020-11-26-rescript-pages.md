@@ -6,13 +6,14 @@ date: 2020-11-26
 Last year, I wrote about how this [static single application](/blog/2019-01-22-static-single-page-application) was built. From that time, I had to build several static websites, and at some point had to make them simpler to use.
 
 The main websites I've built with the previous solutions are quite different:
+
 - [This website](https://bloodyowl.io), which is fairly simple and just has a blog and a static page
 - [Putain de code!](https://putaindecode.io), which has a bit more content
 - [BeOp](https://beop.io), our company website, which needs i18n, and requires more ease of use, as not only tech people work on it
 
 <img alt="BeOp" onload="this.style.opacity=1" src="/public/assets/images/beop.webp" width="2644" height="1644" loading="lazy" />
 
-I recently rebuilt the latter, and wanted to share the resources between the three. I believe that in development, it is good to **repeat yourself** at first, observe what time does, **then** commonise what you can. 
+I recently rebuilt the latter, and wanted to share the resources between the three. I believe that in development, it is good to **repeat yourself** at first, observe what time does, **then** commonise what you can.
 
 So I started creating a shared «framework» that'd work on the three websites: [ReScript Pages](https://github.com/bloodyowl/rescript-pages).
 
@@ -27,7 +28,7 @@ My previous solution made you run a command after updating some files so that yo
 
 ## 2. Same experience in dev
 
-The dev server gives you the pre-rendered page: no surprises with hydration. 
+The dev server gives you the pre-rendered page: no surprises with hydration.
 
 ## 3. i18n native support
 
@@ -88,7 +89,7 @@ let make = (~slug, ()) => {
               ->Option.map(Js.Date.fromString)
               ->Option.map(Date.getFormattedString)
               ->Option.map(ReasonReact.string)
-              ->Option.getWithDefault(React.null)}
+              ->Option.getOr(React.null)}
            </div>
            <div
              className=Styles.body

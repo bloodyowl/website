@@ -155,12 +155,12 @@ let make = () => {
               <div className=Styles.linkContainer key=item.slug>
                 <a
                   className=Styles.link
-                  href={switch item.meta->Dict.get("url")->Option.map(JSON.Decode.classify) {
+                  href={switch item.meta->Dict.get("url")->Option.map(JSON.Classify.classify) {
                   | Some(String(value)) => value
                   | _ => "/"
                   }}>
                   {<>
-                    {switch item.meta->Dict.get("firstDate")->Option.map(JSON.Decode.classify) {
+                    {switch item.meta->Dict.get("firstDate")->Option.map(JSON.Classify.classify) {
                     | Some(String(value)) =>
                       <div className=Styles.date> {value->React.string} </div>
                     | _ => React.null
@@ -168,14 +168,14 @@ let make = () => {
                     <h3 className=Styles.title>
                       <span> {item.title->React.string} </span>
                     </h3>
-                    {switch item.meta->Dict.get("description")->Option.map(JSON.Decode.classify) {
+                    {switch item.meta->Dict.get("description")->Option.map(JSON.Classify.classify) {
                     | Some(String(description)) =>
                       <div className=Styles.description> {description->React.string} </div>
                     | _ => React.null
                     }}
                   </>}
                 </a>
-                {switch item.meta->Dict.get("video")->Option.map(JSON.Decode.classify) {
+                {switch item.meta->Dict.get("video")->Option.map(JSON.Classify.classify) {
                 | Some(String(videoUrl)) =>
                   <a href={videoUrl} title="Video" className=Styles.videoLink>
                     <svg

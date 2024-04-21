@@ -163,20 +163,20 @@ let make = (~slug, ()) => {
               ->Option.map(Date.fromString)
               ->Option.map(DateUtils.getFormattedString)
               ->Option.map(React.string)
-              ->Option.getWithDefault(React.null)}
+              ->Option.getOr(React.null)}
             </div>
             <div
               role="article" className=Styles.body dangerouslySetInnerHTML={"__html": post.body}
             />
             <div className=Styles.share>
-              <div className=Styles.shareTitle> {j`Liked this article?`->React.string} </div>
+              <div className=Styles.shareTitle> {`Liked this article?`->React.string} </div>
               <Spacer height="10px" width="0" />
               <div className=Styles.shareButtons>
                 <a
                   className=Styles.shareButton
                   onClick={event => {
                     event->ReactEvent.Mouse.preventDefault
-                    window["open"](.
+                    globalThis["open"](.
                       (event->ReactEvent.Mouse.target)["href"],
                       "",
                       "width=500,height=400",

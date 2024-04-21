@@ -101,7 +101,7 @@ let make = () => {
                     ->Option.map(Date.fromString)
                     ->Option.map(DateUtils.getFormattedString)
                     ->Option.map(React.string)
-                    ->Option.getWithDefault(React.null)}
+                    ->Option.getOr(React.null)}
                   </div>
                   <h3 className=Styles.title>
                     <span> {item.title->React.string} </span>

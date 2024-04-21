@@ -164,12 +164,13 @@ module Styles = {
   })
 }
 
-@react.component
-let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
+type props = Pages.App.appProps
+
+let make = ({url, config}: props) => {
   React.useEffect1(() => {
-    let () = window["scrollTo"](. 0, 0)
+    let () = globalThis["scrollTo"](. 0, 0)
     None
-  }, [url.path->List.toArray->Array.joinWith("/")])
+  }, [url.path->List.toArray->Array.join("/")])
 
   <>
     <div>
@@ -193,14 +194,14 @@ let make = (~url: RescriptReactRouter.url, ~config: Pages.config, ()) => {
         <meta property="og:image:height" content="777" />
         <link rel="shortcut icon" href="/public/assets/images/favicon.png" />
         {
-          let url = config.baseUrl ++ ("/" ++ url.path->List.toArray->Array.joinWith("/"))
+          let url = config.baseUrl ++ ("/" ++ url.path->List.toArray->Array.join("/"))
           <link rel="canonical" href={url->String.endsWith("/") ? url : url ++ "/"} />
         }
       </Pages.Head>
       <WidthContainer>
         <Header />
       </WidthContainer>
-      <div className={Styles.route} key={url.path->List.toArray->Array.joinWith("/")}>
+      <div className={Styles.route} key={url.path->List.toArray->Array.join("/")}>
         {switch url.path {
         | list{} => <Home />
         | list{"design"} => <Design />

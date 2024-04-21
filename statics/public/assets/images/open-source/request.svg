@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="124px" height="123px" viewBox="0 0 124 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group Copy 2</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="111.19783%" id="linearGradient-1">
+            <stop stop-color="#0091FF" offset="0%"></stop>
+            <stop stop-color="#00227F" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="102.111581%" gradientTransform="translate(0.5, 0), scale(1, 0.9605), rotate(90), translate(-0.5, -0)" id="radialGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.409965035" offset="100%"></stop>
+        </radialGradient>
+        <path d="M86.8860759,25.3235294 C90.2512963,25.3235294 93.1446495,27.3423781 94.4194156,30.2341809 L94.4723125,30.3568861 C94.9260717,31.3764362 95.1782315,32.5056217 95.1782315,33.69366 L95.1782315,58.0305584 C95.1782315,58.966882 95.0216044,59.8666498 94.7331034,60.7051262 L94.6692723,60.8838526 C93.5593412,64.1127518 90.4938834,66.4331551 86.8860759,66.4331551 L74.7610845,66.4331551 L92.5597338,83.0189136 C95.8830891,86.1157617 96.064901,91.3184255 92.965822,94.6393885 C89.866743,97.9603514 84.6603313,98.1420325 81.336976,95.0451844 L48.3612559,64.3169642 C46.6056573,62.6810205 45.7267364,60.4574289 45.7447554,58.234014 L45.7512333,57.9398336 C45.8945289,53.5246153 49.5214508,49.9893048 53.9746835,49.9893048 L74.6113371,49.9893048 C76.881759,49.9893048 78.7222997,48.1487642 78.7222997,45.8783422 C78.7222997,43.6079203 76.881759,41.7673797 74.6113371,41.7673797 L53.9746835,41.7673797 L53.9746835,41.7673797 C49.4305685,41.7673797 45.7468354,38.0862984 45.7468354,33.5454545 C45.7468354,29.0046107 49.4305685,25.3235294 53.9746835,25.3235294 L86.8860759,25.3235294 Z M34.2278481,97.3475936 C38.7719631,97.3475936 42.4556962,93.6665123 42.4556962,89.1256684 C42.4556962,84.5848246 38.7719631,80.9037433 34.2278481,80.9037433 C29.6837331,80.9037433 26,84.5848246 26,89.1256684 C26,93.6665123 29.6837331,97.3475936 34.2278481,97.3475936 Z" id="path-3"></path>
+        <filter x="-26.0%" y="-20.8%" width="152.0%" height="150.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.289417614 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy-2" transform="translate(0.443, 0)">
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" points="0 0 123.088608 0 123.088608 123 0 123"></polygon>
+            <g id="Combined-Shape">
+                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                <use fill="url(#radialGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

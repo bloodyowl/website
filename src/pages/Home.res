@@ -112,6 +112,22 @@ let make = () => {
               },
             ),
             (
+              "graphql-client",
+              {
+                name: "GraphQL Client",
+                image: "/public/assets/images/open-source/graphql-client.svg",
+                url: "https://swan-io.github.io/graphql-client/",
+              },
+            ),
+            (
+              "request",
+              {
+                name: "Request",
+                image: "/public/assets/images/open-source/request.svg",
+                url: "https://github.com/swan-io/request/",
+              },
+            ),
+            (
               "rescript-pages",
               {
                 name: "ReScript Pages",

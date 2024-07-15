@@ -16,7 +16,7 @@ let make = () => {
               {
                 name: "React",
                 image: "/public/assets/images/technologies/react.svg",
-                url: "https://reasonml.github.io/reason-react",
+                url: "https://react.dev",
               },
             ),
             (

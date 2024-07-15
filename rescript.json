@@ -1,6 +1,7 @@
 {
   "name": "bloodyowl",
   "jsx": { "version": 4 },
+  "uncurried": true,
   "sources": {
     "dir": "src",
     "subdirs": true

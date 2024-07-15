@@ -176,7 +176,7 @@ let make = (~slug, ()) => {
                   className=Styles.shareButton
                   onClick={event => {
                     event->ReactEvent.Mouse.preventDefault
-                    globalThis["open"](.
+                    globalThis["open"](
                       (event->ReactEvent.Mouse.target)["href"],
                       "",
                       "width=500,height=400",

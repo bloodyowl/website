@@ -104,8 +104,8 @@ let make = () => {
         </strong>
       </p>
       <h2> {`get in touch`->React.string} </h2>
-      <a className=Styles.link href="https://twitter.com/bloodyowl">
-        {`→ twitter`->React.string}
+      <a className=Styles.link href="https://bsky.app/profile/bloodyowl.io">
+        {`→ bluesky`->React.string}
       </a>
       <a className=Styles.link href="https://github.com/bloodyowl">
         {`→ github`->React.string}

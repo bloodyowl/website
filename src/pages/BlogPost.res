@@ -183,11 +183,11 @@ let make = (~slug, ()) => {
                     )->ignore
                   }}
                   target="_blank"
-                  href={"https://www.twitter.com/intent/tweet?text=" ++
+                  href={"https://bsky.app/intent/compose?text?text=" ++
                   encodeURIComponent(
                     post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
                   )}>
-                  {`→ Share it on Twitter`->React.string}
+                  {`→ Share it on Bluesky`->React.string}
                 </a>
                 <Spacer height="10px" width="10px" />
                 <a

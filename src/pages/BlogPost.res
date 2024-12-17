@@ -183,7 +183,7 @@ let make = (~slug, ()) => {
                     )->ignore
                   }}
                   target="_blank"
-                  href={"https://bsky.app/intent/compose?text?text=" ++
+                  href={"https://bsky.app/intent/compose?text=" ++
                   encodeURIComponent(
                     post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
                   )}>

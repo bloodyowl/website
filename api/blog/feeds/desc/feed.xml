@@ -4,8 +4,14 @@
     <title><![CDATA[Matthias Le Brun (@bloodyowl) - Software Engineer in Paris]]></title>
     <description><![CDATA[Front-end developer and designer. ReasonML, ReasonReact, ReactJS.]]></description>
     <link>https://bloodyowl.io</link>
-    <lastBuildDate>Wed, 23 Apr 2025 00:24:04 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Apr 2025 09:24:15 GMT</lastBuildDate>
     <atom:link href="https://bloodyowl.io/api/blog/feeds/desc/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title><![CDATA[Principles for maintainable codebases]]></title>
+      <link>https://bloodyowl.io/blog/2025-04-23-principles-for-maintainable-codebases</link>
+      <guid isPermaLink="false">2025-04-23-principles-for-maintainable-codebases</guid>
+      <pubDate>Wed, 23 Apr 2025 00:00:00 GMT</pubDate>
+   </item>
     <item>
       <title><![CDATA[Google rather break your ads than be privacy-friendly]]></title>
       <link>https://bloodyowl.io/blog/2021-03-30-google-rather-break-your-ads-than-be-privacy-friendly</link>

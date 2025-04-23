@@ -5,7 +5,7 @@ date: 2025-04-23
 
 ## Write dumb code
 
-Write code that's easy to understand, don't try to be a smartass that writes clever one-liners or using hidden heuristics only the author knows about (explained up in this [previous article](/blog/2021-01-09-write-dumb-code/)).
+Write code that's easy to understand, don't try to be a smartass that writes clever one-liners or using hidden heuristics only the author knows about (detailed in this [previous article](/blog/2021-01-09-write-dumb-code/)).
 
 ## Keep an explicit data flow
 

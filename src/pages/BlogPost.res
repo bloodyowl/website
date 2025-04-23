@@ -185,7 +185,7 @@ let make = (~slug, ()) => {
                   target="_blank"
                   href={"https://bsky.app/intent/compose?text=" ++
                   encodeURIComponent(
-                    post.title ++ (" from @bloodyowl https://bloodyowl.io/blog/" ++ post.slug),
+                    post.title ++ (" from @bloodyowl.io https://bloodyowl.io/blog/" ++ post.slug),
                   )}>
                   {`→ Share it on Bluesky`->React.string}
                 </a>

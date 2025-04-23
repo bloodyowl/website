@@ -41,7 +41,7 @@ This is essential for debugging. If you're using a framework that auto-instancia
 
 ## Quick feedback loop
 
-Running the app locally or running your test should be easy and fast to have a quick feedback loop in your development environment.
+Running the app locally or running your test should be easy and fast so that you have a quick feedback loop in your development environment.
 
 People work in different ways, some are more efficient by using TDD, some by running good old calls to iterate. Your system should allow for both. You want to provide a good DX for your team rather than coercing them into using something they might not be confortable with.
 
@@ -71,7 +71,7 @@ This is likely the most important principle: always ask why. Always question.
 
 If you don't understand the value of some widely adopted "best practice", dig into it.
 
-Most times, people apply these practices because it was written in a book, so _it must be true_. If you're wondering why something was implemented in a curious way, get to understand the properties that the implemented wanted to guarantee, and start thinking from there.
+Most times, people apply these practices because it was written in a book, so _it must be true_. If you're wondering why something was implemented in a curious way, get to understand the properties that the implementation wanted to guarantee, and start thinking from there.
 
 Each situation is unique, your team composition, the product you're building, the technology evolutions that happened since then.
 

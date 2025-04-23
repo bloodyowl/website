@@ -108,7 +108,7 @@ let make = () => {
               {
                 name: "Boxed",
                 image: "/public/assets/images/open-source/boxed.svg",
-                url: "https://swan-io.github.io/boxed/",
+                url: "https://boxed.cool",
               },
             ),
             (

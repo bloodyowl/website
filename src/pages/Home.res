@@ -120,6 +120,14 @@ let make = () => {
               },
             ),
             (
+              "rhums",
+              {
+                name: "rhums",
+                image: "/public/assets/images/open-source/rhums.svg",
+                url: "https://github.com/bloodyowl/rhums/",
+              },
+            ),
+            (
               "request",
               {
                 name: "Request",

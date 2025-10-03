@@ -93,14 +93,7 @@ let make = () => {
       <h2 className={Styles.bigTitle}> {`hello 👋`->React.string} </h2>
       <p className={Styles.firstParagraph}>
         <strong>
-          {`my name is Matthias Le Brun (aka @bloodyowl), I'm a software engineer from Paris, France.`->React.string}
-        </strong>
-      </p>
-      <p className={Styles.firstParagraph}>
-        <strong>
-          {`I'm currently Front-End Lead Manager (& Chief Shitpost Officer) at `->React.string}
-          <a className=Styles.inlineLink href="https://swan.io"> {"Swan"->React.string} </a>
-          {`, where we build embedded banking solutions.`->React.string}
+          {`my name is Matthias Le Brun (aka @bloodyowl), I'm a software engineer based in Paris, France.`->React.string}
         </strong>
       </p>
       <h2> {`get in touch`->React.string} </h2>

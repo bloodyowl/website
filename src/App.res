@@ -168,7 +168,7 @@ type props = Pages.App.appProps
 
 let make = ({url, config}: props) => {
   React.useEffect1(() => {
-    let () = globalThis["scrollTo"](. 0, 0)
+    let () = globalThis["scrollTo"](0, 0)
     None
   }, [url.path->List.toArray->Array.join("/")])
 
@@ -205,6 +205,7 @@ let make = ({url, config}: props) => {
         {switch url.path {
         | list{} => <Home />
         | list{"design"} => <Design />
+        | list{"music"} => <Music />
         | list{"talks"} => <Talks />
         | list{"blog"} => <BlogPostList />
         | list{"blog", slug} => <BlogPost slug />
@@ -235,7 +236,7 @@ let default = Pages.make(
         contentDirectory: "contents",
         getUrlsToPrerender: ({getAll}) =>
           Belt.Array.concatMany([
-            ["/", "blog", "design", "talks"],
+            ["/", "blog", "design", "music", "talks"],
             getAll("blog")->Array.map(slug => "/blog/" ++ slug),
             ["404.html"],
           ]),

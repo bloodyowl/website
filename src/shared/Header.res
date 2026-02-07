@@ -110,6 +110,9 @@ let make = () => {
       <Pages.Link href="/design" className={Styles.link} activeClassName={Styles.activeLink}>
         {"design"->React.string}
       </Pages.Link>
+      <Pages.Link href="/music" className={Styles.link} activeClassName={Styles.activeLink}>
+        {"music"->React.string}
+      </Pages.Link>
       <Pages.Link href="/talks" className={Styles.link} activeClassName={Styles.activeLink}>
         {"talks"->React.string}
       </Pages.Link>

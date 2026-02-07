@@ -42,12 +42,13 @@ let make = () => {
         <Pages.ActivityIndicator />
       </Section>
     | Done(Ok(tracks)) =>
+      let reversedTracks = tracks.items->Array.copy
+      reversedTracks->Array.reverse
       <>
         <Pages.Head>
           <title> {"Music - Matthias Le Brun (@bloodyowl)"->React.string} </title>
         </Pages.Head>
-        {tracks.items
-        ->Array.toReversed
+        {reversedTracks
         ->Array.map(track => {
           <Section key=track.slug>
             <WidthContainer>
